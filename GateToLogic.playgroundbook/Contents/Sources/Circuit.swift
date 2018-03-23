@@ -7,14 +7,38 @@
 //
 
 struct Circuit {
+    // MARK: - Managing Components
+
     private(set) var components = [GridPoint: Component]()
 
+    var didAddComponentAt: ((GridPoint) -> Void)?
+
+    var willRemoveComponentAt: ((GridPoint) -> Void)?
+
     mutating func add(_ component: Component) {
+        if components[component.position] != nil {
+            willRemoveComponentAt?(component.position)
+        }
+
         components[component.position] = component
 
         resetState()
         updatePassiveComponents()
+
+        didAddComponentAt?(component.position)
     }
+
+    mutating func removeComponent(at position: GridPoint) {
+        guard components[position] != nil else { return }
+
+        willRemoveComponentAt?(position)
+        components[position] = nil
+
+        resetState()
+        updatePassiveComponents()
+    }
+
+    // MARK: - Managing State
 
     private mutating func resetState() {
         for position in components.keys {
@@ -45,8 +69,8 @@ struct Circuit {
     }
 
     mutating func tick() {
-        for key in components.keys {
-            components[key]?.tick()
+        for position in components.keys {
+            components[position]?.tick()
         }
 
         resetState()
@@ -58,6 +82,7 @@ extension Circuit : CustomStringConvertible {
     var description: String {
         let width = (components.keys.map { $0.x }.max() ?? 0) + 1
         let height = (components.keys.map { $0.y }.max() ?? 0) + 1
+
         return (0 ..< height).map { y in
             (0 ..< width).map { x in
                 components[GridPoint(x: x, y: y)]?.description ?? " "
