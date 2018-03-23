@@ -19,10 +19,13 @@ final class GameViewController: NSViewController {
         circuit.add(Wire(position: GridPoint(x: 2, y : 0), orientations: [.left, .bottom, .right]))
         circuit.add(Wire(position: GridPoint(x: 3, y : 0), orientations: [.left, .right]))
         circuit.add(Wire(position: GridPoint(x: 2, y : 1), orientations: [.top, .bottom]))
-        circuit.add(Wire(position: GridPoint(x: 2, y : 2), orientations: [.top, .right]))
+        circuit.add(Gate(position: GridPoint(x: 2, y : 2), operator: .and))
+        circuit.add(Wire(position: GridPoint(x: 3, y : 2), orientations: [.left, .right]))
         circuit.add(Led(position: GridPoint(x: 4, y: 0)))
-        circuit.add(Led(position: GridPoint(x: 3, y: 2)))
+        circuit.add(Led(position: GridPoint(x: 4, y: 2)))
 
+        print(circuit)
+        circuit.tick()
         print(circuit)
 
         let scene = SCNScene()

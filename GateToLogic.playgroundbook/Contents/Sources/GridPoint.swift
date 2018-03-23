@@ -16,7 +16,11 @@ struct GridPoint {
     }
 
     static func - (lhs: GridPoint, rhs: GridPoint) -> GridPoint {
-        return GridPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+        return lhs + -rhs
+    }
+
+    static prefix func - (point: GridPoint) -> GridPoint {
+        return GridPoint(x: -point.x, y: -point.y)
     }
 }
 

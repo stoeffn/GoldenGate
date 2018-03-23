@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24B1036A20658D070043D6C2 /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1036920658D070043D6C2 /* Gate.swift */; };
 		24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEC20656D0400BD1B06 /* AppDelegate.swift */; };
 		24C49CEF20656D0400BD1B06 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEE20656D0400BD1B06 /* GameViewController.swift */; };
 		24C49CF120656D0400BD1B06 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF020656D0400BD1B06 /* art.scnassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24B1036920658D070043D6C2 /* Gate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
 		24C49CE920656D0400BD1B06 /* GateToLogicSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GateToLogicSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49CEC20656D0400BD1B06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C49CEE20656D0400BD1B06 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -118,14 +120,15 @@
 		24C49D0C20656DA000BD1B06 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				24C49D0F20656DC900BD1B06 /* State.swift */,
-				24C49D0D20656DB700BD1B06 /* GridPoint.swift */,
-				24C49D1120656DE700BD1B06 /* Orientation.swift */,
+				24C49D1B20656E4000BD1B06 /* Circuit.swift */,
 				24C49D1320656DF800BD1B06 /* Component.swift */,
 				24C49D1520656E0A00BD1B06 /* Constant.swift */,
-				24C49D1720656E1F00BD1B06 /* Wire.swift */,
+				24B1036920658D070043D6C2 /* Gate.swift */,
+				24C49D0D20656DB700BD1B06 /* GridPoint.swift */,
 				24C49D1920656E3000BD1B06 /* Led.swift */,
-				24C49D1B20656E4000BD1B06 /* Circuit.swift */,
+				24C49D1120656DE700BD1B06 /* Orientation.swift */,
+				24C49D0F20656DC900BD1B06 /* State.swift */,
+				24C49D1720656E1F00BD1B06 /* Wire.swift */,
 			);
 			name = Sources;
 			path = GateToLogic.playgroundbook/Contents/Sources;
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C49D1A20656E3000BD1B06 /* Led.swift in Sources */,
+				24B1036A20658D070043D6C2 /* Gate.swift in Sources */,
 				24C49D1620656E0A00BD1B06 /* Constant.swift in Sources */,
 				24C49D0E20656DB700BD1B06 /* GridPoint.swift in Sources */,
 				24C49D1420656DF800BD1B06 /* Component.swift in Sources */,

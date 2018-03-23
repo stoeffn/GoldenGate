@@ -19,4 +19,14 @@ enum State {
         case .one: return true
         }
     }
+
+    static func && (lhs: State, rhs: State) -> State {
+        guard lhs != .unknown && rhs != .unknown else { return .unknown }
+        return lhs == .one && rhs == .one ? .one : .zero
+    }
+
+    static func || (lhs: State, rhs: State) -> State {
+        guard lhs != .unknown && rhs != .unknown else { return .unknown }
+        return lhs == .one || rhs == .one ? .one : .zero
+    }
 }
