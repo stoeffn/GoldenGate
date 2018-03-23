@@ -7,12 +7,9 @@
 //
 
 import SceneKit
-import QuartzCore
 
-final class GameViewController: NSViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+final class GameViewController : NSViewController {
+    private lazy var circuit: Circuit = {
         var circuit = Circuit()
         circuit.add(Constant(position: GridPoint(x: 0, y: 0), value: true))
         circuit.add(Wire(position: GridPoint(x: 1, y : 0), orientations: [.left, .right]))
@@ -23,16 +20,24 @@ final class GameViewController: NSViewController {
         circuit.add(Wire(position: GridPoint(x: 3, y : 2), orientations: [.left, .right]))
         circuit.add(Led(position: GridPoint(x: 4, y: 0)))
         circuit.add(Led(position: GridPoint(x: 4, y: 2)))
+        return circuit
+    }()
 
-        print(circuit)
-        circuit.tick()
-        print(circuit)
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         let scene = SCNScene()
 
-        guard let scnView = self.view as? SCNView else { fatalError() }
-        scnView.scene = scene
-        scnView.allowsCameraControl = true
-        scnView.showsStatistics = true
+        guard let sceneView = view as? SCNView else { fatalError() }
+        sceneView.scene = scene
+        sceneView.delegate = self
+        sceneView.allowsCameraControl = true
+        sceneView.showsStatistics = true
+    }
+}
+
+extension GameViewController : SCNSceneRendererDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        circuit.tick()
     }
 }
