@@ -13,6 +13,14 @@
 		24C49CF320656D0400BD1B06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF220656D0400BD1B06 /* Assets.xcassets */; };
 		24C49CF620656D0400BD1B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF420656D0400BD1B06 /* Main.storyboard */; };
 		24C49D0220656D0400BD1B06 /* GateToLogicSandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0120656D0400BD1B06 /* GateToLogicSandboxTests.swift */; };
+		24C49D0E20656DB700BD1B06 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0D20656DB700BD1B06 /* GridPoint.swift */; };
+		24C49D1020656DC900BD1B06 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0F20656DC900BD1B06 /* State.swift */; };
+		24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1120656DE700BD1B06 /* Orientation.swift */; };
+		24C49D1420656DF800BD1B06 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1320656DF800BD1B06 /* Component.swift */; };
+		24C49D1620656E0A00BD1B06 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1520656E0A00BD1B06 /* Constant.swift */; };
+		24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1720656E1F00BD1B06 /* Wire.swift */; };
+		24C49D1A20656E3000BD1B06 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1920656E3000BD1B06 /* Led.swift */; };
+		24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1B20656E4000BD1B06 /* Circuit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +45,14 @@
 		24C49CFD20656D0400BD1B06 /* GateToLogicSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GateToLogicSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49D0120656D0400BD1B06 /* GateToLogicSandboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GateToLogicSandboxTests.swift; sourceTree = "<group>"; };
 		24C49D0320656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C49D0D20656DB700BD1B06 /* GridPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
+		24C49D0F20656DC900BD1B06 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		24C49D1120656DE700BD1B06 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
+		24C49D1320656DF800BD1B06 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		24C49D1520656E0A00BD1B06 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		24C49D1720656E1F00BD1B06 /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
+		24C49D1920656E3000BD1B06 /* Led.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Led.swift; sourceTree = "<group>"; };
+		24C49D1B20656E4000BD1B06 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,7 @@
 		24C49CE020656D0400BD1B06 = {
 			isa = PBXGroup;
 			children = (
+				24C49D0C20656DA000BD1B06 /* Sources */,
 				24C49CEB20656D0400BD1B06 /* GateToLogicSandbox */,
 				24C49D0020656D0400BD1B06 /* GateToLogicSandboxTests */,
 				24C49CEA20656D0400BD1B06 /* Products */,
@@ -96,6 +113,22 @@
 				24C49D0320656D0400BD1B06 /* Info.plist */,
 			);
 			path = GateToLogicSandboxTests;
+			sourceTree = "<group>";
+		};
+		24C49D0C20656DA000BD1B06 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				24C49D0F20656DC900BD1B06 /* State.swift */,
+				24C49D0D20656DB700BD1B06 /* GridPoint.swift */,
+				24C49D1120656DE700BD1B06 /* Orientation.swift */,
+				24C49D1320656DF800BD1B06 /* Component.swift */,
+				24C49D1520656E0A00BD1B06 /* Constant.swift */,
+				24C49D1720656E1F00BD1B06 /* Wire.swift */,
+				24C49D1920656E3000BD1B06 /* Led.swift */,
+				24C49D1B20656E4000BD1B06 /* Circuit.swift */,
+			);
+			name = Sources;
+			path = GateToLogic.playgroundbook/Contents/Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,8 +234,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C49D1A20656E3000BD1B06 /* Led.swift in Sources */,
+				24C49D1620656E0A00BD1B06 /* Constant.swift in Sources */,
+				24C49D0E20656DB700BD1B06 /* GridPoint.swift in Sources */,
+				24C49D1420656DF800BD1B06 /* Component.swift in Sources */,
+				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
+				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,
+				24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */,
 				24C49CEF20656D0400BD1B06 /* GameViewController.swift in Sources */,
 				24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */,
+				24C49D1020656DC900BD1B06 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

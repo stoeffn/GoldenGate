@@ -9,10 +9,20 @@
 import SceneKit
 import QuartzCore
 
-class GameViewController: NSViewController {
-    
+final class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var circuit = Circuit()
+        circuit.add(Constant(position: GridPoint(x: 0, y: 0), value: true))
+        circuit.add(Wire(position: GridPoint(x: 1, y : 0), orientations: [.left, .right]))
+        circuit.add(Wire(position: GridPoint(x: 2, y : 0), orientations: [.left, .bottom, .right]))
+        circuit.add(Wire(position: GridPoint(x: 2, y : 1), orientations: [.top, .bottom]))
+        circuit.add(Wire(position: GridPoint(x: 2, y : 2), orientations: [.top, .right]))
+        circuit.add(Led(position: GridPoint(x: 3, y: 0)))
+        circuit.add(Led(position: GridPoint(x: 3, y: 2)))
+
+        print(circuit)
         
         // create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
