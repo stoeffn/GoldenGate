@@ -7,13 +7,17 @@
 //
 
 protocol Component : CustomStringConvertible {
+    var isActive: Bool { get }
+
     var position: GridPoint { get }
 
     subscript(_ orientation: Orientation) -> State { get set }
 
     mutating func tick()
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation)
+    mutating func resetState()
+
+    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool
 }
 
 extension Component {
@@ -24,5 +28,9 @@ extension Component {
 
     mutating func tick() { }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) { }
+    mutating func resetState() { }
+
+    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+        return false
+    }
 }

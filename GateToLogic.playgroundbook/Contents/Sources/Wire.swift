@@ -7,6 +7,8 @@
 //
 
 struct Wire {
+    var isActive = false
+
     var position: GridPoint
 
     var orientations: Set<Orientation>
@@ -25,10 +27,14 @@ extension Wire : Component {
         set { state = newValue }
     }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) {
-        if orientations.contains(orientation) {
-            neighbor?[orientation.opposite] = state
-        }
+    mutating func resetState() {
+        state = .unknown
+    }
+
+    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+        guard orientations.contains(orientation), neighbor?[orientation.opposite] != state else { return false }
+        neighbor?[orientation.opposite] = state
+        return true
     }
 }
 

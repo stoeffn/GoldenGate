@@ -7,20 +7,40 @@
 //
 
 struct Circuit {
-    private var components = [GridPoint: Component]()
+    private(set) var components = [GridPoint: Component]()
 
     mutating func add(_ component: Component) {
         components[component.position] = component
-        update()
+
+        resetState()
+        updatePassiveComponents()
     }
 
-    private mutating func update() {
-        for key in components.keys {
-            guard let component = components[key] else { fatalError("Cannot enumerate components.") }
-            component.updateNeighbor(&components[component.position - GridPoint(x: 1, y: 0)], at: .left)
-            component.updateNeighbor(&components[component.position - GridPoint(x: 0, y: 1)], at: .top)
-            component.updateNeighbor(&components[component.position + GridPoint(x: 1, y: 0)], at: .right)
-            component.updateNeighbor(&components[component.position + GridPoint(x: 0, y: 1)], at: .bottom)
+    private mutating func resetState() {
+        for position in components.keys {
+            components[position]?.resetState()
+        }
+    }
+
+    private mutating func updatePassiveComponents() {
+        for position in components.keys {
+            guard components[position]?.isActive ?? false else { continue }
+            updateOutputsForComponent(at: position)
+        }
+    }
+
+    private mutating func updateOutputsForComponent(at position: GridPoint) {
+        guard let component = components[position] else { return }
+        updateOutputs(at: .left, for: component)
+        updateOutputs(at: .top, for: component)
+        updateOutputs(at: .right, for: component)
+        updateOutputs(at: .bottom, for: component)
+    }
+
+    private mutating func updateOutputs(at orientation: Orientation, for component: Component) {
+        let position = component.position + orientation.positionOffset
+        if component.updateNeighbor(&components[position], at: orientation) {
+            updateOutputsForComponent(at: position)
         }
     }
 
@@ -28,6 +48,9 @@ struct Circuit {
         for key in components.keys {
             components[key]?.tick()
         }
+
+        resetState()
+        updatePassiveComponents()
     }
 }
 
@@ -38,7 +61,7 @@ extension Circuit : CustomStringConvertible {
         return (0 ..< height).map { y in
             (0 ..< width).map { x in
                 components[GridPoint(x: x, y: y)]?.description ?? " "
-                }.joined()
-            }.joined(separator: "\n")
+            }.joined()
+        }.joined(separator: "\n")
     }
 }

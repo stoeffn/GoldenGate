@@ -7,6 +7,8 @@
 //
 
 struct Constant {
+    let isActive = true
+
     var position: GridPoint
 
     let value: Bool
@@ -17,7 +19,7 @@ struct Constant {
     }
 }
 
-extension Constant: Component {
+extension Constant : Component {
     subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
@@ -28,11 +30,10 @@ extension Constant: Component {
         set { }
     }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) {
-        switch orientation {
-        case .right: neighbor?[.left] = State(value)
-        default: return
-        }
+    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+        guard orientation == .right, neighbor?[.left] != State(value) else { return false }
+        neighbor?[.left] = State(value)
+        return true
     }
 }
 

@@ -17,4 +17,13 @@ enum Orientation {
         case .bottom: return .top
         }
     }
+
+    var positionOffset: GridPoint {
+        switch self {
+        case .left: return GridPoint(x: -1, y: 0)
+        case .top: return GridPoint(x: 0, y: -1)
+        case .right: return GridPoint(x: 1, y: 0)
+        case .bottom: return GridPoint(x: 0, y: 1)
+        }
+    }
 }

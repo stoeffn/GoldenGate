@@ -20,6 +20,12 @@ struct GridPoint {
     }
 }
 
+extension GridPoint : CustomStringConvertible {
+    var description: String {
+        return "(x: \(x), y: \(y))"
+    }
+}
+
 extension GridPoint : Hashable {
     var hashValue: Int {
         return x.hashValue ^ y.hashValue &* 16777619

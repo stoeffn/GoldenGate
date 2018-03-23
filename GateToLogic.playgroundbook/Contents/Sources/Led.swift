@@ -7,6 +7,8 @@
 //
 
 struct Led {
+    var isActive = true
+
     var position: GridPoint
 
     private(set) var value = false
@@ -25,6 +27,10 @@ extension Led : Component {
             default: return
             }
         }
+    }
+
+    mutating func resetState() {
+        self.value = false
     }
 }
 
