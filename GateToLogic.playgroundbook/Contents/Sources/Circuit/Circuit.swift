@@ -25,7 +25,7 @@ struct Circuit {
         components[component.position] = component
         didAdd?(component)
 
-        resetState()
+        resetInputs()
         updatePassiveComponents()
     }
 
@@ -35,15 +35,15 @@ struct Circuit {
         didRemove?(component)
         components[position] = nil
 
-        resetState()
+        resetInputs()
         updatePassiveComponents()
     }
 
     // MARK: - Managing State
 
-    private mutating func resetState() {
+    private mutating func resetInputs() {
         for position in components.keys {
-            components[position]?.resetState()
+            components[position]?.resetInputs()
         }
     }
 
@@ -61,23 +61,30 @@ struct Circuit {
         updateOutputs(at: .top, for: component)
         updateOutputs(at: .right, for: component)
         updateOutputs(at: .bottom, for: component)
-
-        didUpdate?(component)
     }
 
     private mutating func updateOutputs(at orientation: Orientation, for component: Composable) {
         let position = component.position + orientation.positionOffset
+
         if component.updateNeighbor(&components[position], at: orientation) {
             updateOutputsForComponent(at: position)
+        }
+
+        if let neighbor = components[position] {
+            didUpdate?(neighbor)
         }
     }
 
     mutating func tick() {
         for position in components.keys {
             components[position]?.tick()
+
+            if let component = components[position] {
+                didUpdate?(component)
+            }
         }
 
-        resetState()
+        resetInputs()
         updatePassiveComponents()
     }
 }

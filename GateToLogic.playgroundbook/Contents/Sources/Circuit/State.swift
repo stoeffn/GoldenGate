@@ -26,7 +26,7 @@ enum State {
     }
 
     static func || (lhs: State, rhs: State) -> State {
-        guard lhs != .unknown && rhs != .unknown else { return .unknown }
+        guard lhs != .unknown || rhs != .unknown else { return .unknown }
         return lhs == .one || rhs == .one ? .one : .zero
     }
 }

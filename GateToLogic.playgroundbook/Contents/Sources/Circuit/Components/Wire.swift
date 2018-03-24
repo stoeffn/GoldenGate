@@ -23,11 +23,11 @@ struct Wire {
 
 extension Wire : Composable {
     subscript(_ orientation: Orientation) -> State {
-        get { return state }
-        set { state = newValue }
+        get { return orientations.contains(orientation) ? state : .unknown }
+        set { state = orientations.contains(orientation) ? state || newValue : state }
     }
 
-    mutating func reset() {
+    mutating func resetInputs() {
         state = .unknown
     }
 
