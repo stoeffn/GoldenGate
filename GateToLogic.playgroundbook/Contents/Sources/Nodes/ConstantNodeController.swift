@@ -21,7 +21,7 @@ final class ConstantNodeController : NodeControlling {
 
     var constant: Constant {
         didSet {
-            node.geometry?.firstMaterial?.diffuse.contents = constant.value ? NSColor.red : NSColor.green
+            node.geometry?.firstMaterial?.diffuse.contents = constant.value ? NSColor.green : NSColor.red
         }
     }
 }

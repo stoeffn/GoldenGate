@@ -21,7 +21,7 @@ final class GateNodeController : NodeControlling {
 
     var gate: Gate {
         didSet {
-            node.geometry?.firstMaterial?.diffuse.contents = gate.state == .one ? NSColor.red : NSColor.green
+            node.geometry?.firstMaterial?.diffuse.contents = gate.state == .one ? NSColor.green : NSColor.red
         }
     }
 }

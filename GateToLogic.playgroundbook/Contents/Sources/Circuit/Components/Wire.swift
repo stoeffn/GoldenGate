@@ -27,7 +27,7 @@ extension Wire : Composable {
         set { state = newValue }
     }
 
-    mutating func resetState() {
+    mutating func reset() {
         state = .unknown
     }
 
@@ -35,16 +35,5 @@ extension Wire : Composable {
         guard orientations.contains(orientation), neighbor?[orientation.opposite] != state else { return false }
         neighbor?[orientation.opposite] = state
         return true
-    }
-}
-
-extension Wire : CustomStringConvertible {
-    var description: String {
-        switch orientations {
-        case []: return "・"
-        case [.left, .right]: return "—"
-        case [.top, .bottom]: return "|"
-        default: return "+"
-        }
     }
 }

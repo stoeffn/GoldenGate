@@ -36,9 +36,3 @@ extension Constant : Composable {
         return true
     }
 }
-
-extension Constant : CustomStringConvertible {
-    var description: String {
-        return value ? "1" : "0"
-    }
-}

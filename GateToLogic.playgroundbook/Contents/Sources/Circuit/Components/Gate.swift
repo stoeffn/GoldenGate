@@ -7,15 +7,8 @@
 //
 
 struct Gate {
-    enum Operator : CustomStringConvertible {
+    enum Operator {
         case and, or
-
-        var description: String {
-            switch self {
-            case .and: return "&"
-            case .or: return "ǁ"
-            }
-        }
     }
 
     let isActive = true
@@ -39,10 +32,6 @@ struct Gate {
 }
 
 extension Gate : Composable {
-    var description: String {
-        return `operator`.description
-    }
-
     subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {

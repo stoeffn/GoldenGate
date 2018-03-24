@@ -81,16 +81,3 @@ struct Circuit {
         updatePassiveComponents()
     }
 }
-
-extension Circuit : CustomStringConvertible {
-    var description: String {
-        let width = (components.keys.map { $0.x }.max() ?? 0) + 1
-        let height = (components.keys.map { $0.y }.max() ?? 0) + 1
-
-        return (0 ..< height).map { y in
-            (0 ..< width).map { x in
-                components[GridPoint(x: x, y: y)]?.description ?? " "
-            }.joined()
-        }.joined(separator: "\n")
-    }
-}

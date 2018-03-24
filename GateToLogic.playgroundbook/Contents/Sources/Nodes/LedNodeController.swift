@@ -21,7 +21,7 @@ final class LedNodeController : NodeControlling {
 
     var led: Led {
         didSet {
-            node.geometry?.firstMaterial?.diffuse.contents = led.value ? NSColor.red : NSColor.green
+            node.geometry?.firstMaterial?.diffuse.contents = led.value ? NSColor.green : NSColor.red
         }
     }
 }

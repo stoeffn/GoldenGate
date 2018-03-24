@@ -6,7 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-protocol Composable : CustomStringConvertible {
+protocol Composable {
     var isActive: Bool { get }
 
     var position: GridPoint { get set }

@@ -29,13 +29,7 @@ extension Led : Composable {
         }
     }
 
-    mutating func resetState() {
+    mutating func reset() {
         self.value = false
-    }
-}
-
-extension Led : CustomStringConvertible {
-    var description: String {
-        return value ? "◉" : "◎"
     }
 }

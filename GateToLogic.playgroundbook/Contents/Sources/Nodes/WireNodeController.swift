@@ -14,14 +14,14 @@ final class WireNodeController : NodeControlling {
     }
 
     lazy var node: SCNNode = {
-        let geometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
+        let geometry = SCNBox(width: 1.0, height: 0.5, length: 1.0, chamferRadius: 0)
         geometry.firstMaterial?.lightingModel = .physicallyBased
         return SCNNode(geometry: geometry)
     }()
 
     var wire: Wire {
         didSet {
-            node.geometry?.firstMaterial?.diffuse.contents = wire.state == .one ? NSColor.red : NSColor.green
+            node.geometry?.firstMaterial?.diffuse.contents = wire.state == .one ? NSColor.green : NSColor.red
         }
     }
 }
