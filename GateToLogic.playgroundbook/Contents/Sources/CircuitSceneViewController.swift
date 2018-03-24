@@ -9,8 +9,15 @@
 import SceneKit
 
 final class CircuitSceneViewController : NSObject {
+    deinit {
+        circuit.didAddComponentAt = nil
+        circuit.willRemoveComponentAt = nil
+    }
+
     private lazy var circuit: Circuit = {
         var circuit = Circuit()
+        circuit.didAddComponentAt = didAddComponent
+        circuit.willRemoveComponentAt = willRemoveComponent
         circuit.add(Constant(position: GridPoint(x: 0, y: 0), value: true))
         circuit.add(Wire(position: GridPoint(x: 1, y : 0), orientations: [.left, .right]))
         circuit.add(Wire(position: GridPoint(x: 2, y : 0), orientations: [.left, .bottom, .right]))
@@ -30,9 +37,27 @@ final class CircuitSceneViewController : NSObject {
         view.scene = scene
         view.delegate = self
         view.allowsCameraControl = true
+        view.autoenablesDefaultLighting = true
         view.showsStatistics = true
         return view
     }()
+
+    private lazy var componentNodes = [GridPoint: SCNNode]()
+}
+
+extension CircuitSceneViewController {
+    func didAddComponent(at position: GridPoint) {
+        let boxGeometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
+        let boxNode = SCNNode(geometry: boxGeometry)
+        boxNode.position = SCNVector3(x: CGFloat(position.x), y: CGFloat(position.y), z: 0)
+        scene.rootNode.addChildNode(boxNode)
+        componentNodes[position] = boxNode
+    }
+
+    func willRemoveComponent(at position: GridPoint) {
+        componentNodes[position]?.removeFromParentNode()
+        componentNodes[position] = nil
+    }
 }
 
 extension CircuitSceneViewController : SCNSceneRendererDelegate {
