@@ -81,12 +81,17 @@ extension CircuitSceneViewController {
 }
 
 extension CircuitSceneViewController {
-    func set(_ component: Composable, at point: CGPoint) {
+    func position(at point: CGPoint) -> GridPoint? {
         let hits = view.hitTest(point, options: nil)
-        guard let coordinates = hits.first?.worldCoordinates else { return }
+        guard let coordinates = hits.first?.worldCoordinates else { return nil }
+        return GridPoint(point: CGPoint(x: coordinates.x, y: coordinates.z))
+    }
+
+    func set(_ component: Composable, at point: CGPoint) {
+        guard let position = self.position(at: point) else { return }
 
         var component = component
-        component.position = GridPoint(point: CGPoint(x: coordinates.x, y: coordinates.z))
+        component.position = position
         circuit.add(component)
     }
 }

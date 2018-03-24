@@ -39,6 +39,14 @@ final class SandboxViewController : NSViewController {
 
         rightClickEvent = event
 
+        guard let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)) else { return }
+
+        guard circuitSceneViewController.circuit.components[position] == nil else {
+            let menu = NSMenu(title: "Context")
+            menu.addItem(NSMenuItem(title: "Remove", action: #selector(remove(sender:)), keyEquivalent: ""))
+            return NSMenu.popUpContextMenu(menu, with: event, for: view)
+        }
+
         let menu = NSMenu(title: "Context")
         menu.addItem(NSMenuItem(title: "Add Constant", action: #selector(addConstant(sender:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Add And Gate", action: #selector(addAndGate(sender:)), keyEquivalent: ""))
@@ -46,6 +54,13 @@ final class SandboxViewController : NSViewController {
         menu.addItem(NSMenuItem(title: "Add Led", action: #selector(addLed(sender:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Add Wire", action: #selector(addWire(sender:)), keyEquivalent: ""))
         NSMenu.popUpContextMenu(menu, with: event, for: view)
+    }
+
+    @objc
+    func remove(sender: Any?) {
+        guard let event = rightClickEvent else { fatalError() }
+        guard let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)) else { return }
+        circuitSceneViewController.circuit.removeComponent(at: position)
     }
 
     @objc
