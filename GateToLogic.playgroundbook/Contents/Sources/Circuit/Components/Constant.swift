@@ -11,9 +11,9 @@ struct Constant {
 
     var position: GridPoint
 
-    let value: Bool
+    var value: Bool
 
-    init(position: GridPoint, value: Bool) {
+    init(position: GridPoint = .zero, value: Bool) {
         self.position = position
         self.value = value
     }

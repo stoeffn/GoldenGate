@@ -34,7 +34,7 @@ final class CircuitSceneViewController : NSObject {
 }
 
 extension CircuitSceneViewController {
-    func nodeController(for component: Composable) -> NodeControlling {
+    private func nodeController(for component: Composable) -> NodeControlling {
         switch component {
         case let constant as Constant:
             return ConstantNodeController(constant: constant)
@@ -49,7 +49,7 @@ extension CircuitSceneViewController {
         }
     }
 
-    func didAdd(component: Composable) {
+    private func didAdd(component: Composable) {
         let controller = nodeController(for: component)
         controller.node.position = SCNVector3(component.position.x, 0, component.position.y)
 
@@ -57,7 +57,7 @@ extension CircuitSceneViewController {
         componentNodeControllers[component.position] = controller
     }
 
-    func didUpdate(component: Composable) {
+    private func didUpdate(component: Composable) {
         guard let controller = componentNodeControllers[component.position] else { fatalError() }
 
         switch (component, controller) {
@@ -74,9 +74,20 @@ extension CircuitSceneViewController {
         }
     }
 
-    func didRemove(component: Composable) {
+    private func didRemove(component: Composable) {
         componentNodeControllers[component.position]?.node.removeFromParentNode()
         componentNodeControllers[component.position] = nil
+    }
+}
+
+extension CircuitSceneViewController {
+    func set(_ component: Composable, at point: CGPoint) {
+        let hits = view.hitTest(point, options: nil)
+        guard let coordinates = hits.first?.worldCoordinates else { return }
+
+        var component = component
+        component.position = GridPoint(point: CGPoint(x: coordinates.x, y: coordinates.z))
+        circuit.add(component)
     }
 }
 

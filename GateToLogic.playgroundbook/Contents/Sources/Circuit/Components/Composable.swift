@@ -9,7 +9,7 @@
 protocol Composable : CustomStringConvertible {
     var isActive: Bool { get }
 
-    var position: GridPoint { get }
+    var position: GridPoint { get set }
 
     subscript(_ orientation: Orientation) -> State { get set }
 

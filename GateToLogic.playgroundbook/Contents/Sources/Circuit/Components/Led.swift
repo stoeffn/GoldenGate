@@ -13,7 +13,7 @@ struct Led {
 
     private(set) var value = false
 
-    init(position: GridPoint) {
+    init(position: GridPoint = .zero) {
         self.position = position
     }
 }

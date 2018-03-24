@@ -6,10 +6,21 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+import CoreGraphics
+
 struct GridPoint {
     let x: Int
 
     let y: Int
+
+    static let zero = GridPoint(x: 0, y: 0)
+}
+
+extension GridPoint {
+    init(point: CGPoint) {
+        self.x = Int(round(point.x))
+        self.y = Int(round(point.y))
+    }
 
     static func + (lhs: GridPoint, rhs: GridPoint) -> GridPoint {
         return GridPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)

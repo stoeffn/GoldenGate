@@ -32,7 +32,7 @@ struct Gate {
 
     var state = State.unknown
 
-    init(position: GridPoint, operator: Operator) {
+    init(position: GridPoint = .zero, operator: Operator) {
         self.position = position
         self.operator = `operator`
     }

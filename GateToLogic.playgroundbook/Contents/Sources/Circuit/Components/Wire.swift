@@ -15,7 +15,7 @@ struct Wire {
 
     private(set) var state = State.unknown
 
-    init(position: GridPoint, orientations: Set<Orientation>) {
+    init(position: GridPoint = .zero, orientations: Set<Orientation>) {
         self.position = position
         self.orientations = orientations
     }

@@ -11,6 +11,8 @@ import SceneKit
 final class SandboxViewController : NSViewController {
     private lazy var circuitSceneViewController = CircuitSceneViewController()
 
+    private var rightClickEvent: NSEvent?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,5 +32,49 @@ final class SandboxViewController : NSViewController {
         circuitSceneViewController.circuit.add(Wire(position: GridPoint(x: 3, y : 2), orientations: [.left, .right]))
         circuitSceneViewController.circuit.add(Led(position: GridPoint(x: 4, y: 0)))
         circuitSceneViewController.circuit.add(Led(position: GridPoint(x: 4, y: 2)))
+    }
+
+    override func rightMouseDown(with event: NSEvent) {
+        super.rightMouseDown(with: event)
+
+        rightClickEvent = event
+
+        let menu = NSMenu(title: "Context")
+        menu.addItem(NSMenuItem(title: "Add Constant", action: #selector(addConstant(sender:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Add And Gate", action: #selector(addAndGate(sender:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Add Or Gate", action: #selector(addOrGate(sender:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Add Led", action: #selector(addLed(sender:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Add Wire", action: #selector(addWire(sender:)), keyEquivalent: ""))
+        NSMenu.popUpContextMenu(menu, with: event, for: view)
+    }
+
+    @objc
+    func addConstant(sender: Any?) {
+        guard let event = rightClickEvent else { fatalError() }
+        circuitSceneViewController.set(Constant(value: true), at: view.convert(event.locationInWindow, to: nil))
+    }
+
+    @objc
+    func addAndGate(sender: Any?) {
+        guard let event = rightClickEvent else { fatalError() }
+        circuitSceneViewController.set(Gate(operator: .and), at: view.convert(event.locationInWindow, to: nil))
+    }
+
+    @objc
+    func addOrGate(sender: Any?) {
+        guard let event = rightClickEvent else { fatalError() }
+        circuitSceneViewController.set(Gate(operator: .or), at: view.convert(event.locationInWindow, to: nil))
+    }
+
+    @objc
+    func addLed(sender: Any?) {
+        guard let event = rightClickEvent else { fatalError() }
+        circuitSceneViewController.set(Led(), at: view.convert(event.locationInWindow, to: nil))
+    }
+
+    @objc
+    func addWire(sender: Any?) {
+        guard let event = rightClickEvent else { fatalError() }
+        circuitSceneViewController.set(Wire(orientations: [.left, .right, .top, .bottom]), at: view.convert(event.locationInWindow, to: nil))
     }
 }
