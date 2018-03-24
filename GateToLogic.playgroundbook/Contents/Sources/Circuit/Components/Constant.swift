@@ -19,7 +19,7 @@ struct Constant {
     }
 }
 
-extension Constant : Component {
+extension Constant : Composable {
     subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
@@ -30,7 +30,7 @@ extension Constant : Component {
         set { }
     }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         guard orientation == .right, neighbor?[.left] != State(value) else { return false }
         neighbor?[.left] = State(value)
         return true

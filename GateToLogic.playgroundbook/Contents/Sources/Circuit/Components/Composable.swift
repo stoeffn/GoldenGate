@@ -1,12 +1,12 @@
 //
-//  Component.swift
+//  Composable.swift
 //  GateToLogic
 //
 //  Created by Steffen Ryll on 23.03.18.
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-protocol Component : CustomStringConvertible {
+protocol Composable : CustomStringConvertible {
     var isActive: Bool { get }
 
     var position: GridPoint { get }
@@ -17,10 +17,10 @@ protocol Component : CustomStringConvertible {
 
     mutating func resetState()
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool
+    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool
 }
 
-extension Component {
+extension Composable {
     subscript(_ orientation: Orientation) -> State {
         get { return .unknown }
         set { }
@@ -30,7 +30,7 @@ extension Component {
 
     mutating func resetState() { }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         return false
     }
 }

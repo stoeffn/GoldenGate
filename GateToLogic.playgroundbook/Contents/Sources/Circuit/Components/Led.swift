@@ -18,7 +18,7 @@ struct Led {
     }
 }
 
-extension Led : Component {
+extension Led : Composable {
     subscript(_ orientation: Orientation) -> State {
         get { return .unknown }
         set {

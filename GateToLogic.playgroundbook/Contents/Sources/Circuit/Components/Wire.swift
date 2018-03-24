@@ -21,7 +21,7 @@ struct Wire {
     }
 }
 
-extension Wire : Component {
+extension Wire : Composable {
     subscript(_ orientation: Orientation) -> State {
         get { return state }
         set { state = newValue }
@@ -31,7 +31,7 @@ extension Wire : Component {
         state = .unknown
     }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         guard orientations.contains(orientation), neighbor?[orientation.opposite] != state else { return false }
         neighbor?[orientation.opposite] = state
         return true

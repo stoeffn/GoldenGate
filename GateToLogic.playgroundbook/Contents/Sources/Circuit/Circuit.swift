@@ -9,13 +9,13 @@
 struct Circuit {
     // MARK: - Managing Components
 
-    private(set) var components = [GridPoint: Component]()
+    private(set) var components = [GridPoint: Composable]()
 
     var didAddComponentAt: ((GridPoint) -> Void)?
 
     var willRemoveComponentAt: ((GridPoint) -> Void)?
 
-    mutating func add(_ component: Component) {
+    mutating func add(_ component: Composable) {
         if components[component.position] != nil {
             willRemoveComponentAt?(component.position)
         }
@@ -61,7 +61,7 @@ struct Circuit {
         updateOutputs(at: .bottom, for: component)
     }
 
-    private mutating func updateOutputs(at orientation: Orientation, for component: Component) {
+    private mutating func updateOutputs(at orientation: Orientation, for component: Composable) {
         let position = component.position + orientation.positionOffset
         if component.updateNeighbor(&components[position], at: orientation) {
             updateOutputsForComponent(at: position)

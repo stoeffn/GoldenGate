@@ -38,7 +38,7 @@ struct Gate {
     }
 }
 
-extension Gate : Component {
+extension Gate : Composable {
     var description: String {
         return `operator`.description
     }
@@ -62,7 +62,7 @@ extension Gate : Component {
         }
     }
 
-    func updateNeighbor(_ neighbor: inout Component?, at orientation: Orientation) -> Bool {
+    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         guard orientation == .right, neighbor?[.left] != state else { return false }
         neighbor?[.left] = state
         return true
