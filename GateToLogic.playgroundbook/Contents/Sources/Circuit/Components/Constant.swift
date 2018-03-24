@@ -27,6 +27,10 @@ extension Constant : Composable {
         set { }
     }
 
+    mutating func trigger() {
+        self.value = !self.value
+    }
+
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         guard orientation == .right, neighbor?[.left] != State(value) else { return false }
         neighbor?[.left] = State(value)

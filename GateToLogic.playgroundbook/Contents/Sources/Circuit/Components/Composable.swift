@@ -13,6 +13,8 @@ protocol Composable {
 
     mutating func tick()
 
+    mutating func trigger()
+
     mutating func resetInputs()
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool
@@ -25,6 +27,8 @@ extension Composable {
     }
 
     mutating func tick() { }
+
+    mutating func trigger() { }
 
     mutating func resetInputs() {
         self[.left] = .unknown

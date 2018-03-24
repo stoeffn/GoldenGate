@@ -34,6 +34,13 @@ final class SandboxViewController : NSViewController {
         circuitSceneViewController.circuit.add(Led(position: GridPoint(x: 4, y: 2)))*/
     }
 
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+
+        guard let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)) else { return }
+        circuitSceneViewController.circuit[position]?.trigger()
+    }
+
     override func rightMouseDown(with event: NSEvent) {
         super.rightMouseDown(with: event)
 
