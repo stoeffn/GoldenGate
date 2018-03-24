@@ -9,24 +9,11 @@
 import SceneKit
 
 final class CircuitSceneViewController : NSObject {
-    deinit {
-        circuit.didAddComponentAt = nil
-        circuit.willRemoveComponentAt = nil
-    }
-
-    private lazy var circuit: Circuit = {
+    lazy var circuit: Circuit = {
         var circuit = Circuit()
-        circuit.didAddComponentAt = didAddComponent
-        circuit.willRemoveComponentAt = willRemoveComponent
-        circuit.add(Constant(position: GridPoint(x: 0, y: 0), value: true))
-        circuit.add(Wire(position: GridPoint(x: 1, y : 0), orientations: [.left, .right]))
-        circuit.add(Wire(position: GridPoint(x: 2, y : 0), orientations: [.left, .bottom, .right]))
-        circuit.add(Wire(position: GridPoint(x: 3, y : 0), orientations: [.left, .right]))
-        circuit.add(Wire(position: GridPoint(x: 2, y : 1), orientations: [.top, .bottom]))
-        circuit.add(Gate(position: GridPoint(x: 2, y : 2), operator: .and))
-        circuit.add(Wire(position: GridPoint(x: 3, y : 2), orientations: [.left, .right]))
-        circuit.add(Led(position: GridPoint(x: 4, y: 0)))
-        circuit.add(Led(position: GridPoint(x: 4, y: 2)))
+        circuit.didAdd = { [weak self] in self?.didAdd(component: $0) }
+        circuit.didUpdate = { [weak self] in self?.didUpdate(component: $0) }
+        circuit.didRemove = { [weak self] in self?.didRemove(component: $0) }
         return circuit
     }()
 
@@ -43,21 +30,53 @@ final class CircuitSceneViewController : NSObject {
         return view
     }()
 
-    private lazy var componentNodes = [GridPoint: SCNNode]()
+    private lazy var componentNodeControllers = [GridPoint: NodeControlling]()
 }
 
 extension CircuitSceneViewController {
-    func didAddComponent(at position: GridPoint) {
-        let boxGeometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-        let boxNode = SCNNode(geometry: boxGeometry)
-        boxNode.position = SCNVector3(position.x, 0, position.y)
-        scene.rootNode.addChildNode(boxNode)
-        componentNodes[position] = boxNode
+    func nodeController(for component: Composable) -> NodeControlling {
+        switch component {
+        case let constant as Constant:
+            return ConstantNodeController(constant: constant)
+        case let gate as Gate:
+            return GateNodeController(gate: gate)
+        case let led as Led:
+            return LedNodeController(led: led)
+        case let wire as Wire:
+            return WireNodeController(wire: wire)
+        default:
+            fatalError("Cannot create node controller for component \(component).")
+        }
     }
 
-    func willRemoveComponent(at position: GridPoint) {
-        componentNodes[position]?.removeFromParentNode()
-        componentNodes[position] = nil
+    func didAdd(component: Composable) {
+        let controller = nodeController(for: component)
+        controller.node.position = SCNVector3(component.position.x, 0, component.position.y)
+
+        scene.rootNode.addChildNode(controller.node)
+        componentNodeControllers[component.position] = controller
+    }
+
+    func didUpdate(component: Composable) {
+        guard let controller = componentNodeControllers[component.position] else { fatalError() }
+
+        switch (component, controller) {
+        case let (constant, controller) as (Constant, ConstantNodeController):
+            controller.constant = constant
+        case let (gate, controller) as (Gate, GateNodeController):
+            controller.gate = gate
+        case let (led, controller) as (Led, LedNodeController):
+            controller.led = led
+        case let (wire, controller) as (Wire, WireNodeController):
+            controller.wire = wire
+        default:
+            fatalError("Cannot update controller \(controller) with component \(component).")
+        }
+    }
+
+    func didRemove(component: Composable) {
+        componentNodeControllers[component.position]?.node.removeFromParentNode()
+        componentNodeControllers[component.position] = nil
     }
 }
 

@@ -11,27 +11,28 @@ struct Circuit {
 
     private(set) var components = [GridPoint: Composable]()
 
-    var didAddComponentAt: ((GridPoint) -> Void)?
+    var didAdd: ((Composable) -> Void)?
 
-    var willRemoveComponentAt: ((GridPoint) -> Void)?
+    var didUpdate: ((Composable) -> Void)?
+
+    var didRemove: ((Composable) -> Void)?
 
     mutating func add(_ component: Composable) {
-        if components[component.position] != nil {
-            willRemoveComponentAt?(component.position)
+        if let formerComponent = components[component.position] {
+            didRemove?(formerComponent)
         }
 
         components[component.position] = component
+        didAdd?(component)
 
         resetState()
         updatePassiveComponents()
-
-        didAddComponentAt?(component.position)
     }
 
     mutating func removeComponent(at position: GridPoint) {
-        guard components[position] != nil else { return }
+        guard let component = components[position] else { return }
 
-        willRemoveComponentAt?(position)
+        didRemove?(component)
         components[position] = nil
 
         resetState()
@@ -48,17 +49,20 @@ struct Circuit {
 
     private mutating func updatePassiveComponents() {
         for position in components.keys {
-            guard components[position]?.isActive ?? false else { continue }
+            guard let component = components[position], component.isActive else { continue }
             updateOutputsForComponent(at: position)
         }
     }
 
     private mutating func updateOutputsForComponent(at position: GridPoint) {
         guard let component = components[position] else { return }
+
         updateOutputs(at: .left, for: component)
         updateOutputs(at: .top, for: component)
         updateOutputs(at: .right, for: component)
         updateOutputs(at: .bottom, for: component)
+
+        didUpdate?(component)
     }
 
     private mutating func updateOutputs(at orientation: Orientation, for component: Composable) {
