@@ -9,13 +9,9 @@
 struct Led {
     var isActive = true
 
-    var position: GridPoint
-
     private(set) var value = false
 
-    init(position: GridPoint = .zero) {
-        self.position = position
-    }
+    init() { }
 }
 
 extension Led : Composable {

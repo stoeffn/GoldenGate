@@ -9,30 +9,38 @@
 struct Circuit {
     // MARK: - Managing Components
 
-    private(set) var components = [GridPoint: Composable]()
+    private var components = [GridPoint: Composable]()
 
-    var didAdd: ((Composable) -> Void)?
+    var didAdd: ((Composable, GridPoint) -> Void)?
 
-    var didUpdate: ((Composable) -> Void)?
+    var didUpdate: ((Composable, GridPoint) -> Void)?
 
-    var didRemove: ((Composable) -> Void)?
+    var didRemove: ((Composable, GridPoint) -> Void)?
 
-    mutating func add(_ component: Composable) {
-        if let formerComponent = components[component.position] {
-            didRemove?(formerComponent)
+    subscript(_ position: GridPoint) -> Composable? {
+        get { return components[position] }
+        set {
+            guard let component = newValue else { return removeComponent(at: position) }
+            set(component, at: position)
+        }
+    }
+
+    private mutating func set(_ component: Composable, at position: GridPoint) {
+        if let formerComponent = components[position] {
+            didRemove?(formerComponent, position)
         }
 
-        components[component.position] = component
-        didAdd?(component)
+        components[position] = component
+        didAdd?(component, position)
 
         resetInputs()
         updatePassiveComponents()
     }
 
-    mutating func removeComponent(at position: GridPoint) {
+    private mutating func removeComponent(at position: GridPoint) {
         guard let component = components[position] else { return }
 
-        didRemove?(component)
+        didRemove?(component, position)
         components[position] = nil
 
         resetInputs()
@@ -57,21 +65,21 @@ struct Circuit {
     private mutating func updateOutputsForComponent(at position: GridPoint) {
         guard let component = components[position] else { return }
 
-        updateOutputs(at: .left, for: component)
-        updateOutputs(at: .top, for: component)
-        updateOutputs(at: .right, for: component)
-        updateOutputs(at: .bottom, for: component)
+        updateOutputs(at: .left, for: component, at: position)
+        updateOutputs(at: .top, for: component, at: position)
+        updateOutputs(at: .right, for: component, at: position)
+        updateOutputs(at: .bottom, for: component, at: position)
     }
 
-    private mutating func updateOutputs(at orientation: Orientation, for component: Composable) {
-        let position = component.position + orientation.positionOffset
+    private mutating func updateOutputs(at orientation: Orientation, for component: Composable, at neighborPosition: GridPoint) {
+        let neighborPosition = neighborPosition + orientation.positionOffset
 
-        if component.updateNeighbor(&components[position], at: orientation) {
-            updateOutputsForComponent(at: position)
+        if component.updateNeighbor(&components[neighborPosition], at: orientation) {
+            updateOutputsForComponent(at: neighborPosition)
         }
 
-        if let neighbor = components[position] {
-            didUpdate?(neighbor)
+        if let neighbor = components[neighborPosition] {
+            didUpdate?(neighbor, neighborPosition)
         }
     }
 
@@ -80,7 +88,7 @@ struct Circuit {
             components[position]?.tick()
 
             if let component = components[position] {
-                didUpdate?(component)
+                didUpdate?(component, position)
             }
         }
 

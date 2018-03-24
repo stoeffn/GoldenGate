@@ -9,12 +9,9 @@
 struct Constant {
     let isActive = true
 
-    var position: GridPoint
-
     var value: Bool
 
-    init(position: GridPoint = .zero, value: Bool) {
-        self.position = position
+    init(value: Bool) {
         self.value = value
     }
 }

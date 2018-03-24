@@ -9,8 +9,6 @@
 protocol Composable {
     var isActive: Bool { get }
 
-    var position: GridPoint { get set }
-
     subscript(_ orientation: Orientation) -> State { get set }
 
     mutating func tick()

@@ -9,14 +9,11 @@
 struct Wire {
     var isActive = false
 
-    var position: GridPoint
-
     var orientations: Set<Orientation>
 
     private(set) var state = State.unknown
 
-    init(position: GridPoint = .zero, orientations: Set<Orientation>) {
-        self.position = position
+    init(orientations: Set<Orientation>) {
         self.orientations = orientations
     }
 }

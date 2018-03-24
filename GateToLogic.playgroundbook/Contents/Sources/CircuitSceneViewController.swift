@@ -11,9 +11,9 @@ import SceneKit
 final class CircuitSceneViewController : NSObject {
     lazy var circuit: Circuit = {
         var circuit = Circuit()
-        circuit.didAdd = { [weak self] in self?.didAdd(component: $0) }
-        circuit.didUpdate = { [weak self] in self?.didUpdate(component: $0) }
-        circuit.didRemove = { [weak self] in self?.didRemove(component: $0) }
+        circuit.didAdd = { [weak self] in self?.didAdd(component: $0, at: $1) }
+        circuit.didUpdate = { [weak self] in self?.didUpdate(component: $0, at: $1) }
+        circuit.didRemove = { [weak self] in self?.didRemove(component: $0, at: $1) }
         return circuit
     }()
 
@@ -49,16 +49,16 @@ extension CircuitSceneViewController {
         }
     }
 
-    private func didAdd(component: Composable) {
+    private func didAdd(component: Composable, at position: GridPoint) {
         let controller = nodeController(for: component)
-        controller.node.position = SCNVector3(component.position.x, 0, component.position.y)
+        controller.node.position = SCNVector3(position.x, 0, position.y)
 
         scene.rootNode.addChildNode(controller.node)
-        componentNodeControllers[component.position] = controller
+        componentNodeControllers[position] = controller
     }
 
-    private func didUpdate(component: Composable) {
-        guard let controller = componentNodeControllers[component.position] else { fatalError() }
+    private func didUpdate(component: Composable, at position: GridPoint) {
+        guard let controller = componentNodeControllers[position] else { fatalError() }
 
         switch (component, controller) {
         case let (constant, controller) as (Constant, ConstantNodeController):
@@ -74,9 +74,9 @@ extension CircuitSceneViewController {
         }
     }
 
-    private func didRemove(component: Composable) {
-        componentNodeControllers[component.position]?.node.removeFromParentNode()
-        componentNodeControllers[component.position] = nil
+    private func didRemove(component: Composable, at position: GridPoint) {
+        componentNodeControllers[position]?.node.removeFromParentNode()
+        componentNodeControllers[position] = nil
     }
 }
 
@@ -89,10 +89,7 @@ extension CircuitSceneViewController {
 
     func set(_ component: Composable, at point: CGPoint) {
         guard let position = self.position(at: point) else { return }
-
-        var component = component
-        component.position = position
-        circuit.add(component)
+        circuit[position] = component
     }
 }
 

@@ -13,8 +13,6 @@ struct Gate {
 
     let isActive = true
 
-    var position: GridPoint
-
     let `operator`: Operator
 
     var left = State.unknown
@@ -25,8 +23,7 @@ struct Gate {
 
     var state = State.unknown
 
-    init(position: GridPoint = .zero, operator: Operator) {
-        self.position = position
+    init(operator: Operator) {
         self.operator = `operator`
     }
 }
