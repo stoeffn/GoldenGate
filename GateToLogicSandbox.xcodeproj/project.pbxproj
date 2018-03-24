@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243A6B9D206686EF00DC5780 /* CircuitSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */; };
 		24B1036A20658D070043D6C2 /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1036920658D070043D6C2 /* Gate.swift */; };
 		24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEC20656D0400BD1B06 /* AppDelegate.swift */; };
-		24C49CEF20656D0400BD1B06 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEE20656D0400BD1B06 /* GameViewController.swift */; };
+		24C49CEF20656D0400BD1B06 /* SandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */; };
 		24C49CF320656D0400BD1B06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF220656D0400BD1B06 /* Assets.xcassets */; };
 		24C49CF620656D0400BD1B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF420656D0400BD1B06 /* Main.storyboard */; };
-		24C49D0220656D0400BD1B06 /* GateToLogicSandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0120656D0400BD1B06 /* GateToLogicSandboxTests.swift */; };
 		24C49D0E20656DB700BD1B06 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0D20656DB700BD1B06 /* GridPoint.swift */; };
 		24C49D1020656DC900BD1B06 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0F20656DC900BD1B06 /* State.swift */; };
 		24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1120656DE700BD1B06 /* Orientation.swift */; };
@@ -34,16 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
 		24B1036920658D070043D6C2 /* Gate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
 		24C49CE920656D0400BD1B06 /* GateToLogicSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GateToLogicSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49CEC20656D0400BD1B06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24C49CEE20656D0400BD1B06 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxViewController.swift; sourceTree = "<group>"; };
 		24C49CF220656D0400BD1B06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C49CF520656D0400BD1B06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C49CF720656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C49CF820656D0400BD1B06 /* GateToLogicSandbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GateToLogicSandbox.entitlements; sourceTree = "<group>"; };
 		24C49CFD20656D0400BD1B06 /* GateToLogicSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GateToLogicSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		24C49D0120656D0400BD1B06 /* GateToLogicSandboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GateToLogicSandboxTests.swift; sourceTree = "<group>"; };
 		24C49D0320656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C49D0D20656DB700BD1B06 /* GridPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		24C49D0F20656DC900BD1B06 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				24C49CEC20656D0400BD1B06 /* AppDelegate.swift */,
-				24C49CEE20656D0400BD1B06 /* GameViewController.swift */,
+				24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */,
 				24C49CF220656D0400BD1B06 /* Assets.xcassets */,
 				24C49CF420656D0400BD1B06 /* Main.storyboard */,
 				24C49CF720656D0400BD1B06 /* Info.plist */,
@@ -132,7 +132,6 @@
 		24C49D0020656D0400BD1B06 /* GateToLogicSandboxTests */ = {
 			isa = PBXGroup;
 			children = (
-				24C49D0120656D0400BD1B06 /* GateToLogicSandboxTests.swift */,
 				24C49D0320656D0400BD1B06 /* Info.plist */,
 			);
 			path = GateToLogicSandboxTests;
@@ -142,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				243A6B9B2066565A00DC5780 /* Circuit */,
+				243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */,
 			);
 			name = Sources;
 			path = GateToLogic.playgroundbook/Contents/Sources;
@@ -257,7 +257,8 @@
 				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
 				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,
 				24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */,
-				24C49CEF20656D0400BD1B06 /* GameViewController.swift in Sources */,
+				24C49CEF20656D0400BD1B06 /* SandboxViewController.swift in Sources */,
+				243A6B9D206686EF00DC5780 /* CircuitSceneViewController.swift in Sources */,
 				24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */,
 				24C49D1020656DC900BD1B06 /* State.swift in Sources */,
 			);
@@ -267,7 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C49D0220656D0400BD1B06 /* GateToLogicSandboxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

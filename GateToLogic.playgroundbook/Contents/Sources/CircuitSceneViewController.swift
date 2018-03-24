@@ -1,14 +1,14 @@
 //
-//  GameViewController.swift
-//  GateToLogicSandbox
+//  CircuitSceneViewController.swift
+//  GateToLogic
 //
-//  Created by Steffen Ryll on 23.03.18.
+//  Created by Steffen Ryll on 24.03.18.
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
 import SceneKit
 
-final class GameViewController : NSViewController {
+final class CircuitSceneViewController : NSObject {
     private lazy var circuit: Circuit = {
         var circuit = Circuit()
         circuit.add(Constant(position: GridPoint(x: 0, y: 0), value: true))
@@ -23,20 +23,19 @@ final class GameViewController : NSViewController {
         return circuit
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private lazy var scene = SCNScene()
 
-        let scene = SCNScene()
-
-        guard let sceneView = view as? SCNView else { fatalError() }
-        sceneView.scene = scene
-        sceneView.delegate = self
-        sceneView.allowsCameraControl = true
-        sceneView.showsStatistics = true
-    }
+    private(set) lazy var view: SCNView = {
+        let view = SCNView()
+        view.scene = scene
+        view.delegate = self
+        view.allowsCameraControl = true
+        view.showsStatistics = true
+        return view
+    }()
 }
 
-extension GameViewController : SCNSceneRendererDelegate {
+extension CircuitSceneViewController : SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         circuit.tick()
     }
