@@ -22,6 +22,10 @@ final class CircuitSceneViewController : NSObject {
 
     var circuit: Circuit
 
+    let tickInterval: TimeInterval = 0.1
+
+    var tickedAt: TimeInterval = 0
+
     private lazy var scene: SCNScene = {
         guard let scene = SCNScene(named: "CircuitScene.scn") else { fatalError() }
         return scene
@@ -96,6 +100,8 @@ extension CircuitSceneViewController {
 
 extension CircuitSceneViewController : SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard time - tickedAt >= tickInterval else { return }
         circuit.tick()
+        tickedAt = time
     }
 }
