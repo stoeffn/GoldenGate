@@ -42,7 +42,7 @@ extension AnyPositionedComponent : Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(entity, forKey: .entity)
-        try position.encode(to: container.superEncoder(forKey: .component))
+        try position.encode(to: container.superEncoder(forKey: .position))
         try component.encode(to: container.superEncoder(forKey: .component))
     }
 }

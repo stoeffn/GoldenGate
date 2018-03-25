@@ -53,6 +53,10 @@ struct Circuit {
         updatePassiveComponents()
     }
 
+    var positionedComponents: [(Composable, at: GridPoint)] {
+        return components.map { ($0.value, at: $0.key) }
+    }
+
     // MARK: - Managing State
 
     private mutating func resetInputs() {

@@ -9,13 +9,18 @@
 import SceneKit
 
 final class CircuitSceneViewController : NSObject {
-    lazy var circuit: Circuit = {
-        var circuit = Circuit()
-        circuit.didAdd = { [weak self] in self?.didAdd(component: $0, at: $1) }
-        circuit.didUpdate = { [weak self] in self?.didUpdate(component: $0, at: $1) }
-        circuit.didRemove = { [weak self] in self?.didRemove(component: $0, at: $1) }
-        return circuit
-    }()
+    init(circuit: Circuit = Circuit()) {
+        self.circuit = circuit
+
+        super.init()
+
+        self.circuit.positionedComponents.forEach(didAdd)
+        self.circuit.didAdd = { [weak self] in self?.didAdd(component: $0, at: $1) }
+        self.circuit.didUpdate = { [weak self] in self?.didUpdate(component: $0, at: $1) }
+        self.circuit.didRemove = { [weak self] in self?.didRemove(component: $0, at: $1) }
+    }
+
+    var circuit: Circuit
 
     private lazy var scene: SCNScene = {
         guard let scene = SCNScene(named: "CircuitScene.scn") else { fatalError() }
