@@ -11,3 +11,5 @@ import SceneKit
 protocol NodeControlling {
     var node: SCNNode { get }
 }
+
+let componentsSceneName = "CircuitAssets.scnassets/Components.dae"

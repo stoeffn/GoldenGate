@@ -27,7 +27,8 @@ final class LogicDocument : NSDocument {
     }
 
     override func data(ofType typeName: String) throws -> Data {
-        return try JSONEncoder().encode(controller.circuit)
+        circuit = controller.circuit ?? circuit
+        return try JSONEncoder().encode(circuit)
     }
 
     override func read(from data: Data, ofType typeName: String) throws {

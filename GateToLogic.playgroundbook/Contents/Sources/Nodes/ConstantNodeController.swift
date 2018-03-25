@@ -14,14 +14,31 @@ final class ConstantNodeController : NodeControlling {
     }
 
     lazy var node: SCNNode = {
-        let geometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-        geometry.firstMaterial?.lightingModel = .physicallyBased
-        return SCNNode(geometry: geometry)
+        guard
+            let scene = SCNScene(named: componentsSceneName),
+            let node = scene.rootNode.childNode(withName: "Constant", recursively: true)
+        else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
     }()
+
+    var buttonNode: SCNNode {
+        guard let node = node.childNode(withName: "Constant-Button", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.component]
+        return node
+    }
+
+    var rightNode: SCNNode {
+        guard let node = node.childNode(withName: "Constant-RightWire", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }
 
     var constant: Constant {
         didSet {
-            node.geometry?.firstMaterial?.diffuse.contents = constant.value ? NSColor.green : NSColor.red
+            buttonNode.isHidden = constant.value
+            node.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
+            rightNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
         }
     }
 }

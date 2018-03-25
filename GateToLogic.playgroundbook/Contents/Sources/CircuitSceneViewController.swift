@@ -32,6 +32,7 @@ final class CircuitSceneViewController : NSObject {
         view.scene = scene
         view.delegate = self
         view.showsStatistics = true
+        view.isJitteringEnabled = true
         return view
     }()
 
@@ -63,7 +64,7 @@ extension CircuitSceneViewController {
     }
 
     private func didUpdate(component: Composable, at position: GridPoint) {
-        guard let controller = componentNodeControllers[position] else { fatalError() }
+        guard let controller = componentNodeControllers[position] else { return }
 
         switch (component, controller) {
         case let (constant, controller) as (Constant, ConstantNodeController):

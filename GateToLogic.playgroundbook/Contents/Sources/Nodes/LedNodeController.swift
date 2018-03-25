@@ -14,14 +14,24 @@ final class LedNodeController : NodeControlling {
     }
 
     lazy var node: SCNNode = {
-        let geometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-        geometry.firstMaterial?.lightingModel = .physicallyBased
-        return SCNNode(geometry: geometry)
+        guard
+            let scene = SCNScene(named: componentsSceneName),
+            let node = scene.rootNode.childNode(withName: "Led", recursively: true)
+        else { fatalError() }
+        node.geometry?.materials = [.zeroLed]
+        return node
+    }()
+
+    lazy var leftNode: SCNNode = {
+        guard let node = node.childNode(withName: "Led-LeftWire", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
     }()
 
     var led: Led {
         didSet {
-            node.geometry?.firstMaterial?.diffuse.contents = led.value ? NSColor.green : NSColor.red
+            node.geometry?.materials = [led.value ? .oneLed : .zeroLed]
+            leftNode.geometry?.materials = [led.value ? .oneComponent : .zeroComponent]
         }
     }
 }
