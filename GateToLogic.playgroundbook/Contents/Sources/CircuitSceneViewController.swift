@@ -18,13 +18,15 @@ final class CircuitSceneViewController : NSObject {
         self.circuit.didAdd = { [weak self] in self?.didAdd(component: $0, at: $1) }
         self.circuit.didUpdate = { [weak self] in self?.didUpdate(component: $0, at: $1) }
         self.circuit.didRemove = { [weak self] in self?.didRemove(component: $0, at: $1) }
+
+        Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true) { [weak self] _ in
+            self?.circuit.tick()
+        }
     }
 
     var circuit: Circuit
 
     let tickInterval: TimeInterval = 0.1
-
-    var tickedAt: TimeInterval = 0
 
     private lazy var scene: SCNScene = {
         guard let scene = SCNScene(named: "CircuitScene.scn") else { fatalError() }
@@ -34,7 +36,6 @@ final class CircuitSceneViewController : NSObject {
     private(set) lazy var view: SCNView = {
         let view = SCNView()
         view.scene = scene
-        view.delegate = self
         view.showsStatistics = true
         view.isJitteringEnabled = true
         return view
@@ -95,13 +96,5 @@ extension CircuitSceneViewController {
         let hits = view.hitTest(point, options: nil)
         guard let coordinates = hits.first?.worldCoordinates else { return nil }
         return GridPoint(point: CGPoint(x: coordinates.x, y: coordinates.z))
-    }
-}
-
-extension CircuitSceneViewController : SCNSceneRendererDelegate {
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        guard time - tickedAt >= tickInterval else { return }
-        circuit.tick()
-        tickedAt = time
     }
 }
