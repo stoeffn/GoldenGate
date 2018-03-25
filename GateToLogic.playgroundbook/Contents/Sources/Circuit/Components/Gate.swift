@@ -25,7 +25,7 @@ struct Gate : Codable {
 
     var bottom = State.unknown
 
-    private var stateQueue = (0 ..< 5).map { _ in State.unknown }
+    private var stateQueue: [State] = [.unknown, .unknown]
 
     var state: State {
         return stateQueue.first ?? .unknown
