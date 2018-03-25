@@ -709,8 +709,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="720"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
+                    <connections>
+                        <outlet property="addComponentMenu" destination="ybA-oN-csM" id="cw9-d3-tpJ"/>
+                        <outlet property="componentContextMenu" destination="R1U-EN-3pO" id="x9p-Lm-5eJ"/>
+                    </connections>
                 </viewController>
                 <customObject id="9BU-VA-f30" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="ybA-oN-csM">
+                    <items>
+                        <menuItem title="Add Constant" id="nsG-w7-hpm">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" id="CLW-q1-p1G">
+                                <items>
+                                    <menuItem title="Zero" id="6p6-9F-LJT">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addZeroConstantComponent:" target="8YE-SB-0VP" id="LX6-zv-gwW"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="One" id="ETN-OB-XQa">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addOneConstantComponent:" target="8YE-SB-0VP" id="Ozz-9a-rNM"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </menuItem>
+                        <menuItem title="Add Gate" id="dTI-jX-yqc">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" id="pk3-4C-HRt">
+                                <items>
+                                    <menuItem title="And" id="Cr0-Ys-sn6">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addAndGateComponent:" target="8YE-SB-0VP" id="7VQ-hz-xbf"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Or" id="eIB-PB-HTi">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addOrGateComponent:" target="8YE-SB-0VP" id="cEA-Hi-leY"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </menuItem>
+                        <menuItem title="Add LED" id="cUY-wJ-rEA">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addLedComponent:" target="8YE-SB-0VP" id="dc6-lC-vTi"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Add Wire" id="1Yd-dX-qgU">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addWireComponent:" target="8YE-SB-0VP" id="fuu-l3-aRv"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu id="R1U-EN-3pO">
+                    <items>
+                        <menuItem title="Debug Description" enabled="NO" id="GdJ-HW-qaC">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Print Debug Description" id="raa-3O-Wcp">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="printComponentDescription:" target="8YE-SB-0VP" id="hgY-0Z-Zi4"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="orT-Iw-v9H"/>
+                        <menuItem title="Remove" id="Ozh-bC-QwX">
+                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="removeComponent:" target="8YE-SB-0VP" id="FZU-pG-Qi0"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
             <point key="canvasLocation" x="75" y="1174"/>
         </scene>

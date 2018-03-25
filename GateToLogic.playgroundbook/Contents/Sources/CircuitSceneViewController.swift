@@ -86,11 +86,6 @@ extension CircuitSceneViewController {
         guard let coordinates = hits.first?.worldCoordinates else { return nil }
         return GridPoint(point: CGPoint(x: coordinates.x, y: coordinates.z))
     }
-
-    func set(_ component: Composable, at point: CGPoint) {
-        guard let position = self.position(at: point) else { return }
-        circuit[position] = component
-    }
 }
 
 extension CircuitSceneViewController : SCNSceneRendererDelegate {

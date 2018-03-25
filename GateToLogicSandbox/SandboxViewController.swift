@@ -13,6 +13,8 @@ final class SandboxViewController : NSViewController {
 
     private var rightClickEvent: NSEvent?
 
+    private var currentComponentPosition: GridPoint?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,94 +24,87 @@ final class SandboxViewController : NSViewController {
         circuitSceneViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         circuitSceneViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         circuitSceneViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
-        /*circuitSceneViewController.circuit.add(Constant(position: GridPoint(x: 0, y: 0), value: true))
-        circuitSceneViewController.circuit.add(Wire(position: GridPoint(x: 1, y : 0), orientations: [.left, .right]))
-        circuitSceneViewController.circuit.add(Wire(position: GridPoint(x: 2, y : 0), orientations: [.left, .bottom, .right]))
-        circuitSceneViewController.circuit.add(Wire(position: GridPoint(x: 3, y : 0), orientations: [.left, .right]))
-        circuitSceneViewController.circuit.add(Wire(position: GridPoint(x: 2, y : 1), orientations: [.top, .bottom]))
-        circuitSceneViewController.circuit.add(Gate(position: GridPoint(x: 2, y : 2), operator: .and))
-        circuitSceneViewController.circuit.add(Wire(position: GridPoint(x: 3, y : 2), orientations: [.left, .right]))
-        circuitSceneViewController.circuit.add(Led(position: GridPoint(x: 4, y: 0)))
-        circuitSceneViewController.circuit.add(Led(position: GridPoint(x: 4, y: 2)))*/
     }
+
+    @IBOutlet var addComponentMenu: NSMenu!
+
+    @IBOutlet var componentContextMenu: NSMenu!
 
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
 
-        guard let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)) else { return }
+        currentComponentPosition = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil))
+        guard let position = currentComponentPosition else { return }
+
+        guard circuitSceneViewController.circuit[position] != nil else {
+            return NSMenu.popUpContextMenu(addComponentMenu, with: event, for: view)
+        }
+
         circuitSceneViewController.circuit[position]?.trigger()
     }
 
     override func rightMouseDown(with event: NSEvent) {
         super.rightMouseDown(with: event)
 
-        rightClickEvent = event
+        currentComponentPosition = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil))
+        guard let position = currentComponentPosition else { return }
 
-        guard let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)) else { return }
-
-        if let component = circuitSceneViewController.circuit[position] {
-            let menu = NSMenu(title: "Context")
-            menu.addItem(NSMenuItem(title: String(reflecting: component), action: nil, keyEquivalent: ""))
-            menu.addItem(NSMenuItem(title: "Print", action: #selector(printDescription(sender:)), keyEquivalent: ""))
-            menu.addItem(NSMenuItem.separator())
-            menu.addItem(NSMenuItem(title: "Remove", action: #selector(remove(sender:)), keyEquivalent: ""))
-            return NSMenu.popUpContextMenu(menu, with: event, for: view)
+        guard let component = circuitSceneViewController.circuit[position] else {
+            return NSMenu.popUpContextMenu(addComponentMenu, with: event, for: view)
         }
 
-        let menu = NSMenu(title: "Context")
-        menu.addItem(NSMenuItem(title: "Add Constant", action: #selector(addConstant(sender:)), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Add And Gate", action: #selector(addAndGate(sender:)), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Add Or Gate", action: #selector(addOrGate(sender:)), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Add Led", action: #selector(addLed(sender:)), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Add Wire", action: #selector(addWire(sender:)), keyEquivalent: ""))
-        NSMenu.popUpContextMenu(menu, with: event, for: view)
+        componentContextMenu.items.first?.title = String(reflecting: component)
+        NSMenu.popUpContextMenu(componentContextMenu, with: event, for: view)
     }
 
-    @objc
-    func printDescription(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
+    @IBAction
+    func printComponentDescription(_ sender: Any) {
         guard
-            let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)),
+            let position = currentComponentPosition,
             let component = circuitSceneViewController.circuit[position]
         else { return }
         print(String(reflecting: component))
     }
 
-    @objc
-    func remove(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
-        guard let position = circuitSceneViewController.position(at: view.convert(event.locationInWindow, to: nil)) else { return }
+    @IBAction
+    func removeComponent(_ sender: Any) {
+        guard let position = currentComponentPosition else { return }
         circuitSceneViewController.circuit[position] = nil
     }
 
-    @objc
-    func addConstant(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
-        circuitSceneViewController.set(Constant(value: true), at: view.convert(event.locationInWindow, to: nil))
+    @IBAction
+    func addZeroConstantComponent(_ sender: Any?) {
+        guard let position = currentComponentPosition else { return }
+        circuitSceneViewController.circuit[position] = Constant(value: false)
     }
 
-    @objc
-    func addAndGate(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
-        circuitSceneViewController.set(Gate(operator: .and), at: view.convert(event.locationInWindow, to: nil))
+    @IBAction
+    func addOneConstantComponent(_ sender: Any?) {
+        guard let position = currentComponentPosition else { return }
+        circuitSceneViewController.circuit[position] = Constant(value: true)
     }
 
-    @objc
-    func addOrGate(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
-        circuitSceneViewController.set(Gate(operator: .or), at: view.convert(event.locationInWindow, to: nil))
+    @IBAction
+    func addAndGateComponent(_ sender: Any?) {
+        guard let position = currentComponentPosition else { return }
+        circuitSceneViewController.circuit[position] = Gate(operator: .and)
     }
 
-    @objc
-    func addLed(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
-        circuitSceneViewController.set(Led(), at: view.convert(event.locationInWindow, to: nil))
+    @IBAction
+    func addOrGateComponent(_ sender: Any?) {
+        guard let position = currentComponentPosition else { return }
+        circuitSceneViewController.circuit[position] = Gate(operator: .or)
     }
 
-    @objc
-    func addWire(sender: Any?) {
-        guard let event = rightClickEvent else { fatalError() }
-        circuitSceneViewController.set(Wire(orientations: [.left, .right, .top, .bottom]), at: view.convert(event.locationInWindow, to: nil))
+    @IBAction
+    func addLedComponent(_ sender: Any?) {
+        guard let position = currentComponentPosition else { return }
+        circuitSceneViewController.circuit[position] = Led()
+    }
+
+    @IBAction
+    func addWireComponent(_ sender: Any?) {
+        guard let position = currentComponentPosition else { return }
+        circuitSceneViewController.circuit[position] = Wire(orientations: [.left, .top, .right, .bottom])
     }
 }
