@@ -60,16 +60,10 @@ final class GateNodeController : NodeControlling {
 
     var gate: Gate {
         didSet {
-            switch gate.operator {
-            case .and:
-                andNode.isHidden = false
-                orNode.isHidden = true
-                andNode.geometry?.materials = [.material(for: gate.state)]
-            case .or:
-                andNode.isHidden = true
-                orNode.isHidden = false
-                orNode.geometry?.materials = [.material(for: gate.state)]
-            }
+            andNode.isHidden = gate.operator != .and
+            andNode.geometry?.materials = [.material(for: gate.state)]
+            orNode.isHidden = gate.operator != .or
+            orNode.geometry?.materials = [.material(for: gate.state)]
 
             leftNode.isHidden = gate.left == .unknown
             leftNode.geometry?.materials = [.material(for: gate.left)]

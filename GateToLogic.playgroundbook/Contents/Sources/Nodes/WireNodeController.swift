@@ -22,22 +22,48 @@ final class WireNodeController : NodeControlling {
         return node
     }()
 
-    lazy var leftRightNode: SCNNode = {
-        guard let node = node.childNode(withName: "Wire-LeftRight", recursively: true) else { fatalError() }
+    lazy var leftNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-Left", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var topBottomNode: SCNNode = {
-        guard let node = node.childNode(withName: "Wire-TopBottom", recursively: true) else { fatalError() }
+    lazy var topNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-Top", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
+    lazy var rightNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-Right", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
+    lazy var bottomNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-Bottom", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
+    lazy var connectorNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-Connector", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     var wire: Wire {
         didSet {
-            leftRightNode.geometry?.materials = [.material(for: wire.state)]
-            topBottomNode.geometry?.materials = [.material(for: wire.state)]
+            leftNode.isHidden = !wire.orientations.contains(.left)
+            leftNode.geometry?.materials = [.material(for: wire.state)]
+            topNode.isHidden = !wire.orientations.contains(.top)
+            topNode.geometry?.materials = [.material(for: wire.state)]
+            rightNode.isHidden = !wire.orientations.contains(.right)
+            rightNode.geometry?.materials = [.material(for: wire.state)]
+            bottomNode.isHidden = !wire.orientations.contains(.bottom)
+            bottomNode.geometry?.materials = [.material(for: wire.state)]
+            connectorNode.isHidden = wire.orientations == [.left, .right] || wire.orientations != [.top, .bottom]
+            connectorNode.geometry?.materials = [.material(for: wire.state)]
         }
     }
 }
