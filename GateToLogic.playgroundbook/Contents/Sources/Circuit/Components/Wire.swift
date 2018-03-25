@@ -33,8 +33,9 @@ extension Wire : Composable {
     }
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
-        guard orientations.contains(orientation), neighbor?[orientation.opposite] != state else { return false }
+        guard orientations.contains(orientation) else { return false }
+        let previousState = neighbor?[orientation.opposite]
         neighbor?[orientation.opposite] = state
-        return true
+        return previousState != neighbor?[orientation.opposite]
     }
 }

@@ -36,8 +36,9 @@ extension Constant : Composable {
     }
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
-        guard orientation == .right, neighbor?[.left] != State(value) else { return false }
-        neighbor?[.left] = State(value)
-        return true
+        guard orientation == .right else { return false }
+        let previousState = neighbor?[orientation.opposite]
+        neighbor?[orientation.opposite] = State(value)
+        return previousState != neighbor?[orientation.opposite]
     }
 }

@@ -53,9 +53,10 @@ extension Gate : Composable {
     }
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
-        guard orientation == .right, neighbor?[.left] != state else { return false }
-        neighbor?[.left] = state
-        return true
+        guard orientation == .right else { return false }
+        let previousState = neighbor?[orientation.opposite]
+        neighbor?[orientation.opposite] = state
+        return previousState != neighbor?[orientation.opposite]
     }
 
     var inputs: Set<State> {
