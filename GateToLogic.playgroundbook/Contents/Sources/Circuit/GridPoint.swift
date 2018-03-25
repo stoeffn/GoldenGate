@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-struct GridPoint {
+struct GridPoint : Codable {
     let x: Int
 
     let y: Int

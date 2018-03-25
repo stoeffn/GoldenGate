@@ -6,8 +6,12 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-struct Gate {
-    enum Operator {
+struct Gate : Codable {
+    enum CodingKeys : String, CodingKey {
+        case `operator`
+    }
+
+    enum Operator : String, Codable {
         case and, or
     }
 

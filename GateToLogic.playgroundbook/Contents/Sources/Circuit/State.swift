@@ -6,7 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-enum State {
+enum State : String, Codable {
     case unknown, zero, one
 
     init(_ value: Bool) {

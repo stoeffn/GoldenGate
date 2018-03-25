@@ -6,7 +6,9 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-struct Led {
+struct Led : Codable {
+    enum CodingKeys : CodingKey { }
+    
     var isActive = true
 
     private(set) var value = false

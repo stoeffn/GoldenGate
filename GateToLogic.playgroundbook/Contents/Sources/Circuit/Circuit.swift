@@ -7,9 +7,15 @@
 //
 
 struct Circuit {
+    // MARK: - Life Cycle
+
+    init() {
+        components = [:]
+    }
+
     // MARK: - Managing Components
 
-    private var components = [GridPoint: Composable]()
+    private var components: [GridPoint: Composable]
 
     var didAdd: ((Composable, GridPoint) -> Void)?
 
@@ -94,5 +100,25 @@ struct Circuit {
 
         resetInputs()
         updatePassiveComponents()
+    }
+}
+
+// MARK: - Coding
+
+extension Circuit : Codable {
+    enum CodingKeys : String, CodingKey {
+        case components
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let positionedComponents = try container.decode([AnyPositionedComponent].self, forKey: .components)
+        components = Dictionary(uniqueKeysWithValues: positionedComponents.map { (key: $0.position, value: $0.component) })
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        let positionedComponents = components.flatMap { AnyPositionedComponent(component: $0.value, position: $0.key) }
+        try positionedComponents.encode(to: container.superEncoder(forKey: .components))
     }
 }

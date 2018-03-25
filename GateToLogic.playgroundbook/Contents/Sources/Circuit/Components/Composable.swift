@@ -6,7 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-protocol Composable {
+protocol Composable : Codable {
     var isActive: Bool { get }
 
     subscript(_ orientation: Orientation) -> State { get set }

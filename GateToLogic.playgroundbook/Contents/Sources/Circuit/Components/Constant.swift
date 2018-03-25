@@ -6,7 +6,11 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-struct Constant {
+struct Constant : Codable {
+    enum CodingKeys : String, CodingKey {
+        case value
+    }
+
     let isActive = true
 
     var value: Bool

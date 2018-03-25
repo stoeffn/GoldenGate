@@ -6,7 +6,11 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-struct Wire {
+struct Wire : Codable {
+    enum CodingKeys : String, CodingKey {
+        case orientations
+    }
+
     var isActive = false
 
     var orientations: Set<Orientation>
