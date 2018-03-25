@@ -22,9 +22,22 @@ final class WireNodeController : NodeControlling {
         return node
     }()
 
+    lazy var leftRightNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-LeftRight", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
+    lazy var topBottomNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-TopBottom", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
     var wire: Wire {
         didSet {
-            node.geometry?.materials = [.material(for: wire.state)]
+            leftRightNode.geometry?.materials = [.material(for: wire.state)]
+            topBottomNode.geometry?.materials = [.material(for: wire.state)]
         }
     }
 }

@@ -42,9 +42,7 @@ final class SandboxViewController : NSViewController {
         currentComponentPosition = circuitSceneViewController?.position(at: view.convert(event.locationInWindow, to: nil))
         guard let position = currentComponentPosition else { return }
 
-        guard circuitSceneViewController?.circuit[position] != nil else {
-            return NSMenu.popUpContextMenu(addComponentMenu, with: event, for: view)
-        }
+        guard circuitSceneViewController?.circuit[position] != nil else { return}
 
         circuitSceneViewController?.circuit[position]?.trigger()
     }
