@@ -6,6 +6,10 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+#if os(iOS)
+    import UIKit
+#endif
+
 public class CircuitViewController : ViewController {
     private(set) var circuitSceneViewController: CircuitSceneViewController?
 

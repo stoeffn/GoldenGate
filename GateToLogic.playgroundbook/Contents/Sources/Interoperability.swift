@@ -7,19 +7,13 @@
 //
 
 #if os(iOS)
-
     import UIKit
 
     public typealias Color = UIColor
-
     public typealias ViewController = UIViewController
-
 #elseif os(OSX)
-
     import Cocoa
 
     public typealias Color = NSColor
-
     public typealias ViewController = NSViewController
-
 #endif

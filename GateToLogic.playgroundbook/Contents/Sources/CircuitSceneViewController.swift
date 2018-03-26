@@ -33,7 +33,7 @@ public final class CircuitSceneViewController : NSObject {
         return scene
     }()
 
-    private(set) lazy var view: SCNView = {
+    public private(set) lazy var view: SCNView = {
         let view = SCNView()
         view.scene = scene
         view.showsStatistics = true

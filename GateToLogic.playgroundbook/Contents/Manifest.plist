@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Version</key>
-	<string>1.0</string>
+	<string>3.0</string>
+	<key>DevelopmentRegion</key>
+	<string>de</string>
 	<key>ContentVersion</key>
 	<string>1.0</string>
 	<key>Name</key>
