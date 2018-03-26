@@ -37,7 +37,9 @@ public final class CircuitSceneViewController : NSObject {
         let view = SCNView()
         view.scene = scene
         view.showsStatistics = true
-        view.isJitteringEnabled = true
+        #if os(OSX)
+            view.isJitteringEnabled = true
+        #endif
         return view
     }()
 
