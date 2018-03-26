@@ -7,6 +7,7 @@
 //
 
 public class CircuitViewController : ViewController {
+
     // MARK: - Circuit Management
 
     private(set) var circuitSceneViewController: CircuitSceneViewController?

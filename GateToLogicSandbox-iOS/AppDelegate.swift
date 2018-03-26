@@ -19,7 +19,7 @@ final class AppDelegate : UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let controller = CircuitViewController()
+        let controller = UIKitCircuitViewController()
         controller.circuit = circuit(named: "Clock") ?? Circuit()
 
         window = UIWindow(frame: UIScreen.main.bounds)

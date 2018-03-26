@@ -7,6 +7,7 @@
 //
 
 public struct Circuit {
+
     // MARK: - Life Cycle
 
     public init() {

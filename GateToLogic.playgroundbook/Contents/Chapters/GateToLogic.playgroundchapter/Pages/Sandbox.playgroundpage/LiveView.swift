@@ -1,3 +1,3 @@
 import PlaygroundSupport
 
-PlaygroundPage.current.liveView = CircuitViewController()
+PlaygroundPage.current.liveView = UIKitCircuitViewController()
