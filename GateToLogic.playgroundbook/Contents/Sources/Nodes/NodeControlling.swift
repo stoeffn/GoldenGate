@@ -8,7 +8,7 @@
 
 import SceneKit
 
-protocol NodeControlling {
+public protocol NodeControlling {
     var node: SCNNode { get }
 }
 

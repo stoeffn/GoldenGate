@@ -6,10 +6,10 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-struct Circuit {
+public struct Circuit {
     // MARK: - Life Cycle
 
-    init() {
+    public init() {
         components = [:]
     }
 
@@ -17,13 +17,13 @@ struct Circuit {
 
     private var components: [GridPoint: Composable]
 
-    var didAdd: ((Composable, GridPoint) -> Void)?
+    public var didAdd: ((Composable, GridPoint) -> Void)?
 
-    var didUpdate: ((Composable, GridPoint) -> Void)?
+    public var didUpdate: ((Composable, GridPoint) -> Void)?
 
-    var didRemove: ((Composable, GridPoint) -> Void)?
+    public var didRemove: ((Composable, GridPoint) -> Void)?
 
-    subscript(_ position: GridPoint) -> Composable? {
+    public subscript(_ position: GridPoint) -> Composable? {
         get { return components[position] }
         set {
             guard let component = newValue else { return removeComponent(at: position) }
@@ -53,7 +53,7 @@ struct Circuit {
         updatePassiveComponents()
     }
 
-    var positionedComponents: [(Composable, at: GridPoint)] {
+    public var positionedComponents: [(Composable, at: GridPoint)] {
         return components.map { ($0.value, at: $0.key) }
     }
 
@@ -93,7 +93,7 @@ struct Circuit {
         }
     }
 
-    mutating func tick() {
+    public mutating func tick() {
         for position in components.keys {
             components[position]?.tick()
 
@@ -108,7 +108,7 @@ struct Circuit {
 
     // MARK: - Helpers
 
-    func suggestedOrientations(forWireAt positon: GridPoint) -> Set<Orientation> {
+    public func suggestedOrientations(forWireAt positon: GridPoint) -> Set<Orientation> {
         let orientations: [Orientation] = [
             components[positon + Orientation.left.positionOffset]?.orientations.contains(.right) ?? false ? .left : nil,
             components[positon + Orientation.top.positionOffset]?.orientations.contains(.bottom) ?? false ? .top : nil,
@@ -128,13 +128,13 @@ extension Circuit : Codable {
         case components
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let positionedComponents = try container.decode([AnyPositionedComponent].self, forKey: .components)
         components = Dictionary(uniqueKeysWithValues: positionedComponents.map { (key: $0.position, value: $0.component) })
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         let positionedComponents = components.flatMap { AnyPositionedComponent(component: $0.value, position: $0.key) }
         try positionedComponents.encode(to: container.superEncoder(forKey: .components))

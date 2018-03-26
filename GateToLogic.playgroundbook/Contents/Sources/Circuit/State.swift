@@ -6,9 +6,11 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-enum State : String, Codable {
+public enum State : String, Codable {
     case unknown, zero, one
+}
 
+public extension State {
     init(_ value: Bool) {
         self = value ? .one : .zero
     }

@@ -14,7 +14,7 @@ public class CircuitViewController : ViewController {
         circuit = Circuit()
     }
 
-    var circuit: Circuit? {
+    public var circuit: Circuit? {
         get { return circuitSceneViewController?.circuit }
         set {
             circuitSceneViewController?.view.removeFromSuperview()

@@ -6,9 +6,11 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-enum Orientation : String, Codable {
+public enum Orientation : String, Codable {
     case left, top, right, bottom
+}
 
+public extension Orientation {
     var opposite: Orientation {
         switch self {
         case .left: return .right

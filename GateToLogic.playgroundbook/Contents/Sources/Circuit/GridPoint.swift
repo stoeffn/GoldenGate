@@ -8,15 +8,15 @@
 
 import CoreGraphics
 
-struct GridPoint : Codable {
-    let x: Int
+public struct GridPoint : Codable {
+    public let x: Int
 
-    let y: Int
+    public let y: Int
 
-    static let zero = GridPoint(x: 0, y: 0)
+    public static let zero = GridPoint(x: 0, y: 0)
 }
 
-extension GridPoint {
+public extension GridPoint {
     init(point: CGPoint) {
         self.x = Int(round(point.x))
         self.y = Int(round(point.y))
@@ -36,17 +36,17 @@ extension GridPoint {
 }
 
 extension GridPoint : CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return "(x: \(x), y: \(y))"
     }
 }
 
 extension GridPoint : Hashable {
-    var hashValue: Int {
+    public var hashValue: Int {
         return x.hashValue ^ y.hashValue &* 16777619
     }
 
-    static func == (lhs: GridPoint, rhs: GridPoint) -> Bool {
+    public static func == (lhs: GridPoint, rhs: GridPoint) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y
     }
 }

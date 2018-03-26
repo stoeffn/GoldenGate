@@ -8,8 +8,8 @@
 
 import SceneKit
 
-final class CircuitSceneViewController : NSObject {
-    init(circuit: Circuit = Circuit()) {
+public final class CircuitSceneViewController : NSObject {
+    public init(circuit: Circuit = Circuit()) {
         self.circuit = circuit
 
         super.init()
@@ -24,9 +24,9 @@ final class CircuitSceneViewController : NSObject {
         }
     }
 
-    var circuit: Circuit
+    public var circuit: Circuit
 
-    let tickInterval: TimeInterval = 0.1
+    private let tickInterval: TimeInterval = 0.1
 
     private lazy var scene: SCNScene = {
         guard let scene = SCNScene(named: "CircuitScene.scn") else { fatalError() }
@@ -44,8 +44,8 @@ final class CircuitSceneViewController : NSObject {
     private lazy var componentNodeControllers = [GridPoint: NodeControlling]()
 }
 
-extension CircuitSceneViewController {
-    private func nodeController(for component: Composable) -> NodeControlling {
+private extension CircuitSceneViewController {
+    func nodeController(for component: Composable) -> NodeControlling {
         switch component {
         case let constant as Constant:
             return ConstantNodeController(constant: constant)
@@ -60,7 +60,7 @@ extension CircuitSceneViewController {
         }
     }
 
-    private func didAdd(component: Composable, at position: GridPoint) {
+    func didAdd(component: Composable, at position: GridPoint) {
         let controller = nodeController(for: component)
         controller.node.position = SCNVector3(position.x, 0, position.y)
 
@@ -68,7 +68,7 @@ extension CircuitSceneViewController {
         componentNodeControllers[position] = controller
     }
 
-    private func didUpdate(component: Composable, at position: GridPoint) {
+    func didUpdate(component: Composable, at position: GridPoint) {
         guard let controller = componentNodeControllers[position] else { return }
 
         switch (component, controller) {
@@ -85,13 +85,13 @@ extension CircuitSceneViewController {
         }
     }
 
-    private func didRemove(component: Composable, at position: GridPoint) {
+    func didRemove(component: Composable, at position: GridPoint) {
         componentNodeControllers[position]?.node.removeFromParentNode()
         componentNodeControllers[position] = nil
     }
 }
 
-extension CircuitSceneViewController {
+public extension CircuitSceneViewController {
     func position(at point: CGPoint) -> GridPoint? {
         let hits = view.hitTest(point, options: nil)
         guard let coordinates = hits.first?.worldCoordinates else { return nil }

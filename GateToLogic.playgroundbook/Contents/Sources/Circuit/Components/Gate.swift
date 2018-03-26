@@ -6,20 +6,20 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-struct Gate : Codable {
+public struct Gate : Codable {
     enum CodingKeys : String, CodingKey {
         case `operator`
     }
 
-    enum Operator : String, Codable {
+    public enum Operator : String, Codable {
         case and, or
     }
 
-    let isActive = true
+    public let isActive = true
 
-    let orientations: Set<Orientation> = [.left, .top, .right, .bottom]
+    public let orientations: Set<Orientation> = [.left, .top, .right, .bottom]
 
-    let `operator`: Operator
+    public let `operator`: Operator
 
     var left = State.unknown
 
@@ -29,17 +29,17 @@ struct Gate : Codable {
 
     private var stateQueue: [State] = [.unknown, .unknown]
 
-    var state: State {
+    public var state: State {
         return stateQueue.first ?? .unknown
     }
 
-    init(operator: Operator) {
+    public init(operator: Operator) {
         self.operator = `operator`
     }
 }
 
 extension Gate : Composable {
-    subscript(_ orientation: Orientation) -> State {
+    public subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
             case .left: return left
@@ -58,18 +58,18 @@ extension Gate : Composable {
         }
     }
 
-    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
+    public func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         guard orientation == .right else { return false }
         let previousState = neighbor?[orientation.opposite]
         neighbor?[orientation.opposite] = state
         return previousState != neighbor?[orientation.opposite]
     }
 
-    var inputs: Set<State> {
+    public var inputs: Set<State> {
         return Set([left, top, bottom].filter { $0 != .unknown })
     }
 
-    mutating func tick() {
+    public mutating func tick() {
         stateQueue.removeFirst()
 
         guard !inputs.isEmpty else { return stateQueue.append(.unknown) }

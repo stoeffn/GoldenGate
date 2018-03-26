@@ -8,12 +8,12 @@
 
 import SceneKit
 
-final class GateNodeController : NodeControlling {
-    init(gate: Gate) {
+public final class GateNodeController : NodeControlling {
+    public init(gate: Gate) {
         self.gate = gate
     }
 
-    lazy var node: SCNNode = {
+    public lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Gate", recursively: true)
@@ -58,7 +58,7 @@ final class GateNodeController : NodeControlling {
         return node
     }()
 
-    var gate: Gate {
+    public var gate: Gate {
         didSet {
             andNode.isHidden = gate.operator != .and
             andNode.geometry?.materials = [.material(for: gate.state)]

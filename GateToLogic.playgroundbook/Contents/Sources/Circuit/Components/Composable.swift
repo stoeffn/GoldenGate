@@ -6,7 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-protocol Composable : Codable {
+public protocol Composable : Codable {
     var isActive: Bool { get }
 
     var orientations: Set<Orientation> { get }
@@ -22,7 +22,7 @@ protocol Composable : Codable {
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool
 }
 
-extension Composable {
+public extension Composable {
     subscript(_ orientation: Orientation) -> State {
         get { return .unknown }
         set { }

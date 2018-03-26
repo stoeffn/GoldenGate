@@ -8,12 +8,12 @@
 
 import SceneKit
 
-final class ConstantNodeController : NodeControlling {
-    init(constant: Constant) {
+public final class ConstantNodeController : NodeControlling {
+    public init(constant: Constant) {
         self.constant = constant
     }
 
-    lazy var node: SCNNode = {
+    public lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Constant", recursively: true)
@@ -34,7 +34,7 @@ final class ConstantNodeController : NodeControlling {
         return node
     }
 
-    var constant: Constant {
+    public var constant: Constant {
         didSet {
             buttonNode.isHidden = constant.value
             node.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]

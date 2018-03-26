@@ -8,12 +8,12 @@
 
 import SceneKit
 
-final class WireNodeController : NodeControlling {
-    init(wire: Wire) {
+public final class WireNodeController : NodeControlling {
+    public init(wire: Wire) {
         self.wire = wire
     }
 
-    lazy var node: SCNNode = {
+    public lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Wire", recursively: true)
@@ -52,7 +52,7 @@ final class WireNodeController : NodeControlling {
         return node
     }()
 
-    var wire: Wire {
+    public var wire: Wire {
         didSet {
             leftNode.isHidden = !wire.orientations.contains(.left)
             leftNode.geometry?.materials = [.material(for: wire.state)]

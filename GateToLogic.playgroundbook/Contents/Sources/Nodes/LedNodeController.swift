@@ -8,12 +8,12 @@
 
 import SceneKit
 
-final class LedNodeController : NodeControlling {
-    init(led: Led) {
+public final class LedNodeController : NodeControlling {
+    public init(led: Led) {
         self.led = led
     }
 
-    lazy var node: SCNNode = {
+    public lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Led", recursively: true)
@@ -42,7 +42,7 @@ final class LedNodeController : NodeControlling {
         return node
     }()
 
-    var led: Led {
+    public var led: Led {
         didSet {
             node.geometry?.materials = [led.value ? .oneLed : .zeroLed]
             socketNode.geometry?.materials = [led.value ? .oneLed : .zeroLed]
