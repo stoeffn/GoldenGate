@@ -17,6 +17,8 @@ struct Gate : Codable {
 
     let isActive = true
 
+    let orientations: Set<Orientation> = [.left, .top, .right, .bottom]
+
     let `operator`: Operator
 
     var left = State.unknown

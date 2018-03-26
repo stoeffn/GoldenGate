@@ -11,6 +11,8 @@ struct Led : Codable {
     
     var isActive = true
 
+    let orientations: Set<Orientation> = [.left]
+
     private(set) var value = false
 
     init() { }

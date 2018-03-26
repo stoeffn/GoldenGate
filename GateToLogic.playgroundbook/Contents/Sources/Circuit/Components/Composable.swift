@@ -9,6 +9,8 @@
 protocol Composable : Codable {
     var isActive: Bool { get }
 
+    var orientations: Set<Orientation> { get }
+
     subscript(_ orientation: Orientation) -> State { get set }
 
     mutating func tick()

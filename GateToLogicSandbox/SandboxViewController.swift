@@ -109,6 +109,7 @@ final class SandboxViewController : NSViewController {
     @IBAction
     func addWireComponent(_ sender: Any?) {
         guard let position = currentComponentPosition else { return }
-        circuitSceneViewController?.circuit[position] = Wire(orientations: [.left, .top, .right, .bottom])
+        let orientations = circuitSceneViewController?.circuit.suggestedOrientations(forWireAt: position) ?? []
+        circuitSceneViewController?.circuit[position] = Wire(orientations: orientations)
     }
 }

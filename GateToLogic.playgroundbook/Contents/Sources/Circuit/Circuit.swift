@@ -105,6 +105,20 @@ struct Circuit {
         resetInputs()
         updatePassiveComponents()
     }
+
+    // MARK: - Helpers
+
+    func suggestedOrientations(forWireAt positon: GridPoint) -> Set<Orientation> {
+        let orientations: [Orientation] = [
+            components[positon + Orientation.left.positionOffset]?.orientations.contains(.right) ?? false ? .left : nil,
+            components[positon + Orientation.top.positionOffset]?.orientations.contains(.bottom) ?? false ? .top : nil,
+            components[positon + Orientation.right.positionOffset]?.orientations.contains(.left) ?? false ? .right : nil,
+            components[positon + Orientation.bottom.positionOffset]?.orientations.contains(.top) ?? false ? .bottom : nil
+        ].flatMap { $0 }
+        guard !orientations.isEmpty else { return [.left, .right] }
+        guard let orientation = orientations.first, orientations.count == 1 else { return Set(orientations) }
+        return [orientation, orientation.opposite]
+    }
 }
 
 // MARK: - Coding

@@ -13,6 +13,8 @@ struct Constant : Codable {
 
     let isActive = true
 
+    let orientations: Set<Orientation> = [.right]
+
     var value: Bool
 
     init(value: Bool) {

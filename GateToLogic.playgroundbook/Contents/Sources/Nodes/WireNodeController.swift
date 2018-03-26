@@ -62,7 +62,7 @@ final class WireNodeController : NodeControlling {
             rightNode.geometry?.materials = [.material(for: wire.state)]
             bottomNode.isHidden = !wire.orientations.contains(.bottom)
             bottomNode.geometry?.materials = [.material(for: wire.state)]
-            connectorNode.isHidden = wire.orientations == [.left, .right] || wire.orientations != [.top, .bottom]
+            connectorNode.isHidden = wire.orientations == [.left, .right] || wire.orientations == [.top, .bottom]
             connectorNode.geometry?.materials = [.material(for: wire.state)]
         }
     }
