@@ -13,9 +13,9 @@ struct AnyPositionedComponent {
 
     let component: Composable
 
-    let position: GridPoint
+    let position: GridPoint?
 
-    init?(component: Composable, position: GridPoint) {
+    init?(component: Composable, position: GridPoint? = nil) {
         guard let entity = ComponentEntity(component: component) else { return nil }
         self.entity = entity
         self.component = component
@@ -31,7 +31,7 @@ extension AnyPositionedComponent : Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         entity = try container.decode(ComponentEntity.self, forKey: .entity)
-        position = try container.decode(GridPoint.self, forKey: .position)
+        position = try container.decodeIfPresent(GridPoint.self, forKey: .position)
 
         switch entity {
         case .constant: component = try container.decode(Constant.self, forKey: .component)
@@ -44,7 +44,7 @@ extension AnyPositionedComponent : Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(entity, forKey: .entity)
-        try position.encode(to: container.superEncoder(forKey: .position))
+        try position?.encode(to: container.superEncoder(forKey: .position))
         try component.encode(to: container.superEncoder(forKey: .component))
     }
 }

@@ -113,8 +113,9 @@
             session.items.first?.itemProvider.loadDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier) { (data, _) in
                 guard
                     let data = data,
-                    let previousPosition = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data).position
-                    else { return }
+                    let anyPositionedComponent = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data),
+                    let previousPosition = anyPositionedComponent.position
+                else { return }
                 self.circuitSceneViewController?.circuit[previousPosition] = nil
             }
         }

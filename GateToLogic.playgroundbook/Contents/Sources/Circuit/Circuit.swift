@@ -139,7 +139,7 @@ extension Circuit : Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let positionedComponents = try container.decode([AnyPositionedComponent].self, forKey: .components)
-        components = Dictionary(uniqueKeysWithValues: positionedComponents.map { (key: $0.position, value: $0.component) })
+        components = Dictionary(uniqueKeysWithValues: positionedComponents.map { (key: $0.position ?? .zero, value: $0.component) })
     }
 
     public func encode(to encoder: Encoder) throws {
