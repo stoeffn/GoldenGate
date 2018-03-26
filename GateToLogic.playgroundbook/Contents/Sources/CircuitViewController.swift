@@ -6,17 +6,8 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-#if os(iOS)
-    import UIKit
-#endif
-
 public class CircuitViewController : ViewController {
     private(set) var circuitSceneViewController: CircuitSceneViewController?
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        circuit = Circuit()
-    }
 
     public var circuit: Circuit? {
         get { return circuitSceneViewController?.circuit }

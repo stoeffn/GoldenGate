@@ -12,10 +12,18 @@ import UIKit
 final class AppDelegate : UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
+    func circuit(named name: String) -> Circuit? {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "logic") else { return nil }
+        return try? JSONDecoder().decode(Circuit.self, from: Data(contentsOf: url))
+    }
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let controller = CircuitViewController()
+        controller.circuit = circuit(named: "Clock") ?? Circuit()
+
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = CircuitViewController()
+        window?.rootViewController = controller
         window?.makeKeyAndVisible()
         return true
     }
