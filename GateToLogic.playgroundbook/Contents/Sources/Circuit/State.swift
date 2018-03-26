@@ -6,8 +6,6 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-import Cocoa
-
 enum State : String, Codable {
     case unknown, zero, one
 

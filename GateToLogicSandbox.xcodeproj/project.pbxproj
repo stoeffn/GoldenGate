@@ -10,6 +10,7 @@
 		2427A30E2066958E00F8BA9A /* CircuitScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 2427A30D2066958E00F8BA9A /* CircuitScene.scn */; };
 		243A6B9D206686EF00DC5780 /* CircuitSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */; };
 		247AEA8A206822E5001F7207 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AEA89206822E5001F7207 /* Materials.swift */; };
+		247AEA8C2068F890001F7207 /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AEA8B2068F890001F7207 /* Interoperability.swift */; };
 		24B1036A20658D070043D6C2 /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1036920658D070043D6C2 /* Gate.swift */; };
 		24BE11152066AAD00017C40F /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BE11142066AAD00017C40F /* CircuitAssets.scnassets */; };
 		24BE11182066CFB00017C40F /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE11172066CFB00017C40F /* ConstantNodeController.swift */; };
@@ -48,6 +49,7 @@
 		2427A30D2066958E00F8BA9A /* CircuitScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CircuitScene.scn; sourceTree = "<group>"; };
 		243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
 		247AEA89206822E5001F7207 /* Materials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
+		247AEA8B2068F890001F7207 /* Interoperability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
 		24B1036920658D070043D6C2 /* Gate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
 		24BE11142066AAD00017C40F /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
 		24BE11172066CFB00017C40F /* ConstantNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				243A6B9B2066565A00DC5780 /* Circuit */,
 				24BE11162066CF7E0017C40F /* Nodes */,
 				243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */,
+				247AEA8B2068F890001F7207 /* Interoperability.swift */,
 			);
 			name = Sources;
 			path = GateToLogic.playgroundbook/Contents/Sources;
@@ -312,6 +315,7 @@
 				24BE11202066D7FE0017C40F /* WireNodeController.swift in Sources */,
 				24BE11182066CFB00017C40F /* ConstantNodeController.swift in Sources */,
 				24BE111C2066D7DC0017C40F /* GateNodeController.swift in Sources */,
+				247AEA8C2068F890001F7207 /* Interoperability.swift in Sources */,
 				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
 				24BE111A2066D1180017C40F /* NodeControlling.swift in Sources */,
 				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,

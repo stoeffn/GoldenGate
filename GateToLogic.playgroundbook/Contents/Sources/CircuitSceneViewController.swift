@@ -95,6 +95,6 @@ extension CircuitSceneViewController {
     func position(at point: CGPoint) -> GridPoint? {
         let hits = view.hitTest(point, options: nil)
         guard let coordinates = hits.first?.worldCoordinates else { return nil }
-        return GridPoint(point: CGPoint(x: coordinates.x, y: coordinates.z))
+        return GridPoint(point: CGPoint(x: Double(coordinates.x), y: Double(coordinates.z)))
     }
 }

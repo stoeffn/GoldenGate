@@ -12,11 +12,11 @@ extension SCNMaterial {
     static var component: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = NSColor.white
+        material.metalness.contents = Color.white
         material.metalness.intensity = 0
-        material.diffuse.contents = NSColor.white
+        material.diffuse.contents = Color.white
         material.diffuse.intensity = 1
-        material.roughness.contents = NSColor.white
+        material.roughness.contents = Color.white
         material.roughness.intensity = 0.25
         return material
     }()
@@ -24,11 +24,11 @@ extension SCNMaterial {
     static var unknownComponent: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = NSColor.white
+        material.metalness.contents = Color.white
         material.metalness.intensity = 0
-        material.diffuse.contents = NSColor.white
+        material.diffuse.contents = Color.white
         material.diffuse.intensity = 1
-        material.roughness.contents = NSColor.white
+        material.roughness.contents = Color.white
         material.roughness.intensity = 0.1
         return material
     }()
@@ -36,11 +36,11 @@ extension SCNMaterial {
     static var zeroComponent: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = CGColor(red: 1, green: 0.23, blue: 0.19, alpha: 1)
+        material.metalness.contents = Color(red: 1, green: 0.23, blue: 0.19, alpha: 1)
         material.metalness.intensity = 0
-        material.diffuse.contents = CGColor(red: 1, green: 0.23, blue: 0.19, alpha: 1)
+        material.diffuse.contents = Color(red: 1, green: 0.23, blue: 0.19, alpha: 1)
         material.diffuse.intensity = 1
-        material.roughness.contents = CGColor(red: 1, green: 0.23, blue: 0.19, alpha: 1)
+        material.roughness.contents = Color(red: 1, green: 0.23, blue: 0.19, alpha: 1)
         material.roughness.intensity = 0.1
         return material
     }()
@@ -48,11 +48,11 @@ extension SCNMaterial {
     static var oneComponent: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = CGColor(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.metalness.contents = Color(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
         material.metalness.intensity = 0
-        material.diffuse.contents = CGColor(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.diffuse.contents = Color(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
         material.diffuse.intensity = 1
-        material.roughness.contents = CGColor(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.roughness.contents = Color(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
         material.roughness.intensity = 0.1
         return material
     }()
@@ -60,11 +60,11 @@ extension SCNMaterial {
     static var zeroLed: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.metalness.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.metalness.intensity = 0
-        material.diffuse.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.diffuse.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.diffuse.intensity = 1
-        material.roughness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.roughness.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.roughness.intensity = 0
         return material
     }()
@@ -72,13 +72,13 @@ extension SCNMaterial {
     static var oneLed: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.metalness.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.metalness.intensity = 0
-        material.diffuse.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.diffuse.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.diffuse.intensity = 1
-        material.roughness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.roughness.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.roughness.intensity = 0
-        material.emission.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.emission.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.emission.intensity = 1
         return material
     }()
