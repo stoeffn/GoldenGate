@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2018-02-21, commit time:10:41, hash:8928d99</authoring_tool>
     </contributor>
-    <created>2018-03-26T10:58:38</created>
-    <modified>2018-03-26T10:58:38</modified>
+    <created>2018-03-26T11:15:38</created>
+    <modified>2018-03-26T11:15:38</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -605,6 +605,9 @@
               </bind_material>
             </instance_geometry>
           </node>
+        </node>
+        <node id="Led-Light" name="Led-Light" type="NODE">
+          <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 1</matrix>
         </node>
       </node>
     </visual_scene>

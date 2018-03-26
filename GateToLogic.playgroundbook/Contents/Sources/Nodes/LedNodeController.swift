@@ -28,6 +28,14 @@ final class LedNodeController : NodeControlling {
         return node
     }()
 
+    lazy var lightNode: SCNNode = {
+        guard let node = node.childNode(withName: "Led-Light", recursively: true) else { fatalError() }
+        node.light = SCNLight()
+        node.light?.temperature = 128
+        node.light?.intensity = 0
+        return node
+    }()
+
     lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "Led-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
@@ -38,6 +46,7 @@ final class LedNodeController : NodeControlling {
         didSet {
             node.geometry?.materials = [led.value ? .oneLed : .zeroLed]
             socketNode.geometry?.materials = [led.value ? .oneLed : .zeroLed]
+            lightNode.light?.intensity = led.value ? 1 : 0
             leftNode.geometry?.materials = [led.value ? .oneComponent : .zeroComponent]
         }
     }
