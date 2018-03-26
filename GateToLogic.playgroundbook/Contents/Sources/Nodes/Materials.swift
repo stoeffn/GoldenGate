@@ -25,67 +25,61 @@ extension SCNMaterial {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
         material.metalness.contents = NSColor.white
-        material.metalness.intensity = 0.5
+        material.metalness.intensity = 0
         material.diffuse.contents = NSColor.white
-        material.diffuse.intensity = 0.5
+        material.diffuse.intensity = 1
         material.roughness.contents = NSColor.white
-        material.roughness.intensity = 0.25
+        material.roughness.intensity = 0.1
         return material
     }()
 
     static var zeroComponent: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = NSColor.red
-        material.metalness.intensity = 0.5
-        material.diffuse.contents = NSColor.red
-        material.diffuse.intensity = 0.5
-        material.roughness.contents = NSColor.red
-        material.roughness.intensity = 0.25
+        material.metalness.contents = CGColor(red: 1, green: 0.23, blue: 0.19, alpha: 1)
+        material.metalness.intensity = 0
+        material.diffuse.contents = CGColor(red: 1, green: 0.23, blue: 0.19, alpha: 1)
+        material.diffuse.intensity = 1
+        material.roughness.contents = CGColor(red: 1, green: 0.23, blue: 0.19, alpha: 1)
+        material.roughness.intensity = 0.1
         return material
     }()
 
     static var oneComponent: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = NSColor.green
-        material.metalness.intensity = 0.5
-        material.diffuse.contents = NSColor.green
-        material.diffuse.intensity = 0.5
-        material.roughness.contents = NSColor.green
-        material.roughness.intensity = 0.25
+        material.metalness.contents = CGColor(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.metalness.intensity = 0
+        material.diffuse.contents = CGColor(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.diffuse.intensity = 1
+        material.roughness.contents = CGColor(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.roughness.intensity = 0.1
         return material
     }()
 
     static var zeroLed: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = NSColor.orange
-        material.metalness.intensity = 0.5
-        material.diffuse.contents = NSColor.orange
-        material.diffuse.intensity = 0.5
-        material.roughness.contents = NSColor.orange
+        material.metalness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.metalness.intensity = 0
+        material.diffuse.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.diffuse.intensity = 1
+        material.roughness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.roughness.intensity = 0
-        material.transparencyMode = .dualLayer
-        material.transparent.contents = NSColor(calibratedWhite: 1, alpha: 0.6)
-        material.transparent.intensity = 0.5
         return material
     }()
 
     static var oneLed: SCNMaterial = {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
-        material.metalness.contents = NSColor.orange
-        material.metalness.intensity = 0.5
-        material.diffuse.contents = NSColor.orange
-        material.diffuse.intensity = 0.5
-        material.roughness.contents = NSColor.orange
+        material.metalness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.metalness.intensity = 0
+        material.diffuse.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.diffuse.intensity = 1
+        material.roughness.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.roughness.intensity = 0
-        material.transparencyMode = .dualLayer
-        material.transparent.contents = NSColor(calibratedWhite: 1, alpha: 0.8)
-        material.transparent.intensity = 0.5
-        material.emission.contents = NSColor.orange
-        material.emission.intensity = 0.75
+        material.emission.contents = CGColor(red: 1, green: 0.58, blue: 0, alpha: 1)
+        material.emission.intensity = 1
         return material
     }()
 
