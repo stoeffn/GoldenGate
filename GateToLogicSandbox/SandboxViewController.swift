@@ -8,28 +8,7 @@
 
 import SceneKit
 
-final class SandboxViewController : NSViewController {
-    private var circuitSceneViewController: CircuitSceneViewController?
-
-    var circuit: Circuit? {
-        get { return circuitSceneViewController?.circuit }
-        set {
-            circuitSceneViewController?.view.removeFromSuperview()
-
-            guard let circuit = newValue else { return }
-            let controller = CircuitSceneViewController(circuit: circuit)
-
-            view.addSubview(controller.view)
-            controller.view.translatesAutoresizingMaskIntoConstraints = false
-            controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
-            circuitSceneViewController = controller
-        }
-    }
-
+final class SandboxViewController : CircuitViewController {
     private var currentComponentPosition: GridPoint?
 
     @IBOutlet var addComponentMenu: NSMenu!

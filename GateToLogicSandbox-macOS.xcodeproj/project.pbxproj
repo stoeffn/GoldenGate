@@ -33,6 +33,7 @@
 		24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1720656E1F00BD1B06 /* Wire.swift */; };
 		24C49D1A20656E3000BD1B06 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1920656E3000BD1B06 /* Led.swift */; };
 		24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1B20656E4000BD1B06 /* Circuit.swift */; };
+		24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9662069098500E6CCDA /* CircuitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		24C49D1720656E1F00BD1B06 /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
 		24C49D1920656E3000BD1B06 /* Led.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Led.swift; sourceTree = "<group>"; };
 		24C49D1B20656E4000BD1B06 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
+		24F9D9662069098500E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				243A6B9B2066565A00DC5780 /* Circuit */,
 				24BE11162066CF7E0017C40F /* Nodes */,
 				243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */,
+				24F9D9662069098500E6CCDA /* CircuitViewController.swift */,
 				247AEA8B2068F890001F7207 /* Interoperability.swift */,
 			);
 			name = Sources;
@@ -317,6 +320,7 @@
 				24BE111C2066D7DC0017C40F /* GateNodeController.swift in Sources */,
 				247AEA8C2068F890001F7207 /* Interoperability.swift in Sources */,
 				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
+				24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */,
 				24BE111A2066D1180017C40F /* NodeControlling.swift in Sources */,
 				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,
 				24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */,

@@ -107,10 +107,10 @@
 		24F9D9352069060C00E6CCDA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */,
 				24F9D9372069060C00E6CCDA /* Nodes */,
 				24F9D93E2069060C00E6CCDA /* Circuit */,
 				24F9D94B2069060C00E6CCDA /* Interoperability.swift */,
+				24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */,
 				24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */,
 			);
 			name = Sources;

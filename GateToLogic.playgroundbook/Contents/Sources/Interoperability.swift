@@ -10,12 +10,16 @@
 
     import UIKit
 
-    typealias Color = UIColor
+    public typealias Color = UIColor
+
+    public typealias ViewController = UIViewController
 
 #elseif os(OSX)
 
     import Cocoa
 
-    typealias Color = NSColor
+    public typealias Color = NSColor
+
+    public typealias ViewController = NSViewController
 
 #endif
