@@ -40,7 +40,21 @@
 
         private var availableComponents: [(title: String, component: Composable)] = [
             (title: "Zero", component: Constant(value: false)),
-            (title: "One", component: Constant(value: true))
+            (title: "One", component: Constant(value: true)),
+            (title: "And", component: Gate(operator: .and)),
+            (title: "Or", component: Gate(operator: .or)),
+            (title: "Led", component: Led()),
+            (title: "Wire", component: Wire(orientations: [.left, .right])),
+            (title: "Wire", component: Wire(orientations: [.top, .bottom])),
+            (title: "Wire", component: Wire(orientations: [.left, .top])),
+            (title: "Wire", component: Wire(orientations: [.top, .right])),
+            (title: "Wire", component: Wire(orientations: [.right, .bottom])),
+            (title: "Wire", component: Wire(orientations: [.bottom, .left])),
+            (title: "Wire", component: Wire(orientations: [.left, .top, .right])),
+            (title: "Wire", component: Wire(orientations: [.top, .right, .bottom])),
+            (title: "Wire", component: Wire(orientations: [.right, .bottom, .left])),
+            (title: "Wire", component: Wire(orientations: [.bottom, .left, .top])),
+            (title: "Wire", component: Wire(orientations: [.left, .bottom, .left, .top]))
         ]
 
         @IBOutlet var previewSceneView: SCNView!
