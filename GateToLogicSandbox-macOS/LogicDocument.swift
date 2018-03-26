@@ -35,8 +35,8 @@ final class LogicDocument : NSDocument {
         circuit = try JSONDecoder().decode(Circuit.self, from: data)
     }
 
-    var controller: SandboxViewController {
-        guard let controller = windowControllers.first?.contentViewController as? SandboxViewController else { fatalError() }
+    var controller: AppKitCircuitViewController {
+        guard let controller = windowControllers.first?.contentViewController as? AppKitCircuitViewController else { fatalError() }
         return controller
     }
 }

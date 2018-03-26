@@ -20,7 +20,7 @@
 		24BE1124206798C40017C40F /* ComponentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE1123206798C40017C40F /* ComponentEntity.swift */; };
 		24BE11602067F7970017C40F /* LogicDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE115F2067F7970017C40F /* LogicDocument.swift */; };
 		24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEC20656D0400BD1B06 /* AppDelegate.swift */; };
-		24C49CEF20656D0400BD1B06 /* SandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */; };
+		24C49CEF20656D0400BD1B06 /* AppKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEE20656D0400BD1B06 /* AppKitCircuitViewController.swift */; };
 		24C49CF320656D0400BD1B06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF220656D0400BD1B06 /* Assets.xcassets */; };
 		24C49CF620656D0400BD1B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF420656D0400BD1B06 /* Main.storyboard */; };
 		24C49D0E20656DB700BD1B06 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D0D20656DB700BD1B06 /* GridPoint.swift */; };
@@ -34,17 +34,8 @@
 		24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9662069098500E6CCDA /* CircuitViewController.swift */; };
 		24F9D96F20692CAC00E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */; };
 		24F9D97020692CAC00E6CCDA /* CircuitScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D96E20692CAC00E6CCDA /* CircuitScene.scn */; };
+		24F9D987206938C000E6CCDA /* UIKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		24C49CFE20656D0400BD1B06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24C49CE120656D0400BD1B06 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 24C49CE820656D0400BD1B06;
-			remoteInfo = GateToLogicSandbox;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
@@ -61,13 +52,11 @@
 		24BE115F2067F7970017C40F /* LogicDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicDocument.swift; sourceTree = "<group>"; };
 		24C49CE920656D0400BD1B06 /* GateToLogicSandbox-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GateToLogicSandbox-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49CEC20656D0400BD1B06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxViewController.swift; sourceTree = "<group>"; };
+		24C49CEE20656D0400BD1B06 /* AppKitCircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitCircuitViewController.swift; sourceTree = "<group>"; };
 		24C49CF220656D0400BD1B06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C49CF520656D0400BD1B06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C49CF720656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C49CF820656D0400BD1B06 /* GateToLogicSandbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GateToLogicSandbox.entitlements; sourceTree = "<group>"; };
-		24C49CFD20656D0400BD1B06 /* GateToLogicSandbox-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GateToLogicSandbox-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24C49D0320656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C49D0D20656DB700BD1B06 /* GridPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		24C49D0F20656DC900BD1B06 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		24C49D1120656DE700BD1B06 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
@@ -79,17 +68,11 @@
 		24F9D9662069098500E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
 		24F9D96E20692CAC00E6CCDA /* CircuitScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CircuitScene.scn; sourceTree = "<group>"; };
+		24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitCircuitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		24C49CE620656D0400BD1B06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24C49CFA20656D0400BD1B06 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,7 +127,6 @@
 				24F9D96C20692CAC00E6CCDA /* PublicResources */,
 				24C49D0C20656DA000BD1B06 /* Sources */,
 				24C49CEB20656D0400BD1B06 /* GateToLogicSandbox */,
-				24C49D0020656D0400BD1B06 /* GateToLogicSandboxTests */,
 				24C49CEA20656D0400BD1B06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -153,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				24C49CE920656D0400BD1B06 /* GateToLogicSandbox-macOS.app */,
-				24C49CFD20656D0400BD1B06 /* GateToLogicSandbox-macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,30 +144,21 @@
 			children = (
 				24C49CEC20656D0400BD1B06 /* AppDelegate.swift */,
 				24BE115F2067F7970017C40F /* LogicDocument.swift */,
-				24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */,
 				24C49CF220656D0400BD1B06 /* Assets.xcassets */,
 				24C49CF420656D0400BD1B06 /* Main.storyboard */,
 				24C49CF720656D0400BD1B06 /* Info.plist */,
 				24C49CF820656D0400BD1B06 /* GateToLogicSandbox.entitlements */,
 			);
-			path = GateToLogicSandbox;
-			sourceTree = "<group>";
-		};
-		24C49D0020656D0400BD1B06 /* GateToLogicSandboxTests */ = {
-			isa = PBXGroup;
-			children = (
-				24C49D0320656D0400BD1B06 /* Info.plist */,
-			);
-			path = GateToLogicSandboxTests;
+			name = GateToLogicSandbox;
+			path = "GateToLogicSandbox-macOS";
 			sourceTree = "<group>";
 		};
 		24C49D0C20656DA000BD1B06 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				243A6B9B2066565A00DC5780 /* Circuit */,
+				24F9D97E2069381E00E6CCDA /* Controllers */,
 				24BE11162066CF7E0017C40F /* Nodes */,
-				243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */,
-				24F9D9662069098500E6CCDA /* CircuitViewController.swift */,
 				247AEA8B2068F890001F7207 /* Interoperability.swift */,
 			);
 			name = Sources;
@@ -201,6 +173,17 @@
 			);
 			name = PublicResources;
 			path = GateToLogic.playgroundbook/Contents/PublicResources;
+			sourceTree = "<group>";
+		};
+		24F9D97E2069381E00E6CCDA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24C49CEE20656D0400BD1B06 /* AppKitCircuitViewController.swift */,
+				243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */,
+				24F9D9662069098500E6CCDA /* CircuitViewController.swift */,
+				24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,24 +206,6 @@
 			productReference = 24C49CE920656D0400BD1B06 /* GateToLogicSandbox-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24C49CFC20656D0400BD1B06 /* GateToLogicSandbox-macOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24C49D0920656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-macOSTests" */;
-			buildPhases = (
-				24C49CF920656D0400BD1B06 /* Sources */,
-				24C49CFA20656D0400BD1B06 /* Frameworks */,
-				24C49CFB20656D0400BD1B06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				24C49CFF20656D0400BD1B06 /* PBXTargetDependency */,
-			);
-			name = "GateToLogicSandbox-macOSTests";
-			productName = GateToLogicSandboxTests;
-			productReference = 24C49CFD20656D0400BD1B06 /* GateToLogicSandbox-macOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -254,11 +219,6 @@
 					24C49CE820656D0400BD1B06 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-					};
-					24C49CFC20656D0400BD1B06 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 24C49CE820656D0400BD1B06;
 					};
 				};
 			};
@@ -276,7 +236,6 @@
 			projectRoot = "";
 			targets = (
 				24C49CE820656D0400BD1B06 /* GateToLogicSandbox-macOS */,
-				24C49CFC20656D0400BD1B06 /* GateToLogicSandbox-macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,13 +249,6 @@
 				24C49CF320656D0400BD1B06 /* Assets.xcassets in Resources */,
 				24F9D96F20692CAC00E6CCDA /* CircuitAssets.scnassets in Resources */,
 				24F9D97020692CAC00E6CCDA /* CircuitScene.scn in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24C49CFB20656D0400BD1B06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,10 +273,11 @@
 				247AEA8C2068F890001F7207 /* Interoperability.swift in Sources */,
 				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
 				24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */,
+				24F9D987206938C000E6CCDA /* UIKitCircuitViewController.swift in Sources */,
 				24BE111A2066D1180017C40F /* NodeControlling.swift in Sources */,
 				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,
 				24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */,
-				24C49CEF20656D0400BD1B06 /* SandboxViewController.swift in Sources */,
+				24C49CEF20656D0400BD1B06 /* AppKitCircuitViewController.swift in Sources */,
 				243A6B9D206686EF00DC5780 /* CircuitSceneViewController.swift in Sources */,
 				24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */,
 				24BE112220670FCD0017C40F /* AnyPositionedComponent.swift in Sources */,
@@ -333,22 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24C49CF920656D0400BD1B06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		24C49CFF20656D0400BD1B06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 24C49CE820656D0400BD1B06 /* GateToLogicSandbox-macOS */;
-			targetProxy = 24C49CFE20656D0400BD1B06 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		24C49CF420656D0400BD1B06 /* Main.storyboard */ = {
@@ -472,11 +410,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GateToLogicSandbox/GateToLogicSandbox.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "GateToLogicSandbox-macOS/GateToLogicSandbox.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X63VKA93X8;
-				INFOPLIST_FILE = GateToLogicSandbox/Info.plist;
+				INFOPLIST_FILE = "GateToLogicSandbox-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,49 +426,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GateToLogicSandbox/GateToLogicSandbox.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "GateToLogicSandbox-macOS/GateToLogicSandbox.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X63VKA93X8;
-				INFOPLIST_FILE = GateToLogicSandbox/Info.plist;
+				INFOPLIST_FILE = "GateToLogicSandbox-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		24C49D0A20656D0400BD1B06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X63VKA93X8;
-				INFOPLIST_FILE = GateToLogicSandboxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SteffenRyll.GateToLogicSandboxTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GateToLogicSandbox-macOS.app/Contents/MacOS/GateToLogicSandbox-macOS";
-			};
-			name = Debug;
-		};
-		24C49D0B20656D0400BD1B06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X63VKA93X8;
-				INFOPLIST_FILE = GateToLogicSandboxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SteffenRyll.GateToLogicSandboxTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GateToLogicSandbox-macOS.app/Contents/MacOS/GateToLogicSandbox-macOS";
 			};
 			name = Release;
 		};
@@ -551,15 +455,6 @@
 			buildConfigurations = (
 				24C49D0720656D0400BD1B06 /* Debug */,
 				24C49D0820656D0400BD1B06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		24C49D0920656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-macOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24C49D0A20656D0400BD1B06 /* Debug */,
-				24C49D0B20656D0400BD1B06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

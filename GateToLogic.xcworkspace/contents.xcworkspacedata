@@ -5,7 +5,7 @@
       location = "group:/Users/steffenryll/Repositories/GateToLogic/GateToLogicSandbox-macOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:GateToLogicSandbox-iOS/GateToLogicSandbox-iOS.xcodeproj">
+      location = "group:GateToLogicSandbox-iOS.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:GateToLogic.playgroundbook">

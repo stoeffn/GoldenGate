@@ -10,7 +10,6 @@
 		247AEA9A20690392001F7207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AEA9920690392001F7207 /* AppDelegate.swift */; };
 		247AEAA320690392001F7207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA220690392001F7207 /* Assets.xcassets */; };
 		247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA420690392001F7207 /* LaunchScreen.storyboard */; };
-		24F9D94D2069060C00E6CCDA /* CircuitSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */; };
 		24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9382069060C00E6CCDA /* GateNodeController.swift */; };
 		24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */; };
 		24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93A2069060C00E6CCDA /* LedNodeController.swift */; };
@@ -29,10 +28,13 @@
 		24F9D95D2069060C00E6CCDA /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9492069060C00E6CCDA /* Gate.swift */; };
 		24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94A2069060C00E6CCDA /* Orientation.swift */; };
 		24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94B2069060C00E6CCDA /* Interoperability.swift */; };
-		24F9D9602069060C00E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */; };
 		24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */; };
 		24F9D97520692CB400E6CCDA /* CircuitScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97320692CB400E6CCDA /* CircuitScene.scn */; };
 		24F9D97D2069327000E6CCDA /* Clock.logic in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97A2069323400E6CCDA /* Clock.logic */; };
+		24F9D9832069386400E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9802069386400E6CCDA /* CircuitViewController.swift */; };
+		24F9D9842069386400E6CCDA /* AppKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */; };
+		24F9D9852069386400E6CCDA /* CircuitSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9822069386400E6CCDA /* CircuitSceneViewController.swift */; };
+		24F9D989206938CE00E6CCDA /* UIKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D988206938CE00E6CCDA /* UIKitCircuitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,6 @@
 		247AEAA220690392001F7207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		247AEAA520690392001F7207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		247AEAA720690392001F7207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
 		24F9D9382069060C00E6CCDA /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
 		24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
 		24F9D93A2069060C00E6CCDA /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
@@ -60,10 +61,13 @@
 		24F9D9492069060C00E6CCDA /* Gate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
 		24F9D94A2069060C00E6CCDA /* Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		24F9D94B2069060C00E6CCDA /* Interoperability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
-		24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
 		24F9D97320692CB400E6CCDA /* CircuitScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CircuitScene.scn; sourceTree = "<group>"; };
 		24F9D97A2069323400E6CCDA /* Clock.logic */ = {isa = PBXFileReference; lastKnownFileType = text; path = Clock.logic; sourceTree = "<group>"; };
+		24F9D9802069386400E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
+		24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitCircuitViewController.swift; sourceTree = "<group>"; };
+		24F9D9822069386400E6CCDA /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
+		24F9D988206938CE00E6CCDA /* UIKitCircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitCircuitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,20 +107,20 @@
 				247AEAA220690392001F7207 /* Assets.xcassets */,
 				247AEAA420690392001F7207 /* LaunchScreen.storyboard */,
 			);
-			path = GateToLogicSandbox;
+			name = GateToLogicSandbox;
+			path = "GateToLogicSandbox-iOS";
 			sourceTree = "<group>";
 		};
 		24F9D9352069060C00E6CCDA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				24F9D9372069060C00E6CCDA /* Nodes */,
 				24F9D93E2069060C00E6CCDA /* Circuit */,
+				24F9D97F2069384500E6CCDA /* Controllers */,
+				24F9D9372069060C00E6CCDA /* Nodes */,
 				24F9D94B2069060C00E6CCDA /* Interoperability.swift */,
-				24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */,
-				24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */,
 			);
 			name = Sources;
-			path = ../GateToLogic.playgroundbook/Contents/Sources;
+			path = GateToLogic.playgroundbook/Contents/Sources;
 			sourceTree = "<group>";
 		};
 		24F9D9372069060C00E6CCDA /* Nodes */ = {
@@ -166,7 +170,18 @@
 				24F9D97A2069323400E6CCDA /* Clock.logic */,
 			);
 			name = PublicResources;
-			path = ../GateToLogic.playgroundbook/Contents/PublicResources;
+			path = GateToLogic.playgroundbook/Contents/PublicResources;
+			sourceTree = "<group>";
+		};
+		24F9D97F2069384500E6CCDA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24F9D988206938CE00E6CCDA /* UIKitCircuitViewController.swift */,
+				24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */,
+				24F9D9822069386400E6CCDA /* CircuitSceneViewController.swift */,
+				24F9D9802069386400E6CCDA /* CircuitViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,9 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F9D9852069386400E6CCDA /* CircuitSceneViewController.swift in Sources */,
+				24F9D9832069386400E6CCDA /* CircuitViewController.swift in Sources */,
 				24F9D95B2069060C00E6CCDA /* ComponentEntity.swift in Sources */,
+				24F9D989206938CE00E6CCDA /* UIKitCircuitViewController.swift in Sources */,
 				24F9D9542069060C00E6CCDA /* GridPoint.swift in Sources */,
 				24F9D9512069060C00E6CCDA /* WireNodeController.swift in Sources */,
+				24F9D9842069386400E6CCDA /* AppKitCircuitViewController.swift in Sources */,
 				24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */,
 				24F9D9592069060C00E6CCDA /* Wire.swift in Sources */,
 				24F9D95C2069060C00E6CCDA /* Composable.swift in Sources */,
@@ -258,11 +277,9 @@
 				24F9D9562069060C00E6CCDA /* Circuit.swift in Sources */,
 				24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */,
 				24F9D9522069060C00E6CCDA /* Materials.swift in Sources */,
-				24F9D94D2069060C00E6CCDA /* CircuitSceneViewController.swift in Sources */,
 				247AEA9A20690392001F7207 /* AppDelegate.swift in Sources */,
 				24F9D95A2069060C00E6CCDA /* AnyPositionedComponent.swift in Sources */,
 				24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */,
-				24F9D9602069060C00E6CCDA /* CircuitViewController.swift in Sources */,
 				24F9D9572069060C00E6CCDA /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,7 +411,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X63VKA93X8;
-				INFOPLIST_FILE = "$(SRCROOT)/GateToLogicSandbox/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/GateToLogicSandbox-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,7 +427,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X63VKA93X8;
-				INFOPLIST_FILE = "$(SRCROOT)/GateToLogicSandbox/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/GateToLogicSandbox-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
