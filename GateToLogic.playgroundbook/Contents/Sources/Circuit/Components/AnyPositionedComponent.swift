@@ -7,6 +7,8 @@
 //
 
 struct AnyPositionedComponent {
+    static let identifier = "AnyPositionedComponent"
+
     let entity: ComponentEntity
 
     let component: Composable

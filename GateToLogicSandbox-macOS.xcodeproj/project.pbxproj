@@ -31,6 +31,7 @@
 		24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1720656E1F00BD1B06 /* Wire.swift */; };
 		24C49D1A20656E3000BD1B06 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1920656E3000BD1B06 /* Led.swift */; };
 		24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1B20656E4000BD1B06 /* Circuit.swift */; };
+		24F429E0206978A7004E1B00 /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429DF206978A7004E1B00 /* ComponentCollectionViewCell.swift */; };
 		24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9662069098500E6CCDA /* CircuitViewController.swift */; };
 		24F9D96F20692CAC00E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */; };
 		24F9D987206938C000E6CCDA /* UIKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */; };
@@ -64,6 +65,7 @@
 		24C49D1720656E1F00BD1B06 /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
 		24C49D1920656E3000BD1B06 /* Led.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Led.swift; sourceTree = "<group>"; };
 		24C49D1B20656E4000BD1B06 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
+		24F429DF206978A7004E1B00 /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
 		24F9D9662069098500E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
 		24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitCircuitViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				24C49CEE20656D0400BD1B06 /* AppKitCircuitViewController.swift */,
 				243A6B9C206686EF00DC5780 /* CircuitSceneViewController.swift */,
 				24F9D9662069098500E6CCDA /* CircuitViewController.swift */,
+				24F429DF206978A7004E1B00 /* ComponentCollectionViewCell.swift */,
 				24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */,
 			);
 			path = Controllers;
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C49D1A20656E3000BD1B06 /* Led.swift in Sources */,
+				24F429E0206978A7004E1B00 /* ComponentCollectionViewCell.swift in Sources */,
 				24BE1124206798C40017C40F /* ComponentEntity.swift in Sources */,
 				24BE111E2066D7EE0017C40F /* LedNodeController.swift in Sources */,
 				247AEA8A206822E5001F7207 /* Materials.swift in Sources */,

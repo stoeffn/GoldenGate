@@ -20,11 +20,11 @@ public class CircuitViewController : ViewController {
             guard let circuit = newValue else { return }
             let controller = CircuitSceneViewController(circuit: circuit)
 
-            view.addSubview(controller.view)
+            view.insertSubview(controller.view, at: 0)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            controller.view.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 16).isActive = true
             controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
             circuitSceneViewController = controller
