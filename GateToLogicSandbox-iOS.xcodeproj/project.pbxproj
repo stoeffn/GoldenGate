@@ -29,7 +29,6 @@
 		24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94A2069060C00E6CCDA /* Orientation.swift */; };
 		24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94B2069060C00E6CCDA /* Interoperability.swift */; };
 		24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */; };
-		24F9D97520692CB400E6CCDA /* CircuitScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97320692CB400E6CCDA /* CircuitScene.scn */; };
 		24F9D97D2069327000E6CCDA /* Clock.logic in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97A2069323400E6CCDA /* Clock.logic */; };
 		24F9D9832069386400E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9802069386400E6CCDA /* CircuitViewController.swift */; };
 		24F9D9842069386400E6CCDA /* AppKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */; };
@@ -62,7 +61,6 @@
 		24F9D94A2069060C00E6CCDA /* Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		24F9D94B2069060C00E6CCDA /* Interoperability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
 		24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
-		24F9D97320692CB400E6CCDA /* CircuitScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CircuitScene.scn; sourceTree = "<group>"; };
 		24F9D97A2069323400E6CCDA /* Clock.logic */ = {isa = PBXFileReference; lastKnownFileType = text; path = Clock.logic; sourceTree = "<group>"; };
 		24F9D9802069386400E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitCircuitViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */,
-				24F9D97320692CB400E6CCDA /* CircuitScene.scn */,
 				24F9D97A2069323400E6CCDA /* Clock.logic */,
 			);
 			name = PublicResources;
@@ -246,7 +243,6 @@
 				247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */,
 				247AEAA320690392001F7207 /* Assets.xcassets in Resources */,
 				24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */,
-				24F9D97520692CB400E6CCDA /* CircuitScene.scn in Resources */,
 				24F9D97D2069327000E6CCDA /* Clock.logic in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

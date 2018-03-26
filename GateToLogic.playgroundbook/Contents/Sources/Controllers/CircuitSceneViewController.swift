@@ -29,7 +29,7 @@ public final class CircuitSceneViewController : NSObject {
     private let tickInterval: TimeInterval = 0.1
 
     private lazy var scene: SCNScene = {
-        guard let scene = SCNScene(named: "CircuitScene.scn") else { fatalError() }
+        guard let scene = SCNScene(named: circuitSceneName) else { fatalError() }
         return scene
     }()
 

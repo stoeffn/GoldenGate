@@ -12,4 +12,6 @@ public protocol NodeControlling {
     var node: SCNNode { get }
 }
 
-let componentsSceneName = "CircuitAssets.scnassets/Components.dae"
+let circuitSceneName = "CircuitAssets.scnassets/CircuitScene.scn"
+
+let componentsSceneName = "CircuitAssets.scnassets/Components.scn"

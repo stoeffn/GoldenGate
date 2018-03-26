@@ -1,3 +1,6 @@
 import PlaygroundSupport
 
-PlaygroundPage.current.liveView = UIKitCircuitViewController()
+let controller = UIKitCircuitViewController()
+controller.circuit = Circuit.named("Clock") ?? Circuit()
+
+PlaygroundPage.current.liveView = controller

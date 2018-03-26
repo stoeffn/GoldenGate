@@ -6,12 +6,19 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+import Foundation
+
 public struct Circuit {
 
     // MARK: - Life Cycle
 
     public init() {
         components = [:]
+    }
+
+    public static func named(_ name: String) -> Circuit? {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "logic") else { return nil }
+        return try? JSONDecoder().decode(Circuit.self, from: Data(contentsOf: url))
     }
 
     // MARK: - Managing Components

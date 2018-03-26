@@ -10,14 +10,20 @@
 
     import UIKit
 
-    final class UIKitCircuitViewController : CircuitViewController {
+    public final class UIKitCircuitViewController : CircuitViewController {
         
         // MARK: - Life Cycle
 
-        override func viewDidLoad() {
+        override public func viewDidLoad() {
             super.viewDidLoad()
 
             view.addGestureRecognizer(tapGestureRecognizer)
+        }
+
+        // MARK: - User Interface
+
+        override public var prefersStatusBarHidden: Bool {
+            return true
         }
 
         // MARK: - User Interaction
