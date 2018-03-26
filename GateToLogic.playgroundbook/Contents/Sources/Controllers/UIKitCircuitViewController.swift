@@ -24,6 +24,7 @@
             get { return super.circuit }
             set {
                 super.circuit = newValue
+                circuitSceneViewController?.view.addInteraction(UIDragInteraction(delegate: self))
                 circuitSceneViewController?.view.addInteraction(UIDropInteraction(delegate: self))
             }
         }
@@ -76,17 +77,24 @@
     extension UIKitCircuitViewController : UICollectionViewDragDelegate {
         public func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession,
                                    at indexPath: IndexPath) -> [UIDragItem] {
-            let component = AnyPositionedComponent(component: availableComponents[indexPath.row].component, position: .zero)
-            let provider = NSItemProvider()
-            provider.registerDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier, visibility: .ownProcess) { completion in
-                completion(try? JSONEncoder().encode(component), nil)
-                return nil
-            }
-            return [UIDragItem(itemProvider: provider)]
+            return [UIDragItem(itemProvider: availableComponents[indexPath.row].component.itemProvider)]
         }
     }
 
-    // MARK: - Dropping Components
+    // MARK: - Dragging Components from the Scene
+
+    extension UIKitCircuitViewController : UIDragInteractionDelegate {
+        public func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
+            guard
+                let position = circuitSceneViewController?.position(at: session.location(in: view)),
+                let component = circuitSceneViewController?.circuit[position]
+            else { return [] }
+            circuitSceneViewController?.circuit[position] = nil
+            return [UIDragItem(itemProvider: component.itemProvider)]
+        }
+    }
+
+    // MARK: - Dropping Components to the Scene
 
     extension UIKitCircuitViewController : UIDropInteractionDelegate {
         public func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+import Foundation
+
 public protocol Composable : Codable {
     var isActive: Bool { get }
 
@@ -41,5 +43,17 @@ public extension Composable {
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         return false
+    }
+}
+
+public extension Composable {
+    var itemProvider: NSItemProvider {
+        let provider = NSItemProvider()
+        provider.registerDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier, visibility: .ownProcess) { completion in
+            let anyComponent = AnyPositionedComponent(component: self, position: .zero)
+            completion(try? JSONEncoder().encode(anyComponent), nil)
+            return nil
+        }
+        return provider
     }
 }
