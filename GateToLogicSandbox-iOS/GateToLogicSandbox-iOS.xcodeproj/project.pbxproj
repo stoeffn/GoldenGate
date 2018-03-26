@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		247AEA9A20690392001F7207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AEA9920690392001F7207 /* AppDelegate.swift */; };
+		247AEAA320690392001F7207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA220690392001F7207 /* Assets.xcassets */; };
+		247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA420690392001F7207 /* LaunchScreen.storyboard */; };
+		24F9D94D2069060C00E6CCDA /* CircuitSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */; };
+		24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9382069060C00E6CCDA /* GateNodeController.swift */; };
+		24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */; };
+		24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93A2069060C00E6CCDA /* LedNodeController.swift */; };
+		24F9D9512069060C00E6CCDA /* WireNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93B2069060C00E6CCDA /* WireNodeController.swift */; };
+		24F9D9522069060C00E6CCDA /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93C2069060C00E6CCDA /* Materials.swift */; };
+		24F9D9532069060C00E6CCDA /* NodeControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93D2069060C00E6CCDA /* NodeControlling.swift */; };
+		24F9D9542069060C00E6CCDA /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93F2069060C00E6CCDA /* GridPoint.swift */; };
+		24F9D9552069060C00E6CCDA /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9402069060C00E6CCDA /* State.swift */; };
+		24F9D9562069060C00E6CCDA /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9412069060C00E6CCDA /* Circuit.swift */; };
+		24F9D9572069060C00E6CCDA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9432069060C00E6CCDA /* Constant.swift */; };
+		24F9D9582069060C00E6CCDA /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9442069060C00E6CCDA /* Led.swift */; };
+		24F9D9592069060C00E6CCDA /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9452069060C00E6CCDA /* Wire.swift */; };
+		24F9D95A2069060C00E6CCDA /* AnyPositionedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9462069060C00E6CCDA /* AnyPositionedComponent.swift */; };
+		24F9D95B2069060C00E6CCDA /* ComponentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9472069060C00E6CCDA /* ComponentEntity.swift */; };
+		24F9D95C2069060C00E6CCDA /* Composable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9482069060C00E6CCDA /* Composable.swift */; };
+		24F9D95D2069060C00E6CCDA /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9492069060C00E6CCDA /* Gate.swift */; };
+		24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94A2069060C00E6CCDA /* Orientation.swift */; };
+		24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94B2069060C00E6CCDA /* Interoperability.swift */; };
+		24F9D9602069060C00E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */; };
+		24F9D9642069061D00E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D9622069061D00E6CCDA /* CircuitAssets.scnassets */; };
+		24F9D9652069061D00E6CCDA /* CircuitScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D9632069061D00E6CCDA /* CircuitScene.scn */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		247AEA9620690392001F7207 /* GateToLogicSandbox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GateToLogicSandbox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		247AEA9920690392001F7207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		247AEAA220690392001F7207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		247AEAA520690392001F7207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		247AEAA720690392001F7207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
+		24F9D9382069060C00E6CCDA /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
+		24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
+		24F9D93A2069060C00E6CCDA /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
+		24F9D93B2069060C00E6CCDA /* WireNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireNodeController.swift; sourceTree = "<group>"; };
+		24F9D93C2069060C00E6CCDA /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
+		24F9D93D2069060C00E6CCDA /* NodeControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeControlling.swift; sourceTree = "<group>"; };
+		24F9D93F2069060C00E6CCDA /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
+		24F9D9402069060C00E6CCDA /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		24F9D9412069060C00E6CCDA /* Circuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
+		24F9D9432069060C00E6CCDA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		24F9D9442069060C00E6CCDA /* Led.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Led.swift; sourceTree = "<group>"; };
+		24F9D9452069060C00E6CCDA /* Wire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
+		24F9D9462069060C00E6CCDA /* AnyPositionedComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyPositionedComponent.swift; sourceTree = "<group>"; };
+		24F9D9472069060C00E6CCDA /* ComponentEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEntity.swift; sourceTree = "<group>"; };
+		24F9D9482069060C00E6CCDA /* Composable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Composable.swift; sourceTree = "<group>"; };
+		24F9D9492069060C00E6CCDA /* Gate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
+		24F9D94A2069060C00E6CCDA /* Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
+		24F9D94B2069060C00E6CCDA /* Interoperability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
+		24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
+		24F9D9622069061D00E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
+		24F9D9632069061D00E6CCDA /* CircuitScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CircuitScene.scn; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		247AEA9320690392001F7207 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		247AEA8D20690392001F7207 = {
+			isa = PBXGroup;
+			children = (
+				24F9D9612069061D00E6CCDA /* PrivateResources */,
+				24F9D9352069060C00E6CCDA /* Sources */,
+				247AEA9820690392001F7207 /* GateToLogicSandbox */,
+				247AEA9720690392001F7207 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		247AEA9720690392001F7207 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				247AEA9620690392001F7207 /* GateToLogicSandbox-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247AEA9820690392001F7207 /* GateToLogicSandbox */ = {
+			isa = PBXGroup;
+			children = (
+				247AEAA720690392001F7207 /* Info.plist */,
+				247AEA9920690392001F7207 /* AppDelegate.swift */,
+				247AEAA220690392001F7207 /* Assets.xcassets */,
+				247AEAA420690392001F7207 /* LaunchScreen.storyboard */,
+			);
+			path = GateToLogicSandbox;
+			sourceTree = "<group>";
+		};
+		24F9D9352069060C00E6CCDA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				24F9D9362069060C00E6CCDA /* CircuitSceneViewController.swift */,
+				24F9D9372069060C00E6CCDA /* Nodes */,
+				24F9D93E2069060C00E6CCDA /* Circuit */,
+				24F9D94B2069060C00E6CCDA /* Interoperability.swift */,
+				24F9D94C2069060C00E6CCDA /* CircuitViewController.swift */,
+			);
+			name = Sources;
+			path = ../GateToLogic.playgroundbook/Contents/Sources;
+			sourceTree = "<group>";
+		};
+		24F9D9372069060C00E6CCDA /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				24F9D9382069060C00E6CCDA /* GateNodeController.swift */,
+				24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */,
+				24F9D93A2069060C00E6CCDA /* LedNodeController.swift */,
+				24F9D93B2069060C00E6CCDA /* WireNodeController.swift */,
+				24F9D93C2069060C00E6CCDA /* Materials.swift */,
+				24F9D93D2069060C00E6CCDA /* NodeControlling.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		24F9D93E2069060C00E6CCDA /* Circuit */ = {
+			isa = PBXGroup;
+			children = (
+				24F9D93F2069060C00E6CCDA /* GridPoint.swift */,
+				24F9D9402069060C00E6CCDA /* State.swift */,
+				24F9D9412069060C00E6CCDA /* Circuit.swift */,
+				24F9D9422069060C00E6CCDA /* Components */,
+				24F9D94A2069060C00E6CCDA /* Orientation.swift */,
+			);
+			path = Circuit;
+			sourceTree = "<group>";
+		};
+		24F9D9422069060C00E6CCDA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				24F9D9432069060C00E6CCDA /* Constant.swift */,
+				24F9D9442069060C00E6CCDA /* Led.swift */,
+				24F9D9452069060C00E6CCDA /* Wire.swift */,
+				24F9D9462069060C00E6CCDA /* AnyPositionedComponent.swift */,
+				24F9D9472069060C00E6CCDA /* ComponentEntity.swift */,
+				24F9D9482069060C00E6CCDA /* Composable.swift */,
+				24F9D9492069060C00E6CCDA /* Gate.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		24F9D9612069061D00E6CCDA /* PrivateResources */ = {
+			isa = PBXGroup;
+			children = (
+				24F9D9622069061D00E6CCDA /* CircuitAssets.scnassets */,
+				24F9D9632069061D00E6CCDA /* CircuitScene.scn */,
+			);
+			name = PrivateResources;
+			path = ../GateToLogic.playgroundbook/Contents/PrivateResources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		247AEA9520690392001F7207 /* GateToLogicSandbox-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247AEAAA20690392001F7207 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-iOS" */;
+			buildPhases = (
+				247AEA9220690392001F7207 /* Sources */,
+				247AEA9320690392001F7207 /* Frameworks */,
+				247AEA9420690392001F7207 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GateToLogicSandbox-iOS";
+			productName = "GateToLogicSandbox-iOS";
+			productReference = 247AEA9620690392001F7207 /* GateToLogicSandbox-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		247AEA8E20690392001F7207 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Steffen Ryll";
+				TargetAttributes = {
+					247AEA9520690392001F7207 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 247AEA9120690392001F7207 /* Build configuration list for PBXProject "GateToLogicSandbox-iOS" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 247AEA8D20690392001F7207;
+			productRefGroup = 247AEA9720690392001F7207 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				247AEA9520690392001F7207 /* GateToLogicSandbox-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		247AEA9420690392001F7207 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */,
+				247AEAA320690392001F7207 /* Assets.xcassets in Resources */,
+				24F9D9642069061D00E6CCDA /* CircuitAssets.scnassets in Resources */,
+				24F9D9652069061D00E6CCDA /* CircuitScene.scn in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		247AEA9220690392001F7207 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F9D95B2069060C00E6CCDA /* ComponentEntity.swift in Sources */,
+				24F9D9542069060C00E6CCDA /* GridPoint.swift in Sources */,
+				24F9D9512069060C00E6CCDA /* WireNodeController.swift in Sources */,
+				24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */,
+				24F9D9592069060C00E6CCDA /* Wire.swift in Sources */,
+				24F9D95C2069060C00E6CCDA /* Composable.swift in Sources */,
+				24F9D9532069060C00E6CCDA /* NodeControlling.swift in Sources */,
+				24F9D9552069060C00E6CCDA /* State.swift in Sources */,
+				24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */,
+				24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */,
+				24F9D9582069060C00E6CCDA /* Led.swift in Sources */,
+				24F9D95D2069060C00E6CCDA /* Gate.swift in Sources */,
+				24F9D9562069060C00E6CCDA /* Circuit.swift in Sources */,
+				24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */,
+				24F9D9522069060C00E6CCDA /* Materials.swift in Sources */,
+				24F9D94D2069060C00E6CCDA /* CircuitSceneViewController.swift in Sources */,
+				247AEA9A20690392001F7207 /* AppDelegate.swift in Sources */,
+				24F9D95A2069060C00E6CCDA /* AnyPositionedComponent.swift in Sources */,
+				24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */,
+				24F9D9602069060C00E6CCDA /* CircuitViewController.swift in Sources */,
+				24F9D9572069060C00E6CCDA /* Constant.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		247AEAA420690392001F7207 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247AEAA520690392001F7207 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		247AEAA820690392001F7207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		247AEAA920690392001F7207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		247AEAAB20690392001F7207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X63VKA93X8;
+				INFOPLIST_FILE = "$(SRCROOT)/GateToLogicSandbox/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		247AEAAC20690392001F7207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X63VKA93X8;
+				INFOPLIST_FILE = "$(SRCROOT)/GateToLogicSandbox/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		247AEA9120690392001F7207 /* Build configuration list for PBXProject "GateToLogicSandbox-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247AEAA820690392001F7207 /* Debug */,
+				247AEAA920690392001F7207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247AEAAA20690392001F7207 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247AEAAB20690392001F7207 /* Debug */,
+				247AEAAC20690392001F7207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 247AEA8E20690392001F7207 /* Project object */;
+}

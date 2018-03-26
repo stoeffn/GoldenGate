@@ -60,14 +60,14 @@
 		24BE112120670FCD0017C40F /* AnyPositionedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPositionedComponent.swift; sourceTree = "<group>"; };
 		24BE1123206798C40017C40F /* ComponentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentEntity.swift; sourceTree = "<group>"; };
 		24BE115F2067F7970017C40F /* LogicDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicDocument.swift; sourceTree = "<group>"; };
-		24C49CE920656D0400BD1B06 /* GateToLogicSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GateToLogicSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C49CE920656D0400BD1B06 /* GateToLogicSandbox-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GateToLogicSandbox-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49CEC20656D0400BD1B06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C49CEE20656D0400BD1B06 /* SandboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxViewController.swift; sourceTree = "<group>"; };
 		24C49CF220656D0400BD1B06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C49CF520656D0400BD1B06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C49CF720656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C49CF820656D0400BD1B06 /* GateToLogicSandbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GateToLogicSandbox.entitlements; sourceTree = "<group>"; };
-		24C49CFD20656D0400BD1B06 /* GateToLogicSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GateToLogicSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C49CFD20656D0400BD1B06 /* GateToLogicSandbox-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GateToLogicSandbox-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49D0320656D0400BD1B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C49D0D20656DB700BD1B06 /* GridPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		24C49D0F20656DC900BD1B06 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 		24C49CEA20656D0400BD1B06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24C49CE920656D0400BD1B06 /* GateToLogicSandbox.app */,
-				24C49CFD20656D0400BD1B06 /* GateToLogicSandboxTests.xctest */,
+				24C49CE920656D0400BD1B06 /* GateToLogicSandbox-macOS.app */,
+				24C49CFD20656D0400BD1B06 /* GateToLogicSandbox-macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24C49CE820656D0400BD1B06 /* GateToLogicSandbox */ = {
+		24C49CE820656D0400BD1B06 /* GateToLogicSandbox-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C49D0620656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox" */;
+			buildConfigurationList = 24C49D0620656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-macOS" */;
 			buildPhases = (
 				24C49CE520656D0400BD1B06 /* Sources */,
 				24C49CE620656D0400BD1B06 /* Frameworks */,
@@ -215,14 +215,14 @@
 			);
 			dependencies = (
 			);
-			name = GateToLogicSandbox;
+			name = "GateToLogicSandbox-macOS";
 			productName = GateToLogicSandbox;
-			productReference = 24C49CE920656D0400BD1B06 /* GateToLogicSandbox.app */;
+			productReference = 24C49CE920656D0400BD1B06 /* GateToLogicSandbox-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24C49CFC20656D0400BD1B06 /* GateToLogicSandboxTests */ = {
+		24C49CFC20656D0400BD1B06 /* GateToLogicSandbox-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C49D0920656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandboxTests" */;
+			buildConfigurationList = 24C49D0920656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-macOSTests" */;
 			buildPhases = (
 				24C49CF920656D0400BD1B06 /* Sources */,
 				24C49CFA20656D0400BD1B06 /* Frameworks */,
@@ -233,9 +233,9 @@
 			dependencies = (
 				24C49CFF20656D0400BD1B06 /* PBXTargetDependency */,
 			);
-			name = GateToLogicSandboxTests;
+			name = "GateToLogicSandbox-macOSTests";
 			productName = GateToLogicSandboxTests;
-			productReference = 24C49CFD20656D0400BD1B06 /* GateToLogicSandboxTests.xctest */;
+			productReference = 24C49CFD20656D0400BD1B06 /* GateToLogicSandbox-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +259,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24C49CE420656D0400BD1B06 /* Build configuration list for PBXProject "GateToLogicSandbox" */;
+			buildConfigurationList = 24C49CE420656D0400BD1B06 /* Build configuration list for PBXProject "GateToLogicSandbox-macOS" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -272,8 +272,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24C49CE820656D0400BD1B06 /* GateToLogicSandbox */,
-				24C49CFC20656D0400BD1B06 /* GateToLogicSandboxTests */,
+				24C49CE820656D0400BD1B06 /* GateToLogicSandbox-macOS */,
+				24C49CFC20656D0400BD1B06 /* GateToLogicSandbox-macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,7 +341,7 @@
 /* Begin PBXTargetDependency section */
 		24C49CFF20656D0400BD1B06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24C49CE820656D0400BD1B06 /* GateToLogicSandbox */;
+			target = 24C49CE820656D0400BD1B06 /* GateToLogicSandbox-macOS */;
 			targetProxy = 24C49CFE20656D0400BD1B06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -474,7 +474,7 @@
 				DEVELOPMENT_TEAM = X63VKA93X8;
 				INFOPLIST_FILE = GateToLogicSandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SteffenRyll.GateToLogicSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -490,7 +490,7 @@
 				DEVELOPMENT_TEAM = X63VKA93X8;
 				INFOPLIST_FILE = GateToLogicSandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SteffenRyll.GateToLogicSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = "SteffenRyll.GateToLogicSandbox-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -509,7 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SteffenRyll.GateToLogicSandboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GateToLogicSandbox.app/Contents/MacOS/GateToLogicSandbox";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GateToLogicSandbox-macOS.app/Contents/MacOS/GateToLogicSandbox-macOS";
 			};
 			name = Debug;
 		};
@@ -526,14 +526,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SteffenRyll.GateToLogicSandboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GateToLogicSandbox.app/Contents/MacOS/GateToLogicSandbox";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GateToLogicSandbox-macOS.app/Contents/MacOS/GateToLogicSandbox-macOS";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24C49CE420656D0400BD1B06 /* Build configuration list for PBXProject "GateToLogicSandbox" */ = {
+		24C49CE420656D0400BD1B06 /* Build configuration list for PBXProject "GateToLogicSandbox-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C49D0420656D0400BD1B06 /* Debug */,
@@ -542,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24C49D0620656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox" */ = {
+		24C49D0620656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C49D0720656D0400BD1B06 /* Debug */,
@@ -551,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24C49D0920656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandboxTests" */ = {
+		24C49D0920656D0400BD1B06 /* Build configuration list for PBXNativeTarget "GateToLogicSandbox-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C49D0A20656D0400BD1B06 /* Debug */,

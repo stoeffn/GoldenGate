@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GateToLogic.playgroundbook">
+      location = "group:/Users/steffenryll/Repositories/GateToLogic/GateToLogicSandbox-macOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:GateToLogicSandbox.xcodeproj">
+      location = "group:GateToLogicSandbox-iOS/GateToLogicSandbox-iOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GateToLogic.playgroundbook">
    </FileRef>
 </Workspace>
