@@ -8,6 +8,7 @@
 
 #if os(iOS)
 
+    import SceneKit
     import UIKit
 
     public final class ComponentCollectionViewCell : UICollectionViewCell {
@@ -15,11 +16,22 @@
 
         // MARK: - Life Cycle
 
-        var component: Composable!
+        var component: Composable! {
+            didSet {
+                controller = nodeController(for: component)
+
+                sceneView.scene = SCNScene(named: componentPreviewSceneName)
+                sceneView.scene?.rootNode.addChildNode(controller.node)
+            }
+        }
 
         // MARK: - User Interface
 
         @IBOutlet var titleLabel: UILabel!
+
+        @IBOutlet var sceneView: SCNView!
+
+        private var controller: NodeControlling!
     }
 
 #endif

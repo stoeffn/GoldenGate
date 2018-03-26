@@ -38,8 +38,8 @@
         @IBOutlet var componentsCollectionView: UICollectionView!
 
         private var availableComponents: [(title: String, component: Composable)] = [
-            (title: "Zero Constant", component: Constant(value: false)),
-            (title: "One Constant", component: Constant(value: true))
+            (title: "Zero", component: Constant(value: false)),
+            (title: "One", component: Constant(value: true))
         ]
 
         // MARK: - User Interaction

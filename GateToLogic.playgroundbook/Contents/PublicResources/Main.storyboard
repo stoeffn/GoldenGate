@@ -51,19 +51,28 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Component" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y21-JG-tnq">
-                                                                <rect key="frame" x="8" y="97.5" width="104" height="14.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                <rect key="frame" x="8" y="91.5" width="104" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Id4-kk-isZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="94"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </sceneKitView>
                                                         </subviews>
                                                     </view>
                                                     <constraints>
+                                                        <constraint firstItem="Id4-kk-isZ" firstAttribute="top" secondItem="4v0-lT-S1M" secondAttribute="top" id="41A-Uy-Omq"/>
                                                         <constraint firstItem="y21-JG-tnq" firstAttribute="leading" secondItem="4v0-lT-S1M" secondAttribute="leading" constant="8" id="4Jb-8N-SG1"/>
+                                                        <constraint firstItem="Id4-kk-isZ" firstAttribute="leading" secondItem="4v0-lT-S1M" secondAttribute="leading" id="LyT-1B-d7B"/>
+                                                        <constraint firstItem="y21-JG-tnq" firstAttribute="top" secondItem="Id4-kk-isZ" secondAttribute="bottom" constant="-2.5" id="iKG-7a-oOk"/>
                                                         <constraint firstAttribute="trailing" secondItem="y21-JG-tnq" secondAttribute="trailing" constant="8" id="qsp-hR-TZN"/>
                                                         <constraint firstAttribute="bottom" secondItem="y21-JG-tnq" secondAttribute="bottom" constant="8" id="udv-ke-vA1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Id4-kk-isZ" secondAttribute="trailing" id="y7D-hE-qKE"/>
                                                     </constraints>
                                                     <connections>
+                                                        <outlet property="sceneView" destination="Id4-kk-isZ" id="C8v-om-EzO"/>
                                                         <outlet property="titleLabel" destination="y21-JG-tnq" id="Jhx-SV-jfI"/>
                                                     </connections>
                                                 </collectionViewCell>

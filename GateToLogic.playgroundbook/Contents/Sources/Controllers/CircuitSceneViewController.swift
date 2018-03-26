@@ -46,21 +46,6 @@ public final class CircuitSceneViewController : NSObject {
 }
 
 private extension CircuitSceneViewController {
-    func nodeController(for component: Composable) -> NodeControlling {
-        switch component {
-        case let constant as Constant:
-            return ConstantNodeController(constant: constant)
-        case let gate as Gate:
-            return GateNodeController(gate: gate)
-        case let led as Led:
-            return LedNodeController(led: led)
-        case let wire as Wire:
-            return WireNodeController(wire: wire)
-        default:
-            fatalError("Cannot create node controller for component \(component).")
-        }
-    }
-
     func didAdd(component: Composable, at position: GridPoint) {
         let controller = nodeController(for: component)
         controller.node.position = SCNVector3(position.x, 0, position.y)
@@ -70,20 +55,8 @@ private extension CircuitSceneViewController {
     }
 
     func didUpdate(component: Composable, at position: GridPoint) {
-        guard let controller = componentNodeControllers[position] else { return }
-
-        switch (component, controller) {
-        case let (constant, controller) as (Constant, ConstantNodeController):
-            controller.constant = constant
-        case let (gate, controller) as (Gate, GateNodeController):
-            controller.gate = gate
-        case let (led, controller) as (Led, LedNodeController):
-            controller.led = led
-        case let (wire, controller) as (Wire, WireNodeController):
-            controller.wire = wire
-        default:
-            fatalError("Cannot update controller \(controller) with component \(component).")
-        }
+        guard var controller = componentNodeControllers[position] else { return }
+        controller.component = component
     }
 
     func didRemove(component: Composable, at position: GridPoint) {

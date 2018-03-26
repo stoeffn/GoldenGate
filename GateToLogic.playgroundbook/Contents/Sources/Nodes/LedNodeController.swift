@@ -10,7 +10,8 @@ import SceneKit
 
 public final class LedNodeController : NodeControlling {
     public init(led: Led) {
-        self.led = led
+        component = led
+        update()
     }
 
     public lazy var node: SCNNode = {
@@ -18,6 +19,7 @@ public final class LedNodeController : NodeControlling {
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Led", recursively: true)
         else { fatalError() }
+        node.position = SCNVector3()
         node.geometry?.materials = [.zeroLed]
         return node
     }()
@@ -42,12 +44,16 @@ public final class LedNodeController : NodeControlling {
         return node
     }()
 
-    public var led: Led {
-        didSet {
-            node.geometry?.materials = [led.value ? .oneLed : .zeroLed]
-            socketNode.geometry?.materials = [led.value ? .oneLed : .zeroLed]
-            lightNode.light?.intensity = led.value ? 1 : 0
-            leftNode.geometry?.materials = [led.value ? .oneComponent : .zeroComponent]
-        }
+    public var component: Composable {
+        didSet { update() }
+    }
+
+    private func update() {
+        guard let led = component as? Led else { fatalError() }
+
+        node.geometry?.materials = [led.value ? .oneLed : .zeroLed]
+        socketNode.geometry?.materials = [led.value ? .oneLed : .zeroLed]
+        lightNode.light?.intensity = led.value ? 1 : 0
+        leftNode.geometry?.materials = [led.value ? .oneComponent : .zeroComponent]
     }
 }

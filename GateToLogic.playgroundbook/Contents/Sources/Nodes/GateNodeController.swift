@@ -10,7 +10,8 @@ import SceneKit
 
 public final class GateNodeController : NodeControlling {
     public init(gate: Gate) {
-        self.gate = gate
+        component = gate
+        update()
     }
 
     public lazy var node: SCNNode = {
@@ -18,6 +19,7 @@ public final class GateNodeController : NodeControlling {
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Gate", recursively: true)
         else { fatalError() }
+        node.position = SCNVector3()
         node.geometry?.materials = [.component]
         return node
     }()
@@ -58,21 +60,25 @@ public final class GateNodeController : NodeControlling {
         return node
     }()
 
-    public var gate: Gate {
-        didSet {
-            andNode.isHidden = gate.operator != .and
-            andNode.geometry?.materials = [.material(for: gate.state)]
-            orNode.isHidden = gate.operator != .or
-            orNode.geometry?.materials = [.material(for: gate.state)]
+    public var component: Composable {
+        didSet { update() }
+    }
 
-            leftNode.isHidden = gate.left == .unknown
-            leftNode.geometry?.materials = [.material(for: gate.left)]
-            topNode.isHidden = gate.top == .unknown
-            topNode.geometry?.materials = [.material(for: gate.top)]
-            rightNode.isHidden = gate.state == .unknown
-            rightNode.geometry?.materials = [.material(for: gate.state)]
-            bottomNode.isHidden = gate.bottom == .unknown
-            bottomNode.geometry?.materials = [.material(for: gate.bottom)]
-        }
+    private func update() {
+        guard let gate = component as? Gate else { fatalError() }
+
+        andNode.isHidden = gate.operator != .and
+        andNode.geometry?.materials = [.material(for: gate.state)]
+        orNode.isHidden = gate.operator != .or
+        orNode.geometry?.materials = [.material(for: gate.state)]
+
+        leftNode.isHidden = gate.left == .unknown
+        leftNode.geometry?.materials = [.material(for: gate.left)]
+        topNode.isHidden = gate.top == .unknown
+        topNode.geometry?.materials = [.material(for: gate.top)]
+        rightNode.isHidden = gate.state == .unknown
+        rightNode.geometry?.materials = [.material(for: gate.state)]
+        bottomNode.isHidden = gate.bottom == .unknown
+        bottomNode.geometry?.materials = [.material(for: gate.bottom)]
     }
 }
