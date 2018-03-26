@@ -8,6 +8,7 @@
 
 #if os(iOS)
 
+    import SceneKit
     import UIKit
 
     public final class UIKitCircuitViewController : CircuitViewController {
@@ -41,6 +42,14 @@
             (title: "Zero", component: Constant(value: false)),
             (title: "One", component: Constant(value: true))
         ]
+
+        @IBOutlet var previewSceneView: SCNView!
+
+        private func preparePreviewScene(for component: Composable, at location: CGPoint) {
+            previewSceneView.center = location
+            previewSceneView.scene = SCNScene(named: componentPreviewSceneName)
+            previewSceneView.scene?.rootNode.addChildNode(nodeController(for: component).node)
+        }
 
         // MARK: - User Interaction
 
@@ -77,7 +86,15 @@
     extension UIKitCircuitViewController : UICollectionViewDragDelegate {
         public func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession,
                                    at indexPath: IndexPath) -> [UIDragItem] {
-            return [UIDragItem(itemProvider: availableComponents[indexPath.row].component.itemProvider)]
+            return [UIDragItem(itemProvider: availableComponents[indexPath.row].component.itemProvider())]
+        }
+
+        public func collectionView(_ collectionView: UICollectionView,
+                                   dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ComponentCollectionViewCell else { return nil }
+            let parameters = UIDragPreviewParameters()
+            parameters.visiblePath = UIBezierPath(rect: cell.sceneView.frame)
+            return parameters
         }
     }
 
@@ -89,8 +106,35 @@
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
                 let component = circuitSceneViewController?.circuit[position]
             else { return [] }
-            circuitSceneViewController?.circuit[position] = nil
-            return [UIDragItem(itemProvider: component.itemProvider)]
+            return [UIDragItem(itemProvider: component.itemProvider(at: position))]
+        }
+
+        public func dragInteraction(_ interaction: UIDragInteraction, sessionDidTransferItems session: UIDragSession) {
+            session.items.first?.itemProvider.loadDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier) { (data, _) in
+                guard
+                    let data = data,
+                    let previousPosition = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data).position
+                    else { return }
+                self.circuitSceneViewController?.circuit[previousPosition] = nil
+            }
+        }
+
+        public func dragInteraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem,
+                                    session: UIDragSession) -> UITargetedDragPreview? {
+            guard
+                let position = circuitSceneViewController?.position(at: session.location(in: view)),
+                let component = circuitSceneViewController?.circuit[position]
+            else { return nil }
+            preparePreviewScene(for: component, at: session.location(in: view))
+            return UITargetedDragPreview(view: previewSceneView)
+        }
+
+        public func dragInteraction(_ interaction: UIDragInteraction, prefersFullSizePreviewsFor session: UIDragSession) -> Bool {
+            return true
+        }
+
+        public func dragInteraction(_ interaction: UIDragInteraction, sessionDidMove session: UIDragSession) {
+            view.sendSubview(toBack: previewSceneView)
         }
     }
 
@@ -102,6 +146,10 @@
         }
 
         public func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+            guard
+                let position = circuitSceneViewController?.position(at: session.location(in: view)),
+                circuitSceneViewController?.circuit[position] == nil
+            else { return UIDropProposal(operation: .cancel) }
             return UIDropProposal(operation: .move)
         }
 

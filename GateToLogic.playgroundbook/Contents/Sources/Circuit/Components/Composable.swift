@@ -47,10 +47,10 @@ public extension Composable {
 }
 
 public extension Composable {
-    var itemProvider: NSItemProvider {
+    func itemProvider(at position: GridPoint? = nil) -> NSItemProvider {
         let provider = NSItemProvider()
         provider.registerDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier, visibility: .ownProcess) { completion in
-            let anyComponent = AnyPositionedComponent(component: self, position: .zero)
+            let anyComponent = AnyPositionedComponent(component: self, position: position ?? .zero)
             completion(try? JSONEncoder().encode(anyComponent), nil)
             return nil
         }

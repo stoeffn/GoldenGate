@@ -96,6 +96,11 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" sceneName="ComponentPreview.scn" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-fS-U2M">
+                                <rect key="frame" x="64" y="64" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </sceneKitView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <gestureRecognizers/>
@@ -112,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="componentsCollectionView" destination="Kgh-Iu-oaK" id="tpO-Kx-SSB"/>
+                        <outlet property="previewSceneView" destination="dW7-fS-U2M" id="lUB-i0-kNz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWE-g3-MKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
