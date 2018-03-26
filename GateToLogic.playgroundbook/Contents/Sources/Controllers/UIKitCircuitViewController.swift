@@ -17,7 +17,15 @@
         public override func viewDidLoad() {
             super.viewDidLoad()
 
-            view.addGestureRecognizer(tapGestureRecognizer)
+            componentsCollectionView.dragDelegate = self
+        }
+
+        public override var circuit: Circuit? {
+            get { return super.circuit }
+            set {
+                super.circuit = newValue
+                circuitSceneViewController?.view.addInteraction(UIDropInteraction(delegate: self))
+            }
         }
 
         // MARK: - User Interface
@@ -62,6 +70,43 @@
             return cell
         }
     }
+
+    // MARK: - Dragging Components from the Tool Bar
+
+    extension UIKitCircuitViewController : UICollectionViewDragDelegate {
+        public func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession,
+                                   at indexPath: IndexPath) -> [UIDragItem] {
+            let component = AnyPositionedComponent(component: availableComponents[indexPath.row].component, position: .zero)
+            let provider = NSItemProvider()
+            provider.registerDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier, visibility: .ownProcess) { completion in
+                completion(try? JSONEncoder().encode(component), nil)
+                return nil
+            }
+            return [UIDragItem(itemProvider: provider)]
+        }
+    }
+
+    // MARK: - Dropping Components
+
+    extension UIKitCircuitViewController : UIDropInteractionDelegate {
+        public func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
+            return session.hasItemsConforming(toTypeIdentifiers: [AnyPositionedComponent.identifier])
+        }
+
+        public func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+            return UIDropProposal(operation: .move)
+        }
+
+        public func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+            session.items.first?.itemProvider.loadDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier) { (data, _) in
+                guard
+                    let data = data,
+                    let component = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data).component,
+                    let position = self.circuitSceneViewController?.position(at: session.location(in: self.view))
+                else { return }
+                self.circuitSceneViewController?.circuit[position] = component
+            }
+        }
     }
 
 #endif
