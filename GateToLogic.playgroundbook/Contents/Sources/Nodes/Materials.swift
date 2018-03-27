@@ -54,6 +54,8 @@ extension SCNMaterial {
         material.diffuse.intensity = 1
         material.roughness.contents = Color(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
         material.roughness.intensity = 0.1
+        material.emission.contents = Color(red: 0.3, green: 0.85, blue: 0.39, alpha: 1)
+        material.emission.intensity = 0.25
         return material
     }()
 
