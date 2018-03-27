@@ -157,9 +157,8 @@
 
         public func collectionView(_ collectionView: UICollectionView,
                                    dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-            guard let cell = collectionView.cellForItem(at: indexPath) as? ComponentCollectionViewCell else { return nil }
             let parameters = UIDragPreviewParameters()
-            parameters.visiblePath = UIBezierPath(rect: cell.sceneView.frame)
+            parameters.visiblePath = UIBezierPath(rect: previewSceneView.bounds)
             return parameters
         }
     }

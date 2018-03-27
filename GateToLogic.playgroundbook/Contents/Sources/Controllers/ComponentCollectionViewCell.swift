@@ -45,7 +45,7 @@
         }()
 
         private(set) lazy var sceneView: SCNView = {
-            let frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
+            let frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.width)
             let view = SCNView(frame: frame)
             view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             view.backgroundColor = .clear
