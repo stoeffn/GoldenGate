@@ -51,9 +51,9 @@ public final class LedNodeController : NodeControlling {
     private func update() {
         guard let led = component as? Led else { fatalError() }
 
-        node.geometry?.materials = [led.value ? .oneLed : .zeroLed]
-        socketNode.geometry?.materials = [led.value ? .oneLed : .zeroLed]
-        lightNode.light?.intensity = led.value ? 1 : 0
-        leftNode.geometry?.materials = [led.value ? .oneComponent : .zeroComponent]
+        node.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
+        socketNode.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
+        lightNode.light?.intensity = led.state == .one ? 1 : 0
+        leftNode.geometry?.materials = [led.state == .one ? .oneComponent : .zeroComponent]
     }
 }

@@ -23,6 +23,10 @@ public struct Constant : Codable {
 }
 
 extension Constant : Composable {
+    public var state: State {
+        return State(value)
+    }
+
     public subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {

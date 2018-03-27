@@ -15,7 +15,7 @@ public struct Wire : Codable {
 
     public var orientations: Set<Orientation>
 
-    private(set) var state = State.unknown
+    public private(set) var state = State.unknown
 
     public init(orientations: Set<Orientation>) {
         self.orientations = orientations

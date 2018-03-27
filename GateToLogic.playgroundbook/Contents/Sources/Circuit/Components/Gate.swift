@@ -27,11 +27,7 @@ public struct Gate : Codable {
 
     var bottom = State.unknown
 
-    private var stateQueue: [State] = [.unknown, .unknown]
-
-    public var state: State {
-        return stateQueue.first ?? .unknown
-    }
+    public private(set) var state = State.unknown
 
     public init(operator: Operator) {
         self.operator = `operator`
@@ -70,15 +66,13 @@ extension Gate : Composable {
     }
 
     public mutating func tick() {
-        stateQueue.removeFirst()
-
-        guard !inputs.isEmpty else { return stateQueue.append(.unknown) }
+        guard !inputs.isEmpty else { return state = .unknown }
 
         switch `operator` {
         case .and:
-            stateQueue.append(inputs.reduce(.one) { $0 && $1 })
+            state = inputs.reduce(.one) { $0 && $1 }
         case .or:
-            stateQueue.append(inputs.reduce(.zero) { $0 || $1 })
+            state = inputs.reduce(.zero) { $0 || $1 }
         }
     }
 }

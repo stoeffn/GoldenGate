@@ -13,7 +13,7 @@ public struct Led : Codable {
 
     public let orientations: Set<Orientation> = [.left]
 
-    private(set) var value = false
+    public private(set) var state = State.unknown
 
     public init() { }
 }
@@ -23,13 +23,13 @@ extension Led : Composable {
         get { return .unknown }
         set {
             switch orientation {
-            case .left: value = newValue.value
+            case .left: state = newValue
             default: return
             }
         }
     }
 
     public mutating func reset() {
-        self.value = false
+        self.state = .unknown
     }
 }
