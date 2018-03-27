@@ -11,7 +11,6 @@
 		247AEAA320690392001F7207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA220690392001F7207 /* Assets.xcassets */; };
 		247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA420690392001F7207 /* LaunchScreen.storyboard */; };
 		24F429E4206978F0004E1B00 /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */; };
-		24F429E820697A2D004E1B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F429E720697A2C004E1B00 /* Main.storyboard */; };
 		24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9382069060C00E6CCDA /* GateNodeController.swift */; };
 		24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */; };
 		24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93A2069060C00E6CCDA /* LedNodeController.swift */; };
@@ -45,7 +44,6 @@
 		247AEAA520690392001F7207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		247AEAA720690392001F7207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
-		24F429E720697A2C004E1B00 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		24F9D9382069060C00E6CCDA /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
 		24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
 		24F9D93A2069060C00E6CCDA /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */,
-				24F429E720697A2C004E1B00 /* Main.storyboard */,
 				24F9D97A2069323400E6CCDA /* Clock.logic */,
 			);
 			name = PublicResources;
@@ -247,7 +244,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */,
-				24F429E820697A2D004E1B00 /* Main.storyboard in Resources */,
 				247AEAA320690392001F7207 /* Assets.xcassets in Resources */,
 				24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */,
 				24F9D97D2069327000E6CCDA /* Clock.logic in Resources */,

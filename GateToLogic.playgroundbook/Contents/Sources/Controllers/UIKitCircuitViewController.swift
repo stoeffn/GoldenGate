@@ -18,7 +18,18 @@
         public override func viewDidLoad() {
             super.viewDidLoad()
 
-            componentsCollectionView.dragDelegate = self
+            view.addSubview(componentsBackgroundView)
+            componentsBackgroundView.contentView.addSubview(componentsHairlineView)
+            componentsBackgroundView.contentView.addSubview(componentsCollectionView)
+            componentsCollectionView.leftAnchor.constraint(equalTo: componentsBackgroundView.contentView.leftAnchor).isActive = true
+            componentsCollectionView.topAnchor.constraint(equalTo: componentsBackgroundView.contentView.topAnchor).isActive = true
+            componentsCollectionView.rightAnchor.constraint(equalTo: componentsBackgroundView.contentView.rightAnchor).isActive = true
+            componentsCollectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+
+            view.addSubview(previewSceneView)
+
+            view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap(_:))))
+            view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:))))
         }
 
         public override var circuit: Circuit? {
@@ -27,6 +38,7 @@
                 super.circuit = newValue
                 circuitSceneViewController?.view.addInteraction(UIDragInteraction(delegate: self))
                 circuitSceneViewController?.view.addInteraction(UIDropInteraction(delegate: self))
+                view.sendSubview(toBack: previewSceneView)
             }
         }
 
@@ -36,9 +48,50 @@
             return true
         }
 
-        @IBOutlet var componentsCollectionView: UICollectionView!
+        private(set) lazy var componentsBackgroundView: UIVisualEffectView = {
+            let frame = CGRect(x: 0, y: self.view.bounds.height - 240, width: self.view.bounds.width, height: 240)
+            let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+            view.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+            view.frame = frame
+            return view
+        }()
 
-        private var availableComponents: [(title: String, component: Composable)] = [
+        private(set) lazy var componentsHairlineView: UIView = {
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 0.5)
+            let view = UIView(frame: frame)
+            view.autoresizingMask = [.flexibleWidth]
+            view.backgroundColor = .lightGray
+            return view
+        }()
+
+        private(set) lazy var componentsCollectionViewLayout: UICollectionViewLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.itemSize = CGSize(width: 128, height: 160)
+            layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
+            return layout
+        }()
+
+        private(set) lazy var componentsCollectionView: UICollectionView = {
+            let view = UICollectionView(frame: .zero, collectionViewLayout: componentsCollectionViewLayout)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.dataSource = self
+            view.dragDelegate = self
+            view.register(ComponentCollectionViewCell.self, forCellWithReuseIdentifier: ComponentCollectionViewCell.reuseIdentifier)
+            view.backgroundColor = .clear
+            view.clipsToBounds = false
+            return view
+        }()
+
+        private(set) lazy var previewSceneView: SCNView = {
+            let frame = CGRect(x: 0, y: 0, width: 128, height: 128)
+            let view = SCNView(frame: frame)
+            view.backgroundColor = .clear
+            return view
+        }()
+
+        let availableComponents: [(title: String, component: Composable)] = [
             (title: "Zero", component: Constant(value: false)),
             (title: "One", component: Constant(value: true)),
             (title: "And", component: Gate(operator: .and)),
@@ -56,8 +109,6 @@
             (title: "Wire", component: Wire(orientations: [.bottom, .left, .top])),
             (title: "Wire", component: Wire(orientations: [.left, .bottom, .left, .top]))
         ]
-
-        @IBOutlet var previewSceneView: SCNView!
 
         private func preparePreviewScene(for component: Composable, at location: CGPoint) {
             previewSceneView.center = location
@@ -100,7 +151,8 @@
     extension UIKitCircuitViewController : UICollectionViewDragDelegate {
         public func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession,
                                    at indexPath: IndexPath) -> [UIDragItem] {
-            return [UIDragItem(itemProvider: availableComponents[indexPath.row].component.itemProvider())]
+            let itemProvider = availableComponents[indexPath.row].component.itemProvider()
+            return [UIDragItem(itemProvider: itemProvider)]
         }
 
         public func collectionView(_ collectionView: UICollectionView,
@@ -120,7 +172,8 @@
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
                 let component = circuitSceneViewController?.circuit[position]
             else { return [] }
-            return [UIDragItem(itemProvider: component.itemProvider(at: position))]
+            let itemProvider = component.itemProvider(at: position)
+            return [UIDragItem(itemProvider: itemProvider)]
         }
 
         public func dragInteraction(_ interaction: UIDragInteraction, sessionDidTransferItems session: UIDragSession) {

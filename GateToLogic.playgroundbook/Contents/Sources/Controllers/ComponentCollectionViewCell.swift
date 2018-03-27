@@ -16,22 +16,46 @@
 
         // MARK: - Life Cycle
 
+        public override init(frame: CGRect) {
+            super.init(frame: frame)
+            initUserInterface()
+        }
+
+        public required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+            initUserInterface()
+        }
+
         var component: Composable! {
             didSet {
-                controller = nodeController(for: component)
-
                 sceneView.scene = SCNScene(named: componentPreviewSceneName)
-                sceneView.scene?.rootNode.addChildNode(controller.node)
+                sceneView.scene?.rootNode.addChildNode(nodeController(for: component).node)
             }
         }
 
         // MARK: - User Interface
 
-        @IBOutlet var titleLabel: UILabel!
+        private(set) lazy var titleLabel: UILabel = {
+            let frame = CGRect(x: 0, y: bounds.size.height - 32, width: bounds.size.width, height: 32)
+            let label = UILabel(frame: frame)
+            label.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+            label.font = .preferredFont(forTextStyle: .headline)
+            label.textAlignment = .center
+            return label
+        }()
 
-        @IBOutlet var sceneView: SCNView!
+        private(set) lazy var sceneView: SCNView = {
+            let frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
+            let view = SCNView(frame: frame)
+            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            view.backgroundColor = .clear
+            return view
+        }()
 
-        private var controller: NodeControlling!
+        private func initUserInterface() {
+            addSubview(titleLabel)
+            addSubview(sceneView)
+        }
     }
 
 #endif
