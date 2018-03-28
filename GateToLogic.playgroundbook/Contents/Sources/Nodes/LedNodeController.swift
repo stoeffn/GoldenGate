@@ -54,6 +54,6 @@ public final class LedNodeController : NodeControlling {
         node.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
         socketNode.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
         lightNode.light?.intensity = led.state == .one ? 1 : 0
-        leftNode.geometry?.materials = [led.state == .one ? .oneComponent : .zeroComponent]
+        leftNode.geometry?.materials = [.material(for: led.state)]
     }
 }
