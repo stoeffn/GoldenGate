@@ -118,7 +118,11 @@
 
         @IBAction
         func didLongPress(_ sender: UIGestureRecognizer) {
-            guard let position = circuitSceneViewController?.position(at: sender.location(in: view)) else { return }
+            guard
+                let position = circuitSceneViewController?.position(at: sender.location(in: view)),
+                let component = circuitSceneViewController?.circuit[position],
+                !component.isLocked
+            else { return }
             circuitSceneViewController?.circuit[position] = nil
         }
     }
@@ -161,7 +165,8 @@
         public func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
             guard
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
-                let component = circuitSceneViewController?.circuit[position]
+                let component = circuitSceneViewController?.circuit[position],
+                !component.isLocked
             else { return [] }
             let itemProvider = component.itemProvider(at: position)
             return [UIDragItem(itemProvider: itemProvider)]
