@@ -11,7 +11,7 @@ struct Led : Codable {
         case isLocked
     }
     
-    static let isActive = true
+    static let isActive = false
 
     let orientations: Set<Orientation> = [.left]
 
@@ -31,10 +31,5 @@ extension Led : Composable {
             default: return
             }
         }
-    }
-
-    mutating func reset() {
-        resetInputs()
-        self.state = .unknown
     }
 }

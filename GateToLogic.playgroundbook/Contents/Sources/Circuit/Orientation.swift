@@ -11,6 +11,12 @@ public enum Orientation : String, Codable {
 }
 
 public extension Orientation {
+    static let all: Set<Orientation> = [.left, .top, .right, .bottom]
+
+    static let horizontal: Set<Orientation> = [.left, .right]
+
+    static let vertical: Set<Orientation> = [.top, .bottom]
+
     var next: Orientation {
         switch self {
         case .left: return .top

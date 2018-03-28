@@ -109,7 +109,9 @@ public struct Circuit {
         components[neighborPosition] = neighbor
         didUpdate?(neighbor, neighborPosition)
 
-        guard neighbor.state != oldNeighbor.state else { return }
+        // TODO: Implement Equatable conformance instead of abusing this type cast…
+        let isNeighborBridging = (neighbor as? Wire)?.isBridging ?? false
+        guard neighbor.state != oldNeighbor.state || isNeighborBridging else { return }
         updateOutputsForComponent(at: neighborPosition)
     }
 

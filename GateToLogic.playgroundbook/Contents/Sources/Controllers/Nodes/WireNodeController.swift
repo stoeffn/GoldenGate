@@ -62,14 +62,17 @@ final class WireNodeController : NodeControlling {
         guard let wire = component as? Wire else { fatalError() }
 
         leftNode.isHidden = !wire.orientations.contains(.left)
-        leftNode.geometry?.materials = [.material(for: wire.state)]
+        leftNode.geometry?.materials = [.material(for: wire[.left])]
         topNode.isHidden = !wire.orientations.contains(.top)
-        topNode.geometry?.materials = [.material(for: wire.state)]
+        topNode.geometry?.materials = [.material(for: wire[.top])]
         rightNode.isHidden = !wire.orientations.contains(.right)
-        rightNode.geometry?.materials = [.material(for: wire.state)]
+        rightNode.geometry?.materials = [.material(for: wire[.right])]
         bottomNode.isHidden = !wire.orientations.contains(.bottom)
-        bottomNode.geometry?.materials = [.material(for: wire.state)]
-        connectorNode.isHidden = wire.orientations == [.left, .right] || wire.orientations == [.top, .bottom]
+        bottomNode.geometry?.materials = [.material(for: wire[.bottom])]
+
+        connectorNode.isHidden = wire.isBridging
+            || wire.orientations == Orientation.horizontal
+            || wire.orientations == Orientation.vertical
         connectorNode.geometry?.materials = [.material(for: wire.state)]
     }
 }
