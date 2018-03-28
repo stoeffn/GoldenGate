@@ -27,7 +27,7 @@ public protocol Composable : Codable {
 
     mutating func trigger()
 
-    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool
+    func updated(neighbor: Composable, at orientation: Orientation) -> Composable
 }
 
 public extension Composable {
@@ -51,8 +51,8 @@ public extension Composable {
 
     mutating func trigger() { }
 
-    func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
-        return false
+    func updated(neighbor: Composable, at orientation: Orientation) -> Composable {
+        return neighbor
     }
 }
 

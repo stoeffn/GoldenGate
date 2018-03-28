@@ -43,7 +43,7 @@ public struct Circuit {
             updatePassiveComponents()
         }
 
-        guard let formerComponent = components[position] else {
+        guard let oldComponent = components[position] else {
             components[position] = component
             didAdd?(component, position)
             return
@@ -51,10 +51,10 @@ public struct Circuit {
 
         components[position] = component
 
-        if type(of: component) == type(of: formerComponent) {
+        if type(of: component) == type(of: oldComponent) {
             didUpdate?(component, position)
         } else {
-            didRemove?(formerComponent, position)
+            didRemove?(oldComponent, position)
         }
     }
 
@@ -95,7 +95,6 @@ public struct Circuit {
 
     private mutating func updateOutputsForComponent(at position: GridPoint) {
         guard let component = components[position] else { return }
-
         updateOutputs(at: .left, for: component, at: position)
         updateOutputs(at: .top, for: component, at: position)
         updateOutputs(at: .right, for: component, at: position)
@@ -104,23 +103,22 @@ public struct Circuit {
 
     private mutating func updateOutputs(at orientation: Orientation, for component: Composable, at neighborPosition: GridPoint) {
         let neighborPosition = neighborPosition + orientation.positionOffset
+        guard let oldNeighbor = components[neighborPosition] else { return }
 
-        if component.updateNeighbor(&components[neighborPosition], at: orientation) {
-            updateOutputsForComponent(at: neighborPosition)
-        }
+        let neighbor = component.updated(neighbor: oldNeighbor, at: orientation)
+        components[neighborPosition] = neighbor
+        didUpdate?(neighbor, neighborPosition)
 
-        if let neighbor = components[neighborPosition] {
-            didUpdate?(neighbor, neighborPosition)
-        }
+        guard neighbor.state != oldNeighbor.state else { return }
+        updateOutputsForComponent(at: neighborPosition)
     }
 
     public mutating func tick() {
         for position in components.keys {
             components[position]?.tick()
 
-            if let component = components[position] {
-                didUpdate?(component, position)
-            }
+            guard let component = components[position] else { return }
+            didUpdate?(component, position)
         }
 
         resetInputs()
