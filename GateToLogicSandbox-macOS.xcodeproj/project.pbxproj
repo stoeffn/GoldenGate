@@ -75,6 +75,7 @@
 		24F429FB206BDF44004E1B00 /* CircuitEditorViewController+MenuActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+MenuActions.swift"; sourceTree = "<group>"; };
 		24F42A16206BE3BA004E1B00 /* CircuitEditorViewController+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+Components.swift"; sourceTree = "<group>"; };
 		24F42A17206BE3BA004E1B00 /* CircuitEditorViewController+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+Gestures.swift"; sourceTree = "<group>"; };
+		24F42A1E206C16B1004E1B00 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		24F9D9662069098500E6CCDA /* CircuitEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitEditorViewController.swift; sourceTree = "<group>"; };
 		24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */,
+				24F42A1E206C16B1004E1B00 /* Icon.png */,
 			);
 			name = PrivateResources;
 			path = GateToLogic.playgroundbook/Contents/PrivateResources;
