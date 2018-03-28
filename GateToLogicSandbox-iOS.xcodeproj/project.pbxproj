@@ -11,6 +11,7 @@
 		247AEAA320690392001F7207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA220690392001F7207 /* Assets.xcassets */; };
 		247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA420690392001F7207 /* LaunchScreen.storyboard */; };
 		24F429E4206978F0004E1B00 /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */; };
+		24F429ED206AEA5B004E1B00 /* CircuitAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */; };
 		24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9382069060C00E6CCDA /* GateNodeController.swift */; };
 		24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */; };
 		24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93A2069060C00E6CCDA /* LedNodeController.swift */; };
@@ -44,6 +45,7 @@
 		247AEAA520690392001F7207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		247AEAA720690392001F7207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
+		24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitAssertion.swift; sourceTree = "<group>"; };
 		24F9D9382069060C00E6CCDA /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
 		24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
 		24F9D93A2069060C00E6CCDA /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				24F9D93F2069060C00E6CCDA /* GridPoint.swift */,
 				24F9D9402069060C00E6CCDA /* State.swift */,
 				24F9D9412069060C00E6CCDA /* Circuit.swift */,
+				24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */,
 				24F9D94A2069060C00E6CCDA /* Orientation.swift */,
 			);
 			path = Circuit;
@@ -151,10 +154,10 @@
 		24F9D9422069060C00E6CCDA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				24F9D9462069060C00E6CCDA /* AnyPositionedComponent.swift */,
 				24F9D9432069060C00E6CCDA /* Constant.swift */,
 				24F9D9442069060C00E6CCDA /* Led.swift */,
 				24F9D9452069060C00E6CCDA /* Wire.swift */,
-				24F9D9462069060C00E6CCDA /* AnyPositionedComponent.swift */,
 				24F9D9472069060C00E6CCDA /* ComponentEntity.swift */,
 				24F9D9482069060C00E6CCDA /* Composable.swift */,
 				24F9D9492069060C00E6CCDA /* Gate.swift */,
@@ -266,6 +269,7 @@
 				24F9D9842069386400E6CCDA /* AppKitCircuitViewController.swift in Sources */,
 				24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */,
 				24F9D9592069060C00E6CCDA /* Wire.swift in Sources */,
+				24F429ED206AEA5B004E1B00 /* CircuitAssertion.swift in Sources */,
 				24F9D95C2069060C00E6CCDA /* Composable.swift in Sources */,
 				24F429E4206978F0004E1B00 /* ComponentCollectionViewCell.swift in Sources */,
 				24F9D9532069060C00E6CCDA /* NodeControlling.swift in Sources */,

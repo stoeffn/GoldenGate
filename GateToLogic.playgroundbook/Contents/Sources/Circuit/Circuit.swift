@@ -12,9 +12,7 @@ public struct Circuit {
 
     // MARK: - Life Cycle
 
-    public init() {
-        components = [:]
-    }
+    public init() { }
 
     public static func named(_ name: String) -> Circuit? {
         guard let url = Bundle.main.url(forResource: name, withExtension: "logic") else { return nil }
@@ -23,7 +21,7 @@ public struct Circuit {
 
     // MARK: - Managing Components
 
-    private var components: [GridPoint: Composable]
+    private var components = [GridPoint: Composable]()
 
     public var didAdd: ((Composable, GridPoint) -> Void)?
 
@@ -66,6 +64,12 @@ public struct Circuit {
     }
 
     // MARK: - Managing State
+
+    private mutating func reset() {
+        for position in components.keys {
+            components[position]?.reset()
+        }
+    }
 
     private mutating func resetInputs() {
         for position in components.keys {
@@ -114,6 +118,36 @@ public struct Circuit {
         updatePassiveComponents()
     }
 
+    // MARK: - Asserting State
+
+    var assertions = [CircuitAssertion]()
+
+    var meetsAssertions: Bool {
+        return assertions
+            .map(self.meets)
+            .reduce(true) { $0 && $1 }
+    }
+
+    func meets(assertion: CircuitAssertion) -> Bool {
+        var circuit = self
+        circuit.reset()
+        circuit.updatePassiveComponents()
+
+        for position in assertion.triggeredComponentPositions {
+            circuit[position]?.trigger()
+        }
+
+        let tickCount = assertion.expectedStatesAtTicks.keys.max() ?? 0
+        for tick in 0 ..< tickCount {
+            guard let expectedStates = assertion.expectedStatesAtTicks[tick] else { continue }
+            let failedAssertions = expectedStates.filter { circuit[$0.key]?.state != $0.value }
+            guard failedAssertions.isEmpty else { return false }
+            circuit.tick()
+        }
+
+        return true
+    }
+
     // MARK: - Helpers
 
     public func suggestedOrientations(forWireAt positon: GridPoint) -> Set<Orientation> {
@@ -133,18 +167,20 @@ public struct Circuit {
 
 extension Circuit : Codable {
     enum CodingKeys : String, CodingKey {
-        case components
+        case components, assertions
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let positionedComponents = try container.decode([AnyPositionedComponent].self, forKey: .components)
         components = Dictionary(uniqueKeysWithValues: positionedComponents.map { (key: $0.position ?? .zero, value: $0.component) })
+        assertions = try container.decode([CircuitAssertion].self, forKey: .assertions)
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         let positionedComponents = components.flatMap { AnyPositionedComponent(component: $0.value, position: $0.key) }
         try positionedComponents.encode(to: container.superEncoder(forKey: .components))
+        try assertions.encode(to: container.superEncoder(forKey: .assertions))
     }
 }

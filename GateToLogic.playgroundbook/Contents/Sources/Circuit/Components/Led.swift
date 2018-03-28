@@ -30,6 +30,7 @@ extension Led : Composable {
     }
 
     public mutating func reset() {
+        resetInputs()
         self.state = .unknown
     }
 }

@@ -17,11 +17,13 @@ public protocol Composable : Codable {
 
     subscript(_ orientation: Orientation) -> State { get set }
 
+    mutating func reset()
+
+    mutating func resetInputs()
+
     mutating func tick()
 
     mutating func trigger()
-
-    mutating func resetInputs()
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool
 }
@@ -32,9 +34,9 @@ public extension Composable {
         set { }
     }
 
-    mutating func tick() { }
-
-    mutating func trigger() { }
+    mutating func reset() {
+        resetInputs()
+    }
 
     mutating func resetInputs() {
         self[.left] = .unknown
@@ -42,6 +44,10 @@ public extension Composable {
         self[.right] = .unknown
         self[.bottom] = .unknown
     }
+
+    mutating func tick() { }
+
+    mutating func trigger() { }
 
     func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
         return false

@@ -35,6 +35,10 @@ public struct Gate : Codable {
 }
 
 extension Gate : Composable {
+    public var inputs: Set<State> {
+        return Set([left, top, bottom].filter { $0 != .unknown })
+    }
+
     public subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
@@ -54,15 +58,9 @@ extension Gate : Composable {
         }
     }
 
-    public func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
-        guard orientation == .right else { return false }
-        let previousState = neighbor?[orientation.opposite]
-        neighbor?[orientation.opposite] = state
-        return previousState != neighbor?[orientation.opposite]
-    }
-
-    public var inputs: Set<State> {
-        return Set([left, top, bottom].filter { $0 != .unknown })
+    public mutating func reset() {
+        resetInputs()
+        state = .unknown
     }
 
     public mutating func tick() {
@@ -74,5 +72,12 @@ extension Gate : Composable {
         case .or:
             state = inputs.reduce(.zero) { $0 || $1 }
         }
+    }
+
+    public func updateNeighbor(_ neighbor: inout Composable?, at orientation: Orientation) -> Bool {
+        guard orientation == .right else { return false }
+        let previousState = neighbor?[orientation.opposite]
+        neighbor?[orientation.opposite] = state
+        return previousState != neighbor?[orientation.opposite]
     }
 }
