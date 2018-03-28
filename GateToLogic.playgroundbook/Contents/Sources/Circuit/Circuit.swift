@@ -38,22 +38,31 @@ public struct Circuit {
     }
 
     private mutating func set(_ component: Composable, at position: GridPoint) {
-        if let formerComponent = components[position] {
-            didRemove?(formerComponent, position)
+        defer {
+            resetInputs()
+            updatePassiveComponents()
+        }
+
+        guard let formerComponent = components[position] else {
+            components[position] = component
+            didAdd?(component, position)
+            return
         }
 
         components[position] = component
-        didAdd?(component, position)
 
-        resetInputs()
-        updatePassiveComponents()
+        if type(of: component) == type(of: formerComponent) {
+            didUpdate?(component, position)
+        } else {
+            didRemove?(formerComponent, position)
+        }
     }
 
     private mutating func removeComponent(at position: GridPoint) {
         guard let component = components[position] else { return }
 
-        didRemove?(component, position)
         components[position] = nil
+        didRemove?(component, position)
 
         resetInputs()
         updatePassiveComponents()

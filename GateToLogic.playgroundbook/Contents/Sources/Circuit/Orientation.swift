@@ -11,6 +11,15 @@ public enum Orientation : String, Codable {
 }
 
 public extension Orientation {
+    var next: Orientation {
+        switch self {
+        case .left: return .top
+        case .top: return .right
+        case .right: return .bottom
+        case .bottom: return .left
+        }
+    }
+
     var opposite: Orientation {
         switch self {
         case .left: return .right
