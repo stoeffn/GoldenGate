@@ -164,9 +164,9 @@
 				24F9D9482069060C00E6CCDA /* Composable.swift */,
 				24F9D9432069060C00E6CCDA /* Constant.swift */,
 				24F9D9492069060C00E6CCDA /* Gate.swift */,
+				24F429F2206BCC54004E1B00 /* Inverter.swift */,
 				24F9D9442069060C00E6CCDA /* Led.swift */,
 				24F9D9452069060C00E6CCDA /* Wire.swift */,
-				24F429F2206BCC54004E1B00 /* Inverter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

@@ -8,13 +8,13 @@
 
 import SceneKit
 
-public final class InverterNodeController : NodeControlling {
-    public init(inverter: Inverter) {
+final class InverterNodeController : NodeControlling {
+    init(inverter: Inverter) {
         component = inverter
         update()
     }
 
-    public lazy var node: SCNNode = {
+    private(set) lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Gate", recursively: true)
@@ -24,25 +24,25 @@ public final class InverterNodeController : NodeControlling {
         return node
     }()
 
-    lazy var inverterNode: SCNNode = {
+    private lazy var inverterNode: SCNNode = {
         guard let node = node.childNode(withName: "Gate-And", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var leftNode: SCNNode = {
+    private lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "Gate-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var rightNode: SCNNode = {
+    private lazy var rightNode: SCNNode = {
         guard let node = node.childNode(withName: "Gate-RightWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    public var component: Composable {
+    var component: Composable {
         didSet { update() }
     }
 

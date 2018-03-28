@@ -33,6 +33,8 @@
 		24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49D1B20656E4000BD1B06 /* Circuit.swift */; };
 		24F429E0206978A7004E1B00 /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429DF206978A7004E1B00 /* ComponentCollectionViewCell.swift */; };
 		24F429F1206AF276004E1B00 /* CircuitAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429F0206AF275004E1B00 /* CircuitAssertion.swift */; };
+		24F429F7206BD91C004E1B00 /* Inverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429F6206BD91C004E1B00 /* Inverter.swift */; };
+		24F429F9206BD92A004E1B00 /* InverterNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429F8206BD92A004E1B00 /* InverterNodeController.swift */; };
 		24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9662069098500E6CCDA /* CircuitViewController.swift */; };
 		24F9D96F20692CAC00E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */; };
 		24F9D987206938C000E6CCDA /* UIKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */; };
@@ -68,6 +70,8 @@
 		24C49D1B20656E4000BD1B06 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
 		24F429DF206978A7004E1B00 /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
 		24F429F0206AF275004E1B00 /* CircuitAssertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitAssertion.swift; sourceTree = "<group>"; };
+		24F429F6206BD91C004E1B00 /* Inverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inverter.swift; sourceTree = "<group>"; };
+		24F429F8206BD92A004E1B00 /* InverterNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InverterNodeController.swift; sourceTree = "<group>"; };
 		24F9D9662069098500E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
 		24F9D986206938C000E6CCDA /* UIKitCircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitCircuitViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				24C49D1320656DF800BD1B06 /* Composable.swift */,
 				24C49D1520656E0A00BD1B06 /* Constant.swift */,
 				24B1036920658D070043D6C2 /* Gate.swift */,
+				24F429F6206BD91C004E1B00 /* Inverter.swift */,
 				24C49D1920656E3000BD1B06 /* Led.swift */,
 				24C49D1720656E1F00BD1B06 /* Wire.swift */,
 			);
@@ -116,6 +121,7 @@
 			children = (
 				24BE11172066CFB00017C40F /* ConstantNodeController.swift */,
 				24BE111B2066D7DC0017C40F /* GateNodeController.swift */,
+				24F429F8206BD92A004E1B00 /* InverterNodeController.swift */,
 				24BE111D2066D7EE0017C40F /* LedNodeController.swift */,
 				247AEA89206822E5001F7207 /* Materials.swift */,
 				24BE11192066D1180017C40F /* NodeControlling.swift */,
@@ -277,6 +283,7 @@
 				247AEA8C2068F890001F7207 /* Interoperability.swift in Sources */,
 				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
 				24F9D9672069098500E6CCDA /* CircuitViewController.swift in Sources */,
+				24F429F9206BD92A004E1B00 /* InverterNodeController.swift in Sources */,
 				24F9D987206938C000E6CCDA /* UIKitCircuitViewController.swift in Sources */,
 				24BE111A2066D1180017C40F /* NodeControlling.swift in Sources */,
 				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,
@@ -285,6 +292,7 @@
 				243A6B9D206686EF00DC5780 /* CircuitSceneViewController.swift in Sources */,
 				24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */,
 				24BE112220670FCD0017C40F /* AnyPositionedComponent.swift in Sources */,
+				24F429F7206BD91C004E1B00 /* Inverter.swift in Sources */,
 				24C49D1020656DC900BD1B06 /* State.swift in Sources */,
 				24BE11602067F7970017C40F /* LogicDocument.swift in Sources */,
 			);

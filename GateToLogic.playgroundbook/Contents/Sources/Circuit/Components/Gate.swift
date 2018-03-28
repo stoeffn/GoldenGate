@@ -6,22 +6,22 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-public struct Gate : Codable {
+struct Gate : Codable {
     enum CodingKeys : String, CodingKey {
         case isLocked, `operator`
     }
 
-    public enum Operator : String, Codable {
+    enum Operator : String, Codable {
         case and, or
     }
 
-    public static let isActive = true
+    static let isActive = true
 
-    public let orientations: Set<Orientation> = [.left, .top, .right, .bottom]
+    let orientations: Set<Orientation> = [.left, .top, .right, .bottom]
 
-    public var isLocked = false
+    var isLocked = false
 
-    public let `operator`: Operator
+    let `operator`: Operator
 
     private var left = State.unknown
 
@@ -29,19 +29,19 @@ public struct Gate : Codable {
 
     private var bottom = State.unknown
 
-    public private(set) var state = State.unknown
+    private(set) var state = State.unknown
 
-    public init(operator: Operator) {
+    init(operator: Operator) {
         self.operator = `operator`
     }
 }
 
 extension Gate : Composable {
-    public var inputs: Set<State> {
+    var inputs: Set<State> {
         return Set([left, top, bottom].filter { $0 != .unknown })
     }
 
-    public subscript(_ orientation: Orientation) -> State {
+    subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
             case .left: return left
@@ -60,12 +60,12 @@ extension Gate : Composable {
         }
     }
 
-    public mutating func reset() {
+    mutating func reset() {
         resetInputs()
         state = .unknown
     }
 
-    public mutating func tick() {
+    mutating func tick() {
         guard !inputs.isEmpty else { return state = .unknown }
 
         switch `operator` {
@@ -76,7 +76,7 @@ extension Gate : Composable {
         }
     }
 
-    public func updated(neighbor: Composable, at orientation: Orientation) -> Composable {
+    func updated(neighbor: Composable, at orientation: Orientation) -> Composable {
         guard orientation == .right else { return neighbor }
 
         var neighbor = neighbor

@@ -8,13 +8,13 @@
 
 import SceneKit
 
-public final class WireNodeController : NodeControlling {
-    public init(wire: Wire) {
+final class WireNodeController : NodeControlling {
+    init(wire: Wire) {
         component = wire
         update()
     }
 
-    public lazy var node: SCNNode = {
+    private(set) lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Wire", recursively: true)
@@ -24,37 +24,37 @@ public final class WireNodeController : NodeControlling {
         return node
     }()
 
-    lazy var leftNode: SCNNode = {
+    private lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "Wire-Left", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var topNode: SCNNode = {
+    private lazy var topNode: SCNNode = {
         guard let node = node.childNode(withName: "Wire-Top", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var rightNode: SCNNode = {
+    private lazy var rightNode: SCNNode = {
         guard let node = node.childNode(withName: "Wire-Right", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var bottomNode: SCNNode = {
+    private lazy var bottomNode: SCNNode = {
         guard let node = node.childNode(withName: "Wire-Bottom", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    lazy var connectorNode: SCNNode = {
+    private lazy var connectorNode: SCNNode = {
         guard let node = node.childNode(withName: "Wire-Connector", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    public var component: Composable {
+    var component: Composable {
         didSet { update() }
     }
 

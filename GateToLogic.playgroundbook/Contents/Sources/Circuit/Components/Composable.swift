@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Composable : Codable {
+protocol Composable : Codable {
     static var isActive: Bool { get }
 
     var state: State { get }
@@ -30,7 +30,7 @@ public protocol Composable : Codable {
     func updated(neighbor: Composable, at orientation: Orientation) -> Composable
 }
 
-public extension Composable {
+extension Composable {
     subscript(_ orientation: Orientation) -> State {
         get { return .unknown }
         set { }
@@ -56,7 +56,7 @@ public extension Composable {
     }
 }
 
-public extension Composable {
+extension Composable {
     func itemProvider(at position: GridPoint? = nil) -> NSItemProvider {
         let provider = NSItemProvider()
         provider.registerDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier, visibility: .ownProcess) { completion in

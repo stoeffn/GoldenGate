@@ -6,11 +6,11 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-public enum ComponentEntity : String, Codable {
+enum ComponentEntity : String, Codable {
     case constant, gate, inverter, led, wire
 }
 
-public extension ComponentEntity {
+extension ComponentEntity {
     init?(component: Composable) {
         switch component {
         case is Constant: self = .constant

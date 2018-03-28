@@ -8,8 +8,8 @@
 
 import SceneKit
 
-public final class CircuitSceneViewController : NSObject {
-    public init(circuit: Circuit = Circuit()) {
+final class CircuitSceneViewController : NSObject {
+    init(circuit: Circuit = Circuit()) {
         self.circuit = circuit
 
         super.init()
@@ -24,7 +24,7 @@ public final class CircuitSceneViewController : NSObject {
         }
     }
 
-    public var circuit: Circuit
+    var circuit: Circuit
 
     private let tickInterval: TimeInterval = 0.1
 
@@ -33,7 +33,7 @@ public final class CircuitSceneViewController : NSObject {
         return scene
     }()
 
-    public private(set) lazy var view: SCNView = {
+    private(set) lazy var view: SCNView = {
         let view = SCNView()
         view.scene = scene
         #if os(OSX)
@@ -65,7 +65,7 @@ private extension CircuitSceneViewController {
     }
 }
 
-public extension CircuitSceneViewController {
+extension CircuitSceneViewController {
     func position(at point: CGPoint) -> GridPoint? {
         let hits = view.hitTest(point, options: nil)
         guard let coordinates = hits.first?.worldCoordinates else { return nil }

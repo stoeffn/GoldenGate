@@ -8,13 +8,13 @@
 
 import SceneKit
 
-public final class LedNodeController : NodeControlling {
-    public init(led: Led) {
+final class LedNodeController : NodeControlling {
+    init(led: Led) {
         component = led
         update()
     }
 
-    public lazy var node: SCNNode = {
+    private(set) lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Led", recursively: true)
@@ -24,13 +24,13 @@ public final class LedNodeController : NodeControlling {
         return node
     }()
 
-    lazy var socketNode: SCNNode = {
+    private lazy var socketNode: SCNNode = {
         guard let node = node.childNode(withName: "Led-Socket", recursively: true) else { fatalError() }
         node.geometry?.materials = [.zeroLed]
         return node
     }()
 
-    lazy var lightNode: SCNNode = {
+    private lazy var lightNode: SCNNode = {
         guard let node = node.childNode(withName: "Led-Light", recursively: true) else { fatalError() }
         node.light = SCNLight()
         node.light?.temperature = 128
@@ -38,13 +38,13 @@ public final class LedNodeController : NodeControlling {
         return node
     }()
 
-    lazy var leftNode: SCNNode = {
+    private lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "Led-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    public var component: Composable {
+    var component: Composable {
         didSet { update() }
     }
 

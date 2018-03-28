@@ -23,13 +23,13 @@ public struct Circuit {
 
     private var components = [GridPoint: Composable]()
 
-    public var didAdd: ((Composable, GridPoint) -> Void)?
+    var didAdd: ((Composable, GridPoint) -> Void)?
 
-    public var didUpdate: ((Composable, GridPoint) -> Void)?
+    var didUpdate: ((Composable, GridPoint) -> Void)?
 
-    public var didRemove: ((Composable, GridPoint) -> Void)?
+    var didRemove: ((Composable, GridPoint) -> Void)?
 
-    public subscript(_ position: GridPoint) -> Composable? {
+    subscript(_ position: GridPoint) -> Composable? {
         get { return components[position] }
         set {
             guard let component = newValue else { return removeComponent(at: position) }
@@ -68,7 +68,7 @@ public struct Circuit {
         updatePassiveComponents()
     }
 
-    public var positionedComponents: [(Composable, at: GridPoint)] {
+    var positionedComponents: [(Composable, at: GridPoint)] {
         return components.map { ($0.value, at: $0.key) }
     }
 
@@ -113,7 +113,7 @@ public struct Circuit {
         updateOutputsForComponent(at: neighborPosition)
     }
 
-    public mutating func tick() {
+    mutating func tick() {
         for position in components.keys {
             components[position]?.tick()
 
@@ -157,7 +157,7 @@ public struct Circuit {
 
     // MARK: - Helpers
 
-    public func suggestedOrientations(forWireAt positon: GridPoint) -> Set<Orientation> {
+    func suggestedOrientations(forWireAt positon: GridPoint) -> Set<Orientation> {
         let orientations: [Orientation] = [
             components[positon + Orientation.left.positionOffset]?.orientations.contains(.right) ?? false ? .left : nil,
             components[positon + Orientation.top.positionOffset]?.orientations.contains(.bottom) ?? false ? .top : nil,

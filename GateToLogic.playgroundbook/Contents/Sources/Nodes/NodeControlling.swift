@@ -8,7 +8,7 @@
 
 import SceneKit
 
-public protocol NodeControlling {
+protocol NodeControlling {
     var node: SCNNode { get }
 
     var component: Composable { get set }

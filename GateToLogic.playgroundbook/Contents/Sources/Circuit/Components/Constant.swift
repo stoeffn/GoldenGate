@@ -6,30 +6,30 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-public struct Constant : Codable {
+struct Constant : Codable {
     enum CodingKeys : String, CodingKey {
         case value, isLocked
     }
 
-    public static let isActive = true
+    static let isActive = true
 
-    public let orientations: Set<Orientation> = [.right]
+    let orientations: Set<Orientation> = [.right]
 
-    public var isLocked = false
+    var isLocked = false
 
-    public var value: Bool
+    var value: Bool
 
-    public init(value: Bool) {
+    init(value: Bool) {
         self.value = value
     }
 }
 
 extension Constant : Composable {
-    public var state: State {
+    var state: State {
         return State(value)
     }
 
-    public subscript(_ orientation: Orientation) -> State {
+    subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
             case .right: return State(value)
@@ -39,11 +39,11 @@ extension Constant : Composable {
         set { }
     }
 
-    public mutating func trigger() {
+    mutating func trigger() {
         self.value = !self.value
     }
 
-    public func updated(neighbor: Composable, at orientation: Orientation) -> Composable {
+    func updated(neighbor: Composable, at orientation: Orientation) -> Composable {
         guard orientation == .right else { return neighbor }
 
         var neighbor = neighbor

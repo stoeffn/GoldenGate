@@ -8,13 +8,13 @@
 
 import SceneKit
 
-public final class ConstantNodeController : NodeControlling {
-    public init(constant: Constant) {
+final class ConstantNodeController : NodeControlling {
+    init(constant: Constant) {
         component = constant
         update()
     }
 
-    public lazy var node: SCNNode = {
+    private(set) lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
             let node = scene.rootNode.childNode(withName: "Constant", recursively: true)
@@ -24,19 +24,19 @@ public final class ConstantNodeController : NodeControlling {
         return node
     }()
 
-    var buttonNode: SCNNode {
+    private lazy var buttonNode: SCNNode = {
         guard let node = node.childNode(withName: "Constant-Button", recursively: true) else { fatalError() }
         node.geometry?.materials = [.component]
         return node
-    }
+    }()
 
-    var rightNode: SCNNode {
+    private lazy var rightNode: SCNNode = {
         guard let node = node.childNode(withName: "Constant-RightWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
-    }
+    }()
 
-    public var component: Composable {
+    var component: Composable {
         didSet { update() }
     }
 

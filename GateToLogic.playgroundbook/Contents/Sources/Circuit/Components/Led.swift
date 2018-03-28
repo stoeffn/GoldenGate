@@ -6,24 +6,24 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
-public struct Led : Codable {
+struct Led : Codable {
     enum CodingKeys : String, CodingKey {
         case isLocked
     }
     
-    public static let isActive = true
+    static let isActive = true
 
-    public let orientations: Set<Orientation> = [.left]
+    let orientations: Set<Orientation> = [.left]
 
-    public var isLocked = false
+    var isLocked = false
 
-    public private(set) var state = State.unknown
+    private(set) var state = State.unknown
 
-    public init() { }
+    init() { }
 }
 
 extension Led : Composable {
-    public subscript(_ orientation: Orientation) -> State {
+    subscript(_ orientation: Orientation) -> State {
         get { return .unknown }
         set {
             switch orientation {
@@ -33,7 +33,7 @@ extension Led : Composable {
         }
     }
 
-    public mutating func reset() {
+    mutating func reset() {
         resetInputs()
         self.state = .unknown
     }
