@@ -133,7 +133,7 @@
 		24C49CE020656D0400BD1B06 = {
 			isa = PBXGroup;
 			children = (
-				24F9D96C20692CAC00E6CCDA /* PublicResources */,
+				24F9D96C20692CAC00E6CCDA /* PrivateResources */,
 				24C49D0C20656DA000BD1B06 /* Sources */,
 				24C49CEB20656D0400BD1B06 /* GateToLogicSandbox */,
 				24C49CEA20656D0400BD1B06 /* Products */,
@@ -174,13 +174,13 @@
 			path = GateToLogic.playgroundbook/Contents/Sources;
 			sourceTree = "<group>";
 		};
-		24F9D96C20692CAC00E6CCDA /* PublicResources */ = {
+		24F9D96C20692CAC00E6CCDA /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
 				24F9D96D20692CAC00E6CCDA /* CircuitAssets.scnassets */,
 			);
-			name = PublicResources;
-			path = GateToLogic.playgroundbook/Contents/PublicResources;
+			name = PrivateResources;
+			path = GateToLogic.playgroundbook/Contents/PrivateResources;
 			sourceTree = "<group>";
 		};
 		24F9D97E2069381E00E6CCDA /* Controllers */ = {

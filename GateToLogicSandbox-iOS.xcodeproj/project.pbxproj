@@ -90,7 +90,7 @@
 		247AEA8D20690392001F7207 = {
 			isa = PBXGroup;
 			children = (
-				24F9D97120692CB400E6CCDA /* PublicResources */,
+				24F9D97120692CB400E6CCDA /* PrivateResources */,
 				24F9D9352069060C00E6CCDA /* Sources */,
 				247AEA9820690392001F7207 /* GateToLogicSandbox */,
 				247AEA9720690392001F7207 /* Products */,
@@ -171,14 +171,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		24F9D97120692CB400E6CCDA /* PublicResources */ = {
+		24F9D97120692CB400E6CCDA /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
 				24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */,
 				24F9D97A2069323400E6CCDA /* Clock.logic */,
 			);
-			name = PublicResources;
-			path = GateToLogic.playgroundbook/Contents/PublicResources;
+			name = PrivateResources;
+			path = GateToLogic.playgroundbook/Contents/PrivateResources;
 			sourceTree = "<group>";
 		};
 		24F9D97F2069384500E6CCDA /* Controllers */ = {
