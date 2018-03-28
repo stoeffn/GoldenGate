@@ -8,12 +8,14 @@
 
 public struct Constant : Codable {
     enum CodingKeys : String, CodingKey {
-        case value
+        case value, isLocked
     }
 
-    public let isActive = true
+    public static let isActive = true
 
     public let orientations: Set<Orientation> = [.right]
+
+    public var isLocked = false
 
     public var value: Bool
 

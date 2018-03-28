@@ -8,12 +8,14 @@
 
 public struct Wire : Codable {
     enum CodingKeys : String, CodingKey {
-        case orientations
+        case orientations, isLocked
     }
 
-    public var isActive = false
+    public static let isActive = false
 
     public var orientations: Set<Orientation>
+
+    public var isLocked = false
 
     public private(set) var state = State.unknown
 

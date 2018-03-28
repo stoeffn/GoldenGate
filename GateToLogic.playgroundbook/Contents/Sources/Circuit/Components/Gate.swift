@@ -8,16 +8,18 @@
 
 public struct Gate : Codable {
     enum CodingKeys : String, CodingKey {
-        case `operator`
+        case isLocked, `operator`
     }
 
     public enum Operator : String, Codable {
         case and, or
     }
 
-    public let isActive = true
+    public static let isActive = true
 
     public let orientations: Set<Orientation> = [.left, .top, .right, .bottom]
+
+    public var isLocked = false
 
     public let `operator`: Operator
 

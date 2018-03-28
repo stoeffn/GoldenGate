@@ -7,11 +7,15 @@
 //
 
 public struct Led : Codable {
-    enum CodingKeys : CodingKey { }
+    enum CodingKeys : String, CodingKey {
+        case isLocked
+    }
     
-    public var isActive = true
+    public static let isActive = true
 
     public let orientations: Set<Orientation> = [.left]
+
+    public var isLocked = false
 
     public private(set) var state = State.unknown
 

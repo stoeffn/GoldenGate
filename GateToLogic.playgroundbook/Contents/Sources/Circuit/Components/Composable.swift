@@ -9,9 +9,11 @@
 import Foundation
 
 public protocol Composable : Codable {
-    var isActive: Bool { get }
+    static var isActive: Bool { get }
 
     var state: State { get }
+
+    var isLocked: Bool { get set }
 
     var orientations: Set<Orientation> { get }
 

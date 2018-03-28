@@ -88,7 +88,7 @@ public struct Circuit {
 
     private mutating func updatePassiveComponents() {
         for position in components.keys {
-            guard let component = components[position], component.isActive else { continue }
+            guard let component = components[position], type(of: component).isActive else { continue }
             updateOutputsForComponent(at: position)
         }
     }
