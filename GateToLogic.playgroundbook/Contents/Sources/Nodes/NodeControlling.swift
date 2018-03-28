@@ -26,6 +26,8 @@ func nodeController(for component: Composable) -> NodeControlling {
         return ConstantNodeController(constant: constant)
     case let gate as Gate:
         return GateNodeController(gate: gate)
+    case let inverter as Inverter:
+        return InverterNodeController(inverter: inverter)
     case let led as Led:
         return LedNodeController(led: led)
     case let wire as Wire:

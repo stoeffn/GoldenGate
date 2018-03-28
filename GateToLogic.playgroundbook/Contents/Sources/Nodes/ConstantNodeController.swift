@@ -1,5 +1,5 @@
 //
-//  ConstantNode.swift
+//  ConstantNodeController.swift
 //  GateToLogic
 //
 //  Created by Steffen Ryll on 24.03.18.

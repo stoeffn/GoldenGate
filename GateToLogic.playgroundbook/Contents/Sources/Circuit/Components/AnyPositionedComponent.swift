@@ -36,6 +36,7 @@ extension AnyPositionedComponent : Codable {
         switch entity {
         case .constant: component = try container.decode(Constant.self, forKey: .component)
         case .gate: component = try container.decode(Gate.self, forKey: .component)
+        case .inverter: component = try container.decode(Inverter.self, forKey: .component)
         case .led: component = try container.decode(Led.self, forKey: .component)
         case .wire: component = try container.decode(Wire.self, forKey: .component)
         }

@@ -7,7 +7,7 @@
 //
 
 public enum ComponentEntity : String, Codable {
-    case constant, gate, led, wire
+    case constant, gate, inverter, led, wire
 }
 
 public extension ComponentEntity {
@@ -15,6 +15,7 @@ public extension ComponentEntity {
         switch component {
         case is Constant: self = .constant
         case is Gate: self = .gate
+        case is Inverter: self = .inverter
         case is Led: self = .led
         case is Wire: self = .wire
         default: return nil

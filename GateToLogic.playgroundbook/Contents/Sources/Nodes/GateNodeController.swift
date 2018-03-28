@@ -1,5 +1,5 @@
 //
-//  GateNode.swift
+//  GateNodeController.swift
 //  GateToLogic
 //
 //  Created by Steffen Ryll on 24.03.18.
@@ -72,13 +72,13 @@ public final class GateNodeController : NodeControlling {
         orNode.isHidden = gate.operator != .or
         orNode.geometry?.materials = [.material(for: gate.state)]
 
-        leftNode.isHidden = gate.left == .unknown
-        leftNode.geometry?.materials = [.material(for: gate.left)]
-        topNode.isHidden = gate.top == .unknown
-        topNode.geometry?.materials = [.material(for: gate.top)]
+        leftNode.isHidden = gate[.left] == .unknown
+        leftNode.geometry?.materials = [.material(for: gate[.left])]
+        topNode.isHidden = gate[.top] == .unknown
+        topNode.geometry?.materials = [.material(for: gate[.top])]
         rightNode.isHidden = gate.state == .unknown
         rightNode.geometry?.materials = [.material(for: gate.state)]
-        bottomNode.isHidden = gate.bottom == .unknown
-        bottomNode.geometry?.materials = [.material(for: gate.bottom)]
+        bottomNode.isHidden = gate[.bottom] == .unknown
+        bottomNode.geometry?.materials = [.material(for: gate[.bottom])]
     }
 }

@@ -1,5 +1,5 @@
 //
-//  WireNode.swift
+//  WireNodeController.swift
 //  GateToLogic
 //
 //  Created by Steffen Ryll on 24.03.18.

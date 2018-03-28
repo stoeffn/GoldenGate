@@ -31,4 +31,9 @@ public extension State {
         guard lhs != .unknown || rhs != .unknown else { return .unknown }
         return lhs == .one || rhs == .one ? .one : .zero
     }
+
+    static prefix func ! (state: State) -> State {
+        guard state != .unknown else { return .unknown }
+        return state == .one ? .zero : .one
+    }
 }

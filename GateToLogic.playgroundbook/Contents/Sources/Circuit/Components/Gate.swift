@@ -23,11 +23,11 @@ public struct Gate : Codable {
 
     public let `operator`: Operator
 
-    var left = State.unknown
+    private var left = State.unknown
 
-    var top = State.unknown
+    private var top = State.unknown
 
-    var bottom = State.unknown
+    private var bottom = State.unknown
 
     public private(set) var state = State.unknown
 
