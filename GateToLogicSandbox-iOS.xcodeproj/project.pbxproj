@@ -13,13 +13,17 @@
 		24F429E4206978F0004E1B00 /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */; };
 		24F429ED206AEA5B004E1B00 /* CircuitAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */; };
 		24F429F3206BCC54004E1B00 /* Inverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429F2206BCC54004E1B00 /* Inverter.swift */; };
-		24F429F5206BCDAD004E1B00 /* InverterNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429F4206BCDAD004E1B00 /* InverterNodeController.swift */; };
-		24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9382069060C00E6CCDA /* GateNodeController.swift */; };
-		24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */; };
-		24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93A2069060C00E6CCDA /* LedNodeController.swift */; };
-		24F9D9512069060C00E6CCDA /* WireNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93B2069060C00E6CCDA /* WireNodeController.swift */; };
-		24F9D9522069060C00E6CCDA /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93C2069060C00E6CCDA /* Materials.swift */; };
-		24F9D9532069060C00E6CCDA /* NodeControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93D2069060C00E6CCDA /* NodeControlling.swift */; };
+		24F42A0A206BE1F1004E1B00 /* CircuitEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429FF206BE1F0004E1B00 /* CircuitEditorViewController.swift */; };
+		24F42A0B206BE1F1004E1B00 /* CircuitEditorViewController+MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A00206BE1F0004E1B00 /* CircuitEditorViewController+MenuActions.swift */; };
+		24F42A0C206BE1F1004E1B00 /* CircuitEditorViewController+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A01206BE1F0004E1B00 /* CircuitEditorViewController+Gestures.swift */; };
+		24F42A0D206BE1F1004E1B00 /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A03206BE1F0004E1B00 /* GateNodeController.swift */; };
+		24F42A0E206BE1F1004E1B00 /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A04206BE1F0004E1B00 /* ConstantNodeController.swift */; };
+		24F42A0F206BE1F1004E1B00 /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A05206BE1F0004E1B00 /* LedNodeController.swift */; };
+		24F42A10206BE1F1004E1B00 /* WireNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A06206BE1F0004E1B00 /* WireNodeController.swift */; };
+		24F42A11206BE1F1004E1B00 /* InverterNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A07206BE1F0004E1B00 /* InverterNodeController.swift */; };
+		24F42A12206BE1F1004E1B00 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A08206BE1F0004E1B00 /* Materials.swift */; };
+		24F42A13206BE1F1004E1B00 /* NodeControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A09206BE1F0004E1B00 /* NodeControlling.swift */; };
+		24F42A15206BE366004E1B00 /* CircuitEditorViewController+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A14206BE366004E1B00 /* CircuitEditorViewController+Components.swift */; };
 		24F9D9542069060C00E6CCDA /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93F2069060C00E6CCDA /* GridPoint.swift */; };
 		24F9D9552069060C00E6CCDA /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9402069060C00E6CCDA /* State.swift */; };
 		24F9D9562069060C00E6CCDA /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9412069060C00E6CCDA /* Circuit.swift */; };
@@ -33,10 +37,7 @@
 		24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94A2069060C00E6CCDA /* Orientation.swift */; };
 		24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D94B2069060C00E6CCDA /* Interoperability.swift */; };
 		24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */; };
-		24F9D9832069386400E6CCDA /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9802069386400E6CCDA /* CircuitViewController.swift */; };
-		24F9D9842069386400E6CCDA /* AppKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */; };
 		24F9D9852069386400E6CCDA /* CircuitSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9822069386400E6CCDA /* CircuitSceneViewController.swift */; };
-		24F9D989206938CE00E6CCDA /* UIKitCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D988206938CE00E6CCDA /* UIKitCircuitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,13 +49,17 @@
 		24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
 		24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitAssertion.swift; sourceTree = "<group>"; };
 		24F429F2206BCC54004E1B00 /* Inverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inverter.swift; sourceTree = "<group>"; };
-		24F429F4206BCDAD004E1B00 /* InverterNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InverterNodeController.swift; sourceTree = "<group>"; };
-		24F9D9382069060C00E6CCDA /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
-		24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
-		24F9D93A2069060C00E6CCDA /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
-		24F9D93B2069060C00E6CCDA /* WireNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireNodeController.swift; sourceTree = "<group>"; };
-		24F9D93C2069060C00E6CCDA /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
-		24F9D93D2069060C00E6CCDA /* NodeControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeControlling.swift; sourceTree = "<group>"; };
+		24F429FF206BE1F0004E1B00 /* CircuitEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitEditorViewController.swift; sourceTree = "<group>"; };
+		24F42A00206BE1F0004E1B00 /* CircuitEditorViewController+MenuActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+MenuActions.swift"; sourceTree = "<group>"; };
+		24F42A01206BE1F0004E1B00 /* CircuitEditorViewController+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+Gestures.swift"; sourceTree = "<group>"; };
+		24F42A03206BE1F0004E1B00 /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
+		24F42A04206BE1F0004E1B00 /* ConstantNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
+		24F42A05206BE1F0004E1B00 /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
+		24F42A06206BE1F0004E1B00 /* WireNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireNodeController.swift; sourceTree = "<group>"; };
+		24F42A07206BE1F0004E1B00 /* InverterNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InverterNodeController.swift; sourceTree = "<group>"; };
+		24F42A08206BE1F0004E1B00 /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
+		24F42A09206BE1F0004E1B00 /* NodeControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeControlling.swift; sourceTree = "<group>"; };
+		24F42A14206BE366004E1B00 /* CircuitEditorViewController+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+Components.swift"; sourceTree = "<group>"; };
 		24F9D93F2069060C00E6CCDA /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		24F9D9402069060C00E6CCDA /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		24F9D9412069060C00E6CCDA /* Circuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
@@ -68,10 +73,7 @@
 		24F9D94A2069060C00E6CCDA /* Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		24F9D94B2069060C00E6CCDA /* Interoperability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
 		24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = CircuitAssets.scnassets; sourceTree = "<group>"; };
-		24F9D9802069386400E6CCDA /* CircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
-		24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitCircuitViewController.swift; sourceTree = "<group>"; };
 		24F9D9822069386400E6CCDA /* CircuitSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitSceneViewController.swift; sourceTree = "<group>"; };
-		24F9D988206938CE00E6CCDA /* UIKitCircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitCircuitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,30 +117,29 @@
 			path = "GateToLogicSandbox-iOS";
 			sourceTree = "<group>";
 		};
+		24F42A02206BE1F0004E1B00 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				24F42A03206BE1F0004E1B00 /* GateNodeController.swift */,
+				24F42A04206BE1F0004E1B00 /* ConstantNodeController.swift */,
+				24F42A05206BE1F0004E1B00 /* LedNodeController.swift */,
+				24F42A06206BE1F0004E1B00 /* WireNodeController.swift */,
+				24F42A07206BE1F0004E1B00 /* InverterNodeController.swift */,
+				24F42A08206BE1F0004E1B00 /* Materials.swift */,
+				24F42A09206BE1F0004E1B00 /* NodeControlling.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
 		24F9D9352069060C00E6CCDA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				24F9D93E2069060C00E6CCDA /* Circuit */,
 				24F9D97F2069384500E6CCDA /* Controllers */,
-				24F9D9372069060C00E6CCDA /* Nodes */,
 				24F9D94B2069060C00E6CCDA /* Interoperability.swift */,
 			);
 			name = Sources;
 			path = GateToLogic.playgroundbook/Contents/Sources;
-			sourceTree = "<group>";
-		};
-		24F9D9372069060C00E6CCDA /* Nodes */ = {
-			isa = PBXGroup;
-			children = (
-				24F9D9392069060C00E6CCDA /* ConstantNodeController.swift */,
-				24F9D9382069060C00E6CCDA /* GateNodeController.swift */,
-				24F429F4206BCDAD004E1B00 /* InverterNodeController.swift */,
-				24F9D93A2069060C00E6CCDA /* LedNodeController.swift */,
-				24F9D93C2069060C00E6CCDA /* Materials.swift */,
-				24F9D93D2069060C00E6CCDA /* NodeControlling.swift */,
-				24F9D93B2069060C00E6CCDA /* WireNodeController.swift */,
-			);
-			path = Nodes;
 			sourceTree = "<group>";
 		};
 		24F9D93E2069060C00E6CCDA /* Circuit */ = {
@@ -181,11 +182,13 @@
 		24F9D97F2069384500E6CCDA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				24F9D9812069386400E6CCDA /* AppKitCircuitViewController.swift */,
+				24F42A02206BE1F0004E1B00 /* Nodes */,
+				24F429FF206BE1F0004E1B00 /* CircuitEditorViewController.swift */,
+				24F42A14206BE366004E1B00 /* CircuitEditorViewController+Components.swift */,
+				24F42A01206BE1F0004E1B00 /* CircuitEditorViewController+Gestures.swift */,
+				24F42A00206BE1F0004E1B00 /* CircuitEditorViewController+MenuActions.swift */,
 				24F9D9822069386400E6CCDA /* CircuitSceneViewController.swift */,
-				24F9D9802069386400E6CCDA /* CircuitViewController.swift */,
 				24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */,
-				24F9D988206938CE00E6CCDA /* UIKitCircuitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,31 +265,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F42A12206BE1F1004E1B00 /* Materials.swift in Sources */,
+				24F42A10206BE1F1004E1B00 /* WireNodeController.swift in Sources */,
 				24F9D9852069386400E6CCDA /* CircuitSceneViewController.swift in Sources */,
-				24F9D9832069386400E6CCDA /* CircuitViewController.swift in Sources */,
+				24F42A13206BE1F1004E1B00 /* NodeControlling.swift in Sources */,
 				24F9D95B2069060C00E6CCDA /* ComponentEntity.swift in Sources */,
-				24F9D989206938CE00E6CCDA /* UIKitCircuitViewController.swift in Sources */,
+				24F42A0C206BE1F1004E1B00 /* CircuitEditorViewController+Gestures.swift in Sources */,
 				24F9D9542069060C00E6CCDA /* GridPoint.swift in Sources */,
-				24F9D9512069060C00E6CCDA /* WireNodeController.swift in Sources */,
-				24F9D9842069386400E6CCDA /* AppKitCircuitViewController.swift in Sources */,
+				24F42A0D206BE1F1004E1B00 /* GateNodeController.swift in Sources */,
 				24F9D95F2069060C00E6CCDA /* Interoperability.swift in Sources */,
 				24F9D9592069060C00E6CCDA /* Wire.swift in Sources */,
 				24F429ED206AEA5B004E1B00 /* CircuitAssertion.swift in Sources */,
 				24F9D95C2069060C00E6CCDA /* Composable.swift in Sources */,
 				24F429E4206978F0004E1B00 /* ComponentCollectionViewCell.swift in Sources */,
-				24F9D9532069060C00E6CCDA /* NodeControlling.swift in Sources */,
 				24F9D9552069060C00E6CCDA /* State.swift in Sources */,
-				24F9D9502069060C00E6CCDA /* LedNodeController.swift in Sources */,
-				24F9D94E2069060C00E6CCDA /* GateNodeController.swift in Sources */,
-				24F429F5206BCDAD004E1B00 /* InverterNodeController.swift in Sources */,
+				24F42A0B206BE1F1004E1B00 /* CircuitEditorViewController+MenuActions.swift in Sources */,
+				24F42A11206BE1F1004E1B00 /* InverterNodeController.swift in Sources */,
 				24F9D9582069060C00E6CCDA /* Led.swift in Sources */,
 				24F9D95D2069060C00E6CCDA /* Gate.swift in Sources */,
 				24F9D9562069060C00E6CCDA /* Circuit.swift in Sources */,
+				24F42A0A206BE1F1004E1B00 /* CircuitEditorViewController.swift in Sources */,
 				24F9D95E2069060C00E6CCDA /* Orientation.swift in Sources */,
-				24F9D9522069060C00E6CCDA /* Materials.swift in Sources */,
+				24F42A15206BE366004E1B00 /* CircuitEditorViewController+Components.swift in Sources */,
+				24F42A0E206BE1F1004E1B00 /* ConstantNodeController.swift in Sources */,
+				24F42A0F206BE1F1004E1B00 /* LedNodeController.swift in Sources */,
 				247AEA9A20690392001F7207 /* AppDelegate.swift in Sources */,
 				24F9D95A2069060C00E6CCDA /* AnyPositionedComponent.swift in Sources */,
-				24F9D94F2069060C00E6CCDA /* ConstantNodeController.swift in Sources */,
 				24F429F3206BCC54004E1B00 /* Inverter.swift in Sources */,
 				24F9D9572069060C00E6CCDA /* Constant.swift in Sources */,
 			);

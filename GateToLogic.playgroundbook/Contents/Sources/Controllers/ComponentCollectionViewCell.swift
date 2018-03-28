@@ -40,6 +40,7 @@
             let label = UILabel(frame: frame)
             label.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
             label.font = .preferredFont(forTextStyle: .headline)
+            label.textColor = .darkGray
             label.textAlignment = .center
             return label
         }()

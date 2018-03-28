@@ -701,10 +701,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--App Kit Circuit View Controller-->
+        <!--Circuit Editor View Controller-->
         <scene sceneID="u52-C1-7Rz">
             <objects>
-                <viewController id="8YE-SB-0VP" customClass="AppKitCircuitViewController" customModule="GateToLogicSandbox_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8YE-SB-0VP" customClass="CircuitEditorViewController" customModule="GateToLogicSandbox_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LUD-5B-rwW">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="720"/>
                         <autoresizingMask key="autoresizingMask"/>
