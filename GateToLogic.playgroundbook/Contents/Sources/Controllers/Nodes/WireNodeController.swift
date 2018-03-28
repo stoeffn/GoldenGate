@@ -11,7 +11,7 @@ import SceneKit
 final class WireNodeController : NodeControlling {
     init(wire: Wire) {
         component = wire
-        update()
+        update(with: wire)
     }
 
     private(set) lazy var node: SCNNode = {
@@ -55,12 +55,14 @@ final class WireNodeController : NodeControlling {
     }()
 
     var component: Composable {
-        didSet { update() }
+        didSet {
+            guard let wire = component as? Wire, let oldWire = oldValue as? Wire else { fatalError() }
+            guard wire != oldWire else { return }
+            update(with: wire)
+        }
     }
 
-    private func update() {
-        guard let wire = component as? Wire else { fatalError() }
-
+    private func update(with wire: Wire) {
         leftNode.isHidden = !wire.orientations.contains(.left)
         leftNode.geometry?.materials = [.material(for: wire[.left])]
         topNode.isHidden = !wire.orientations.contains(.top)

@@ -24,6 +24,13 @@ struct Constant : Codable {
     }
 }
 
+extension Constant : Equatable {
+    static func == (lhs: Constant, rhs: Constant) -> Bool {
+        return lhs.isLocked == rhs.isLocked
+            && lhs.value == rhs.value
+    }
+}
+
 extension Constant : Composable {
     var state: State {
         return State(value)

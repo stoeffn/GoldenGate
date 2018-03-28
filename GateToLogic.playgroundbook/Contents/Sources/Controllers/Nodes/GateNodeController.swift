@@ -11,7 +11,7 @@ import SceneKit
 final class GateNodeController : NodeControlling {
     init(gate: Gate) {
         component = gate
-        update()
+        update(with: gate)
     }
 
     private(set) lazy var node: SCNNode = {
@@ -61,12 +61,14 @@ final class GateNodeController : NodeControlling {
     }()
 
     var component: Composable {
-        didSet { update() }
+        didSet {
+            guard let gate = component as? Gate, let oldGate = oldValue as? Gate else { fatalError() }
+            guard gate != oldGate else { return }
+            update(with: gate)
+        }
     }
 
-    private func update() {
-        guard let gate = component as? Gate else { fatalError() }
-
+    private func update(with gate: Gate) {
         andNode.isHidden = gate.operator != .and
         andNode.geometry?.materials = [.material(for: gate.state)]
         orNode.isHidden = gate.operator != .or

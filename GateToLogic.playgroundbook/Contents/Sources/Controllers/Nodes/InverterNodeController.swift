@@ -11,7 +11,7 @@ import SceneKit
 final class InverterNodeController : NodeControlling {
     init(inverter: Inverter) {
         component = inverter
-        update()
+        update(with: inverter)
     }
 
     private(set) lazy var node: SCNNode = {
@@ -43,12 +43,14 @@ final class InverterNodeController : NodeControlling {
     }()
 
     var component: Composable {
-        didSet { update() }
+        didSet {
+            guard let inverter = component as? Inverter, let oldInverter = oldValue as? Inverter else { fatalError() }
+            guard inverter != oldInverter else { return }
+            update(with: inverter)
+        }
     }
 
-    private func update() {
-        guard let inverter = component as? Inverter else { fatalError() }
-
+    private func update(with inverter: Inverter) {
         node.geometry?.materials = [.material(for: inverter.state)]
         leftNode.geometry?.materials = [.material(for: inverter[.left])]
         rightNode.geometry?.materials = [.material(for: inverter[.right])]

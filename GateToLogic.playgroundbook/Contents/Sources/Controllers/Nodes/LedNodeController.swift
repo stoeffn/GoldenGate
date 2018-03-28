@@ -11,7 +11,7 @@ import SceneKit
 final class LedNodeController : NodeControlling {
     init(led: Led) {
         component = led
-        update()
+        update(with: led)
     }
 
     private(set) lazy var node: SCNNode = {
@@ -45,12 +45,14 @@ final class LedNodeController : NodeControlling {
     }()
 
     var component: Composable {
-        didSet { update() }
+        didSet {
+            guard let led = component as? Led, let oldLed = oldValue as? Led else { fatalError() }
+            guard led != oldLed else { return }
+            update(with: led)
+        }
     }
 
-    private func update() {
-        guard let led = component as? Led else { fatalError() }
-
+    private func update(with led: Led) {
         node.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
         socketNode.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
         lightNode.light?.intensity = led.state == .one ? 1 : 0

@@ -11,7 +11,7 @@ import SceneKit
 final class ConstantNodeController : NodeControlling {
     init(constant: Constant) {
         component = constant
-        update()
+        update(with: constant)
     }
 
     private(set) lazy var node: SCNNode = {
@@ -37,12 +37,14 @@ final class ConstantNodeController : NodeControlling {
     }()
 
     var component: Composable {
-        didSet { update() }
+        didSet {
+            guard let constant = component as? Constant, let oldConstant = oldValue as? Constant else { fatalError() }
+            guard constant != oldConstant else { return }
+            update(with: constant)
+        }
     }
 
-    private func update() {
-        guard let constant = component as? Constant else { fatalError() }
-
+    private func update(with constant: Constant) {
         buttonNode.isHidden = constant.value
         node.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
         rightNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]

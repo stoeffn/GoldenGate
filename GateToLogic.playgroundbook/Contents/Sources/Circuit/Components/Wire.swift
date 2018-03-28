@@ -28,6 +28,16 @@ struct Wire : Codable {
     }
 }
 
+extension Wire : Equatable {
+    static func == (lhs: Wire, rhs: Wire) -> Bool {
+        return lhs.orientations == rhs.orientations
+            && lhs.isLocked == rhs.isLocked
+            && lhs.isBridging == rhs.isBridging
+            && lhs.horizontalState == rhs.horizontalState
+            && lhs.verticalState == rhs.verticalState
+    }
+}
+
 extension Wire : Composable {
     var state: State {
         return horizontalState || verticalState

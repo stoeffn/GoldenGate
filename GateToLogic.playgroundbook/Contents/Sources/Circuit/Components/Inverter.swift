@@ -24,6 +24,14 @@ struct Inverter : Codable {
     init() { }
 }
 
+extension Inverter : Equatable {
+    static func == (lhs: Inverter, rhs: Inverter) -> Bool {
+        return lhs.isLocked == rhs.isLocked
+            && lhs.input == rhs.input
+            && lhs.state == rhs.state
+    }
+}
+
 extension Inverter : Composable {
     subscript(_ orientation: Orientation) -> State {
         get {

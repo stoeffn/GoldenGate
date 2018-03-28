@@ -36,6 +36,17 @@ struct Gate : Codable {
     }
 }
 
+extension Gate : Equatable {
+    static func == (lhs: Gate, rhs: Gate) -> Bool {
+        return lhs.isLocked == rhs.isLocked
+            && lhs.operator == rhs.operator
+            && lhs.left == rhs.left
+            && lhs.top == rhs.top
+            && lhs.bottom == rhs.bottom
+            && lhs.state == rhs.state
+    }
+}
+
 extension Gate : Composable {
     var inputs: Set<State> {
         return Set([left, top, bottom].filter { $0 != .unknown })

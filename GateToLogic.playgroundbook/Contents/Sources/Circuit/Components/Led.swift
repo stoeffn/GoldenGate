@@ -22,6 +22,13 @@ struct Led : Codable {
     init() { }
 }
 
+extension Led : Equatable {
+    static func == (lhs: Led, rhs: Led) -> Bool {
+        return lhs.isLocked == rhs.isLocked
+            && lhs.state == rhs.state
+    }
+}
+
 extension Led : Composable {
     subscript(_ orientation: Orientation) -> State {
         get { return .unknown }
