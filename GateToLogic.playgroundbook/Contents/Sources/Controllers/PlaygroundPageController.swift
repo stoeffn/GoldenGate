@@ -8,12 +8,18 @@
 
 import PlaygroundSupport
 
+public extension PlaygroundRemoteLiveViewProxy {
+    public func send(_ command: PlaygroundCommands) {
+        send(.string(command.rawValue))
+    }
+}
+
 public final class PlaygroundPageController : PlaygroundRemoteLiveViewProxyDelegate {
     private let liveViewProxy: PlaygroundRemoteLiveViewProxy
 
     public init(liveViewProxy: PlaygroundRemoteLiveViewProxy) {
         self.liveViewProxy = liveViewProxy
-        self.liveViewProxy.send(.boolean(true))
+        self.liveViewProxy.send(.runAssertions)
 
         PlaygroundPage.current.needsIndefiniteExecution = true
     }
@@ -21,7 +27,16 @@ public final class PlaygroundPageController : PlaygroundRemoteLiveViewProxyDeleg
     public func remoteLiveViewProxyConnectionClosed(_ remoteLiveViewProxy: PlaygroundRemoteLiveViewProxy) { }
 
     public func remoteLiveViewProxy(_ remoteLiveViewProxy: PlaygroundRemoteLiveViewProxy, received message: PlaygroundValue) {
-        PlaygroundPage.current.assessmentStatus = .pass(message: nil)
-        PlaygroundPage.current.finishExecution()
+        guard case let .string(rawCommand) = message, let command = PlaygroundCommands(rawValue: rawCommand) else { return }
+
+        switch command {
+        case .handleAssertionSuccess:
+            PlaygroundPage.current.assessmentStatus = .pass(message: nil)
+            PlaygroundPage.current.finishExecution()
+        case .handleAssertionFailure:
+            PlaygroundPage.current.assessmentStatus = .fail(hints: ["Test"], solution: nil)
+        case .runAssertions:
+            return
+        }
     }
 }

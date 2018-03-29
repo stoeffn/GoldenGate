@@ -9,7 +9,18 @@
 import PlaygroundSupport
 
 extension CircuitEditorViewController : PlaygroundLiveViewMessageHandler {
+    public func send(_ command: PlaygroundCommands) {
+        send(.string(command.rawValue))
+    }
+
     public func receive(_ message: PlaygroundValue) {
-        assertCircuit()
+        guard case let .string(rawCommand) = message, let command = PlaygroundCommands(rawValue: rawCommand) else { return }
+
+        switch command {
+        case .runAssertions:
+            assertCircuit()
+        case .handleAssertionSuccess, .handleAssertionFailure:
+            return
+        }
     }
 }

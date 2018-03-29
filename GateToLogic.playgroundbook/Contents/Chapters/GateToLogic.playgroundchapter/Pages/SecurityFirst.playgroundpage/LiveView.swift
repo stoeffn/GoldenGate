@@ -2,8 +2,8 @@ import PlaygroundSupport
 
 let controller = CircuitEditorViewController()
 controller.circuit = Circuit.named("Puzzle")
-controller.circuitDidMeetAssertions = {
-    controller.send(.boolean(true))
+controller.didAssertCircuit = { isSuccess in
+    controller.send(PlaygroundCommands.fromAssertionResult(isSuccess))
 }
 
 PlaygroundPage.current.liveView = controller
