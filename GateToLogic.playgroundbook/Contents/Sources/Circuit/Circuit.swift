@@ -147,7 +147,7 @@ public struct Circuit {
         }
 
         let tickCount = assertion.expectedStatesAtTicks.keys.max() ?? 0
-        for tick in 0 ..< tickCount {
+        for tick in 0 ... tickCount {
             guard let expectedStates = assertion.expectedStatesAtTicks[tick] else { continue }
             let failedAssertions = expectedStates.filter { circuit[$0.key]?.state != $0.value }
             guard failedAssertions.isEmpty else { return false }

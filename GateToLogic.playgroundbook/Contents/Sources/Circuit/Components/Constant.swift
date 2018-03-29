@@ -47,6 +47,7 @@ extension Constant : Composable {
     }
 
     mutating func reset() {
+        guard isLocked else { return }
         value = false
     }
 
