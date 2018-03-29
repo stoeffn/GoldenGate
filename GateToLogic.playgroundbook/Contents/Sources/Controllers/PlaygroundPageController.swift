@@ -17,10 +17,17 @@ public extension PlaygroundRemoteLiveViewProxy {
 public final class PlaygroundPageController : PlaygroundRemoteLiveViewProxyDelegate {
     private let liveViewProxy: PlaygroundRemoteLiveViewProxy
 
-    public init(liveViewProxy: PlaygroundRemoteLiveViewProxy) {
-        self.liveViewProxy = liveViewProxy
-        self.liveViewProxy.send(.runAssertions)
+    private let successStatus: PlaygroundPage.AssessmentStatus?
 
+    private let failureStatus: PlaygroundPage.AssessmentStatus?
+
+    public init(liveViewProxy: PlaygroundRemoteLiveViewProxy, successStatus: PlaygroundPage.AssessmentStatus? = nil,
+                failureStatus: PlaygroundPage.AssessmentStatus? = nil) {
+        self.liveViewProxy = liveViewProxy
+        self.successStatus = successStatus
+        self.failureStatus = failureStatus
+
+        liveViewProxy.send(.runAssertions)
         PlaygroundPage.current.needsIndefiniteExecution = true
     }
 
@@ -31,11 +38,11 @@ public final class PlaygroundPageController : PlaygroundRemoteLiveViewProxyDeleg
 
         switch command {
         case .handleAssertionSuccess:
-            PlaygroundPage.current.assessmentStatus = .pass(message: nil)
+            PlaygroundPage.current.assessmentStatus = successStatus
             PlaygroundPage.current.finishExecution()
-        case .handleAssertionFailure:
-            PlaygroundPage.current.assessmentStatus = .fail(hints: ["Test"], solution: nil)
-        case .runAssertions:
+        case .handleAssertionFailure where PlaygroundPage.current.assessmentStatus == nil:
+            PlaygroundPage.current.assessmentStatus = failureStatus
+        case .handleAssertionFailure, .runAssertions:
             return
         }
     }

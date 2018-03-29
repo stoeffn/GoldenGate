@@ -8,6 +8,61 @@
                         "x": 4,
                         "y": -4
                     },
+                    "zero"
+                ]
+            }
+        },
+        {
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -3
+                }
+            ],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "zero"
+                ]
+            }
+        },
+        {
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -5
+                }
+            ],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "zero"
+                ]
+            }
+        },
+        {
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -3
+                },
+                {
+                    "x": 0,
+                    "y": -5
+                }
+            ],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
                     "one"
                 ]
             }
@@ -32,7 +87,7 @@
                 "y": -5
             },
             "component": {
-                "isLocked": true,
+                "isLocked": false,
                 "orientations": [
                     "right",
                     "left"
@@ -63,7 +118,7 @@
             },
             "component": {
                 "value": false,
-                "isLocked": false
+                "isLocked": true
             }
         },
         {
