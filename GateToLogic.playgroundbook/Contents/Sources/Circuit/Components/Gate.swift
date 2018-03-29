@@ -48,8 +48,8 @@ extension Gate : Equatable {
 }
 
 extension Gate : Composable {
-    var inputs: Set<State> {
-        return Set([left, top, bottom].filter { $0 != .unknown })
+    var inputs: [State] {
+        return [left, top, bottom].filter { $0 != .unknown }
     }
 
     subscript(_ orientation: Orientation) -> State {

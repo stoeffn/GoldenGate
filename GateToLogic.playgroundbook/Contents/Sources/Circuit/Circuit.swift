@@ -139,6 +139,9 @@ public struct Circuit {
 
     func meets(assertion: CircuitAssertion) -> Bool {
         var circuit = self
+        circuit.didAdd = nil
+        circuit.didUpdate = nil
+        circuit.didRemove = nil
         circuit.reset()
         circuit.updatePassiveComponents()
 
@@ -148,9 +151,14 @@ public struct Circuit {
 
         let tickCount = assertion.expectedStatesAtTicks.keys.max() ?? 0
         for tick in 0 ... tickCount {
-            guard let expectedStates = assertion.expectedStatesAtTicks[tick] else { continue }
+            guard let expectedStates = assertion.expectedStatesAtTicks[tick] else {
+                circuit.tick()
+                continue
+            }
+
             let failedAssertions = expectedStates.filter { circuit[$0.key]?.state != $0.value }
             guard failedAssertions.isEmpty else { return false }
+
             circuit.tick()
         }
 
