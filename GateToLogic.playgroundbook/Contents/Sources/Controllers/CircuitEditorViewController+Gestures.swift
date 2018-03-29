@@ -15,19 +15,25 @@
 
     public extension CircuitEditorViewController {
         @IBAction
-        func didTap(_ sender: UIGestureRecognizer) {
-            guard let position = circuitSceneViewController?.position(at: sender.location(in: view)) else { return }
+        func didTap(_ gestureRecognizer: UITapGestureRecognizer) {
+            guard
+                gestureRecognizer.state == .ended,
+                let position = circuitSceneViewController?.position(at: gestureRecognizer.location(in: view))
+            else { return }
             circuitSceneViewController?.circuit[position]?.trigger()
+            assertCircuit()
         }
 
         @IBAction
-        func didLongPress(_ sender: UIGestureRecognizer) {
+        func didLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
             guard
-                let position = circuitSceneViewController?.position(at: sender.location(in: view)),
+                gestureRecognizer.state == .ended,
+                let position = circuitSceneViewController?.position(at: gestureRecognizer.location(in: view)),
                 let component = circuitSceneViewController?.circuit[position],
                 !component.isLocked
-                else { return }
+            else { return }
             circuitSceneViewController?.circuit[position] = nil
+            assertCircuit()
         }
     }
 
@@ -39,7 +45,7 @@
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
                 let component = circuitSceneViewController?.circuit[position],
                 !component.isLocked
-                else { return [] }
+            else { return [] }
             let itemProvider = component.itemProvider(at: position)
             return [UIDragItem(itemProvider: itemProvider)]
         }
@@ -50,7 +56,7 @@
                     let data = data,
                     let anyPositionedComponent = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data),
                     let previousPosition = anyPositionedComponent.position
-                    else { return }
+                else { return }
                 self.circuitSceneViewController?.circuit[previousPosition] = nil
             }
         }
@@ -60,7 +66,7 @@
             guard
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
                 let component = circuitSceneViewController?.circuit[position]
-                else { return nil }
+            else { return nil }
             preparePreviewScene(for: component, at: session.location(in: view))
             return UITargetedDragPreview(view: previewSceneView)
         }
@@ -85,7 +91,7 @@
             guard
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
                 circuitSceneViewController?.circuit[position] == nil
-                else { return UIDropProposal(operation: .cancel) }
+            else { return UIDropProposal(operation: .cancel) }
             return UIDropProposal(operation: .move)
         }
 
@@ -95,8 +101,9 @@
                     let data = data,
                     let component = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data).component,
                     let position = self.circuitSceneViewController?.position(at: session.location(in: self.view))
-                    else { return }
+                else { return }
                 self.circuitSceneViewController?.circuit[position] = component
+                self.assertCircuit()
             }
         }
     }

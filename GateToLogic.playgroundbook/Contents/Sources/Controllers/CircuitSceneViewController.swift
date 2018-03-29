@@ -42,6 +42,11 @@ final class CircuitSceneViewController : NSObject {
         return view
     }()
 
+    private(set) lazy var cameraNode: SCNNode = {
+        guard let node = view.scene?.rootNode.childNode(withName: "Camera", recursively: true) else { fatalError() }
+        return node
+    }()
+
     private lazy var componentNodeControllers = [GridPoint: NodeControlling]()
 }
 

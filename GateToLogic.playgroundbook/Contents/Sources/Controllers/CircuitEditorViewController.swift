@@ -172,4 +172,14 @@ public class CircuitEditorViewController : ViewController {
         ]
 
     #endif
+
+    // MARK: - Assertion Management
+
+    public var circuitDidMeetAssertions: (() -> Void)?
+
+    func assertCircuit() {
+        guard let circuitDidMeetAssertions = self.circuitDidMeetAssertions else { return }
+        guard self.circuitSceneViewController?.circuit.meetsAssertions ?? false else { return }
+        circuitDidMeetAssertions()
+    }
 }

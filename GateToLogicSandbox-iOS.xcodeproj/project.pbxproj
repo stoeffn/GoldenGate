@@ -25,6 +25,7 @@
 		24F42A13206BE1F1004E1B00 /* NodeControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A09206BE1F0004E1B00 /* NodeControlling.swift */; };
 		24F42A15206BE366004E1B00 /* CircuitEditorViewController+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F42A14206BE366004E1B00 /* CircuitEditorViewController+Components.swift */; };
 		24F42A1B206C169D004E1B00 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F42A1A206C169C004E1B00 /* Icon.png */; };
+		24F42A20206C2DB4004E1B00 /* Puzzle.logic in Resources */ = {isa = PBXBuildFile; fileRef = 24F42A1F206C2D3B004E1B00 /* Puzzle.logic */; };
 		24F9D9542069060C00E6CCDA /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D93F2069060C00E6CCDA /* GridPoint.swift */; };
 		24F9D9552069060C00E6CCDA /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9402069060C00E6CCDA /* State.swift */; };
 		24F9D9562069060C00E6CCDA /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9D9412069060C00E6CCDA /* Circuit.swift */; };
@@ -62,6 +63,7 @@
 		24F42A09206BE1F0004E1B00 /* NodeControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeControlling.swift; sourceTree = "<group>"; };
 		24F42A14206BE366004E1B00 /* CircuitEditorViewController+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CircuitEditorViewController+Components.swift"; sourceTree = "<group>"; };
 		24F42A1A206C169C004E1B00 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		24F42A1F206C2D3B004E1B00 /* Puzzle.logic */ = {isa = PBXFileReference; lastKnownFileType = text; path = Puzzle.logic; sourceTree = "<group>"; };
 		24F9D93F2069060C00E6CCDA /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		24F9D9402069060C00E6CCDA /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		24F9D9412069060C00E6CCDA /* Circuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		247AEA9820690392001F7207 /* GateToLogicSandbox */ = {
 			isa = PBXGroup;
 			children = (
+				24F42A1F206C2D3B004E1B00 /* Puzzle.logic */,
 				247AEAA720690392001F7207 /* Info.plist */,
 				247AEA9920690392001F7207 /* AppDelegate.swift */,
 				247AEAA220690392001F7207 /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 				247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */,
 				247AEAA320690392001F7207 /* Assets.xcassets in Resources */,
 				24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */,
+				24F42A20206C2DB4004E1B00 /* Puzzle.logic in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

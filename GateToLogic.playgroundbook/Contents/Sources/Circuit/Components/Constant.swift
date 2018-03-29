@@ -46,6 +46,10 @@ extension Constant : Composable {
         set { }
     }
 
+    mutating func reset() {
+        value = false
+    }
+
     mutating func trigger() {
         self.value = !self.value
     }
