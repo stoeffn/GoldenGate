@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -719,27 +719,20 @@
                     <items>
                         <menuItem title="Add Constant" id="nsG-w7-hpm">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <menu key="submenu" id="CLW-q1-p1G">
-                                <items>
-                                    <menuItem title="Zero" id="6p6-9F-LJT">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="addZeroConstantComponent:" target="8YE-SB-0VP" id="LX6-zv-gwW"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="One" id="ETN-OB-XQa">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="addOneConstantComponent:" target="8YE-SB-0VP" id="Ozz-9a-rNM"/>
-                                        </connections>
-                                    </menuItem>
-                                </items>
-                            </menu>
+                            <connections>
+                                <action selector="addConstantComponent:" target="8YE-SB-0VP" id="tFq-Kg-32W"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Add Gate" id="dTI-jX-yqc">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <menu key="submenu" id="pk3-4C-HRt">
                                 <items>
+                                    <menuItem title="Not" id="Ate-h5-YDd">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addNotGateComponent:" target="8YE-SB-0VP" id="JsZ-SO-pbL"/>
+                                        </connections>
+                                    </menuItem>
                                     <menuItem title="And" id="Cr0-Ys-sn6">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                         <connections>
@@ -763,9 +756,40 @@
                         </menuItem>
                         <menuItem title="Add Wire" id="1Yd-dX-qgU">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="addWireComponent:" target="8YE-SB-0VP" id="fuu-l3-aRv"/>
-                            </connections>
+                            <menu key="submenu" id="tFI-eE-YCP">
+                                <items>
+                                    <menuItem title="Automatic" id="AH6-vt-jky">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addAutomaticWireComponent:" target="8YE-SB-0VP" id="vzu-hA-blr"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Straight" id="vMa-3i-BtV">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addStraightWireComponent:" target="8YE-SB-0VP" id="2Ye-vI-9J3"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Angle" id="KYv-Cm-aBC">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addAngledWireComponent:" target="8YE-SB-0VP" id="C3p-ba-ekP"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Tee" id="MHD-El-iHn">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addTeeWireComponent:" target="8YE-SB-0VP" id="QfR-bv-kzQ"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="All" id="1SX-Ze-DBv">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addAllWireComponent:" target="8YE-SB-0VP" id="SvH-EI-6HZ"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
                         </menuItem>
                     </items>
                 </menu>

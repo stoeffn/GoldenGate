@@ -25,15 +25,15 @@
         }
 
         @IBAction
-        func addZeroConstantComponent(_ sender: Any?) {
+        func addConstantComponent(_ sender: Any?) {
             guard let position = currentComponentPosition else { return }
-            circuitSceneViewController?.circuit[position] = Constant(value: false)
+            circuitSceneViewController?.circuit[position] = Constant(value: true)
         }
 
         @IBAction
-        func addOneConstantComponent(_ sender: Any?) {
+        func addNotGateComponent(_ sender: Any?) {
             guard let position = currentComponentPosition else { return }
-            circuitSceneViewController?.circuit[position] = Constant(value: true)
+            circuitSceneViewController?.circuit[position] = Inverter()
         }
 
         @IBAction
@@ -55,11 +55,35 @@
         }
 
         @IBAction
-        func addWireComponent(_ sender: Any?) {
+        func addAutomaticWireComponent(_ sender: Any?) {
             guard let position = currentComponentPosition else { return }
             let orientations = circuitSceneViewController?.circuit.suggestedOrientations(forWireAt: position) ?? []
             circuitSceneViewController?.circuit[position] = Wire(orientations: orientations)
         }
-}
+
+        @IBAction
+        func addStraightWireComponent(_ sender: Any?) {
+            guard let position = currentComponentPosition else { return }
+            circuitSceneViewController?.circuit[position] = Wire(orientations: [.left, .right])
+        }
+
+        @IBAction
+        func addAngledWireComponent(_ sender: Any?) {
+            guard let position = currentComponentPosition else { return }
+            circuitSceneViewController?.circuit[position] = Wire(orientations: [.left, .top])
+        }
+
+        @IBAction
+        func addTeeWireComponent(_ sender: Any?) {
+            guard let position = currentComponentPosition else { return }
+            circuitSceneViewController?.circuit[position] = Wire(orientations: [.left, .top, .right])
+        }
+
+        @IBAction
+        func addAllWireComponent(_ sender: Any?) {
+            guard let position = currentComponentPosition else { return }
+            circuitSceneViewController?.circuit[position] = Wire(orientations: [.left, .top, .right, .bottom])
+        }
+    }
 
 #endif
