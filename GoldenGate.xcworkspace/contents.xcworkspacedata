@@ -8,6 +8,6 @@
       location = "group:GoldenGate.Sandbox.macOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/steffenryll/Repositories/GateToLogic/GoldenGate.playgroundbook">
+      location = "group:GoldenGate.playgroundbook">
    </FileRef>
 </Workspace>
