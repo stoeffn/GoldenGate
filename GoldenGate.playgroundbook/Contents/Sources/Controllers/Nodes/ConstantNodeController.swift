@@ -46,7 +46,7 @@ final class ConstantNodeController : NodeControlling {
 
     private func update(with constant: Constant) {
         buttonNode.isHidden = constant.value
-        node.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
+        buttonNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
         rightNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
     }
 }
