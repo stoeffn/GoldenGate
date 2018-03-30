@@ -8,7 +8,7 @@
 
 struct Constant : Codable {
     enum CodingKeys : String, CodingKey {
-        case value, isLocked
+        case isLocked, isOn
     }
 
     static let isActive = true
@@ -17,29 +17,29 @@ struct Constant : Codable {
 
     var isLocked = false
 
-    var value: Bool
+    var isOn: Bool
 
-    init(value: Bool) {
-        self.value = value
+    init(isOn: Bool) {
+        self.isOn = isOn
     }
 }
 
 extension Constant : Equatable {
     static func == (lhs: Constant, rhs: Constant) -> Bool {
         return lhs.isLocked == rhs.isLocked
-            && lhs.value == rhs.value
+            && lhs.isOn == rhs.isOn
     }
 }
 
 extension Constant : Composable {
     var state: State {
-        return State(value)
+        return State(isOn)
     }
 
     subscript(_ orientation: Orientation) -> State {
         get {
             switch orientation {
-            case .right: return State(value)
+            case .right: return State(isOn)
             default: return .unknown
             }
         }
@@ -48,18 +48,18 @@ extension Constant : Composable {
 
     mutating func reset() {
         guard isLocked else { return }
-        value = false
+        isOn = false
     }
 
     mutating func trigger() {
-        self.value = !self.value
+        self.isOn = !self.isOn
     }
 
     func updated(neighbor: Composable, at orientation: Orientation) -> Composable {
         guard orientation == .right else { return neighbor }
 
         var neighbor = neighbor
-        neighbor[orientation.opposite] = State(value)
+        neighbor[orientation.opposite] = State(isOn)
         return neighbor
     }
 }

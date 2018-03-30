@@ -58,9 +58,9 @@ final class ConstantNodeController : NodeControlling {
 
     private func update(with constant: Constant) {
         buttonNode.removeAllActions()
-        buttonNode.runAction(constant.value ? pressAction : releaseAction)
-        buttonNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
+        buttonNode.runAction(constant.isOn ? pressAction : releaseAction)
+        buttonNode.geometry?.materials = [constant.isOn ? .oneComponent : .zeroComponent]
 
-        rightNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
+        rightNode.geometry?.materials = [constant.isOn ? .oneComponent : .zeroComponent]
     }
 }

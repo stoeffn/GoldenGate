@@ -27,7 +27,7 @@
         @IBAction
         func addConstantComponent(_ sender: Any?) {
             guard let position = currentComponentPosition else { return }
-            circuitSceneViewController?.circuit[position] = Constant(value: true)
+            circuitSceneViewController?.circuit[position] = Constant(isOn: true)
         }
 
         @IBAction
