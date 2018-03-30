@@ -9,7 +9,7 @@ let playgroundPageController = PlaygroundPageController(
     failureStatus: .fail(hints: [
                             "You will need these inverters already in place.",
                             "More complex logic might require cascading multiple gates."
-                         ], solution: "TODO"))
+                         ], solution: "Type `showSolution()` to show one possibility."))
 liveViewProxy.delegate = playgroundPageController
 
 //#-end-hidden-code
@@ -30,5 +30,6 @@ liveViewProxy.delegate = playgroundPageController
 
  */
 //#-code-completion(everything, hide)
-//#-editable-code Nothing to Code Here
+//#-code-completion(identifier, show, showPuzzle(), showSolution())
+//#-editable-code
 //#-end-editable-code

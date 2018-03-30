@@ -19,6 +19,11 @@ extension CircuitEditorViewController : PlaygroundLiveViewMessageHandler {
         switch command {
         case .runAssertions:
             assertCircuit()
+        case .showPuzzle:
+            circuit = Circuit.named("Puzzle")
+        case .showSolution:
+            circuit = Circuit.named("Solution") ?? Circuit()
+            assertCircuit()
         case .handleAssertionSuccess, .handleAssertionFailure:
             return
         }

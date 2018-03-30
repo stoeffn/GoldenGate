@@ -12,6 +12,10 @@ public enum PlaygroundCommands : String {
     case handleAssertionSuccess
 
     case handleAssertionFailure
+
+    case showPuzzle
+
+    case showSolution
 }
 
 public extension PlaygroundCommands {

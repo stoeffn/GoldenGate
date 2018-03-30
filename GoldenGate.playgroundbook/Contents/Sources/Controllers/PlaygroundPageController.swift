@@ -42,8 +42,18 @@ public final class PlaygroundPageController : PlaygroundRemoteLiveViewProxyDeleg
             PlaygroundPage.current.finishExecution()
         case .handleAssertionFailure where PlaygroundPage.current.assessmentStatus == nil:
             PlaygroundPage.current.assessmentStatus = failureStatus
-        case .handleAssertionFailure, .runAssertions:
+        case .handleAssertionFailure, .runAssertions, .showPuzzle, .showSolution:
             return
         }
     }
+}
+
+public func showPuzzle() {
+    let liveViewProxy = PlaygroundPage.current.liveView as! PlaygroundRemoteLiveViewProxy
+    liveViewProxy.send(.showPuzzle)
+}
+
+public func showSolution() {
+    let liveViewProxy = PlaygroundPage.current.liveView as! PlaygroundRemoteLiveViewProxy
+    liveViewProxy.send(.showSolution)
 }

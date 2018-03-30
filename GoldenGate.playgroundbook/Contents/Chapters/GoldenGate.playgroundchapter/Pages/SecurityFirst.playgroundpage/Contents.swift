@@ -7,7 +7,7 @@ let playgroundPageController = PlaygroundPageController(
     liveViewProxy: liveViewProxy,
     successStatus: .pass(message: "Great Thinking—it's now safe to operate that um… LED!\n\n[Next Puzzle](@next)"),
     failureStatus: .fail(hints: ["Think about which logic gate might match the situation."],
-                         solution: "Connect both inputs to an `And` gate and its output to the LED."))
+                         solution: "Type `showSolution()` to show one possibility."))
 liveViewProxy.delegate = playgroundPageController
 
 //#-end-hidden-code
@@ -54,5 +54,6 @@ liveViewProxy.delegate = playgroundPageController
 
  */
 //#-code-completion(everything, hide)
-//#-editable-code Nothing to Code Here
+//#-code-completion(identifier, show, showPuzzle(), showSolution())
+//#-editable-code
 //#-end-editable-code
