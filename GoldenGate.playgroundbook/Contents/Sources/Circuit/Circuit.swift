@@ -49,6 +49,8 @@ public struct Circuit {
             return
         }
 
+        guard !oldComponent.isLocked || type(of: component) == type(of: oldComponent) else { return }
+
         components[position] = component
 
         if type(of: component) == type(of: oldComponent) {
@@ -59,7 +61,7 @@ public struct Circuit {
     }
 
     private mutating func removeComponent(at position: GridPoint) {
-        guard let component = components[position] else { return }
+        guard let component = components[position], !component.isLocked else { return }
 
         components[position] = nil
         didRemove?(component, position)

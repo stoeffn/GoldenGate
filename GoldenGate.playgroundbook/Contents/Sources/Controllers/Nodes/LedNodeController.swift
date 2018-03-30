@@ -55,7 +55,7 @@ final class LedNodeController : NodeControlling {
     private func update(with led: Led) {
         node.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
         socketNode.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
-        lightNode.light?.intensity = led.state == .one ? 1 : 0
+        lightNode.light?.intensity = led.state == .one ? 1.5 : 0
         leftNode.geometry?.materials = [.material(for: led.state)]
     }
 }
