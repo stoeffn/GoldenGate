@@ -26,6 +26,21 @@
         }
     }
 
+    // MARK: - Tool Bar Delegate
+
+    extension CircuitEditorViewController : UICollectionViewDelegate {
+        public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            updateComponentRotations()
+        }
+
+        func updateComponentRotations() {
+            componentsCollectionView.visibleCells
+                .flatMap { $0 as? ComponentCollectionViewCell }
+                .map { (node: $0.componentNode, offset: componentsCollectionView.contentOffset.x) }
+                .forEach { $0.node.eulerAngles = SCNVector3(x: -.pi / 2, y: Float($0.offset) / 128, z: 0) }
+        }
+    }
+
     // MARK: - Dragging Components from the Tool Bar
 
     extension CircuitEditorViewController : UICollectionViewDragDelegate {

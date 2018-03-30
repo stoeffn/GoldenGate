@@ -28,8 +28,9 @@
 
         var component: Composable! {
             didSet {
+                componentNode = nodeController(for: component).node
                 sceneView.scene = SCNScene(named: componentPreviewSceneName)
-                sceneView.scene?.rootNode.addChildNode(nodeController(for: component).node)
+                sceneView.scene?.rootNode.addChildNode(componentNode)
             }
         }
 
@@ -52,6 +53,8 @@
             view.backgroundColor = .clear
             return view
         }()
+
+        private(set) var componentNode: SCNNode!
 
         private func initUserInterface() {
             addSubview(titleLabel)

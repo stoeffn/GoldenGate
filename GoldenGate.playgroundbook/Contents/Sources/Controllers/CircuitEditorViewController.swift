@@ -35,6 +35,15 @@ public class CircuitEditorViewController : ViewController {
         #endif
     }
 
+    #if os(iOS)
+
+        public override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            updateComponentRotations()
+        }
+
+    #endif
+
     // MARK: - Circuit Management
 
     private(set) var circuitSceneViewController: CircuitSceneViewController?
@@ -138,10 +147,12 @@ public class CircuitEditorViewController : ViewController {
         lazy var componentsCollectionView: UICollectionView = {
             let view = UICollectionView(frame: .zero, collectionViewLayout: componentsCollectionViewLayout)
             view.translatesAutoresizingMaskIntoConstraints = false
+            view.delegate = self
             view.dataSource = self
             view.dragDelegate = self
             view.register(ComponentCollectionViewCell.self, forCellWithReuseIdentifier: ComponentCollectionViewCell.reuseIdentifier)
             view.backgroundColor = .clear
+            view.alwaysBounceHorizontal = true
             view.clipsToBounds = false
             return view
         }()
