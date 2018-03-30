@@ -36,6 +36,11 @@ final class CircuitSceneViewController : NSObject {
     private(set) lazy var view: SCNView = {
         let view = SCNView()
         view.scene = scene
+        view.allowsCameraControl = true
+        view.cameraControlConfiguration.autoSwitchToFreeCamera = false
+        view.defaultCameraController.interactionMode = .orbitTurntable
+        view.defaultCameraController.minimumVerticalAngle = 20
+        view.defaultCameraController.maximumVerticalAngle = 90
         #if os(OSX)
             view.isJitteringEnabled = true
         #endif
