@@ -160,7 +160,7 @@ public class CircuitEditorViewController : ViewController {
         }
 
         let availableComponents: [(title: String, component: Composable)] = [
-            (title: "Constant", component: Constant(value: true)),
+            (title: "Switch", component: Constant(value: true)),
             (title: "Inverter", component: Inverter()),
             (title: "And", component: Gate(operator: .and)),
             (title: "Or", component: Gate(operator: .or)),

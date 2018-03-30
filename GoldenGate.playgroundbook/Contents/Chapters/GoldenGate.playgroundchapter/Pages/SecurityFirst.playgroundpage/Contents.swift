@@ -6,7 +6,7 @@ let liveViewProxy = PlaygroundPage.current.liveView as! PlaygroundRemoteLiveView
 let playgroundPageController = PlaygroundPageController(
     liveViewProxy: liveViewProxy,
     successStatus: .pass(message: "Great Thinking—it's now safe to operate that um… LED!\n\n[Next Puzzle](@next)"),
-    failureStatus: .fail(hints: ["Think about which logic gate might match the situtation."],
+    failureStatus: .fail(hints: ["Think about which logic gate might match the situation."],
                          solution: "Connect both inputs to an `And` gate and its output to the LED."))
 liveViewProxy.delegate = playgroundPageController
 

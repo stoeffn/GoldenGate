@@ -5,12 +5,10 @@
 	<key>Version</key>
 	<string>1.0</string>
 	<key>Name</key>
-	<string>Golden Gate</string>
-	<key>Pages</key>
-	<array>
-		<string>SecurityFirst.playgroundpage</string>
-		<string>LightRelief.playgroundpage</string>
-		<string>Sandbox.playgroundpage</string>
-	</array>
+	<string>Light Relief</string>
+	<key>LiveViewMode</key>
+	<string>VisibleByDefault</string>
+	<key>LiveViewEdgeToEdge</key>
+	<true/>
 </dict>
 </plist>

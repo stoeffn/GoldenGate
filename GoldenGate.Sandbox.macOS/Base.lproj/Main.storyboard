@@ -717,43 +717,6 @@
                 <customObject id="9BU-VA-f30" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="ybA-oN-csM">
                     <items>
-                        <menuItem title="Add Constant" id="nsG-w7-hpm">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="addConstantComponent:" target="8YE-SB-0VP" id="tFq-Kg-32W"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Add Gate" id="dTI-jX-yqc">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <menu key="submenu" id="pk3-4C-HRt">
-                                <items>
-                                    <menuItem title="Not" id="Ate-h5-YDd">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="addNotGateComponent:" target="8YE-SB-0VP" id="JsZ-SO-pbL"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="And" id="Cr0-Ys-sn6">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="addAndGateComponent:" target="8YE-SB-0VP" id="7VQ-hz-xbf"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="Or" id="eIB-PB-HTi">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="addOrGateComponent:" target="8YE-SB-0VP" id="cEA-Hi-leY"/>
-                                        </connections>
-                                    </menuItem>
-                                </items>
-                            </menu>
-                        </menuItem>
-                        <menuItem title="Add LED" id="cUY-wJ-rEA">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="addLedComponent:" target="8YE-SB-0VP" id="dc6-lC-vTi"/>
-                            </connections>
-                        </menuItem>
                         <menuItem title="Add Wire" id="1Yd-dX-qgU">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <menu key="submenu" id="tFI-eE-YCP">
@@ -790,6 +753,43 @@
                                     </menuItem>
                                 </items>
                             </menu>
+                        </menuItem>
+                        <menuItem title="Add Gate" id="dTI-jX-yqc">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" id="pk3-4C-HRt">
+                                <items>
+                                    <menuItem title="Not" id="Ate-h5-YDd">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addNotGateComponent:" target="8YE-SB-0VP" id="JsZ-SO-pbL"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="And" id="Cr0-Ys-sn6">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addAndGateComponent:" target="8YE-SB-0VP" id="7VQ-hz-xbf"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Or" id="eIB-PB-HTi">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addOrGateComponent:" target="8YE-SB-0VP" id="cEA-Hi-leY"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </menuItem>
+                        <menuItem title="Add Switch" id="nsG-w7-hpm">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addConstantComponent:" target="8YE-SB-0VP" id="tFq-Kg-32W"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Add LED" id="cUY-wJ-rEA">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addLedComponent:" target="8YE-SB-0VP" id="dc6-lC-vTi"/>
+                            </connections>
                         </menuItem>
                     </items>
                 </menu>
