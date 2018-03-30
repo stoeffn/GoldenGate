@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Terms</key>
+	<dict>
+		<key>AndGate</key>
+		<dict>
+			<key>Definition</key>
+			<string>Outputs true only if all of its inputs are also true.</string>
+			<key>Title</key>
+			<string>And Gate</string>
+		</dict>
+		<key>BooleanLogic</key>
+		<dict>
+			<key>Title</key>
+			<string>Boolean Logic</string>
+			<key>Definition</key>
+			<string>A mathematical logic that knows just two numbers: true—one—and false—zero. &quot;And&quot;, &quot;Or&quot;, and &quot;Not&quot; are essential for calculating with boolean algebra. It is fundamental to digital electronics.</string>
+			<key>FirstUse</key>
+			<dict>
+				<key>PageReference</key>
+				<string>GoldenGate.playgroundchapter/SecurityFirst.playgroundpage</string>
+				<key>Title</key>
+				<string>Security First</string>
+			</dict>
+		</dict>
+		<key>Inverter</key>
+		<dict>
+			<key>Definition</key>
+			<string>Outputs true if its input is false and vice versa.</string>
+			<key>Title</key>
+			<string>Inverter</string>
+		</dict>
+		<key>OrGate</key>
+		<dict>
+			<key>Definition</key>
+			<string>Outputs true if at least one of its inputs is true.</string>
+			<key>Title</key>
+			<string>Or Gate</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
