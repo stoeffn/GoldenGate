@@ -36,6 +36,18 @@ final class ConstantNodeController : NodeControlling {
         return node
     }()
 
+    private lazy var pressAction: SCNAction = {
+        let action = SCNAction.move(to: SCNVector3(x: 0, y: 0, z: -0.2), duration: 0.05)
+        action.timingMode = .easeIn
+        return action
+    }()
+
+    private lazy var releaseAction: SCNAction = {
+        let action = SCNAction.move(to: SCNVector3(x: 0, y: 0, z: 0), duration: 0.05)
+        action.timingMode = .easeIn
+        return action
+    }()
+
     var component: Composable {
         didSet {
             guard let constant = component as? Constant, let oldConstant = oldValue as? Constant else { fatalError() }
@@ -45,8 +57,10 @@ final class ConstantNodeController : NodeControlling {
     }
 
     private func update(with constant: Constant) {
-        buttonNode.isHidden = constant.value
+        buttonNode.removeAllActions()
+        buttonNode.runAction(constant.value ? pressAction : releaseAction)
         buttonNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
+
         rightNode.geometry?.materials = [constant.value ? .oneComponent : .zeroComponent]
     }
 }
