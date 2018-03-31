@@ -21,7 +21,6 @@
 	<key>Chapters</key>
 	<array>
 		<string>Puzzles.playgroundchapter</string>
-		<string>Sandbox.playgroundchapter</string>
 		<string>AdvancedCreations.playgroundchapter</string>
 	</array>
 </dict>

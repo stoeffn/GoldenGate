@@ -7,7 +7,7 @@
                         "x": 4,
                         "y": -4
                     },
-                    "zero"
+                    "one"
                 ]
             },
             "triggeredComponentPositions": []
@@ -28,44 +28,6 @@
                     "y": -3
                 }
             ]
-        },
-        {
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "zero"
-                ]
-            },
-            "triggeredComponentPositions": [
-                {
-                    "x": 0,
-                    "y": -5
-                }
-            ]
-        },
-        {
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "one"
-                ]
-            },
-            "triggeredComponentPositions": [
-                {
-                    "x": 0,
-                    "y": -3
-                },
-                {
-                    "x": 0,
-                    "y": -5
-                }
-            ]
         }
     ],
     "components": [
@@ -76,15 +38,15 @@
                 "y": -3
             },
             "component": {
-                "isOn": false,
-                "isLocked": true
+                "isLocked": true,
+                "isOn": false
             }
         },
         {
             "entity": "wire",
             "position": {
                 "x": 1,
-                "y": -5
+                "y": -3
             },
             "component": {
                 "isLocked": false,
@@ -96,13 +58,22 @@
             }
         },
         {
-            "entity": "constant",
+            "entity": "inverter",
             "position": {
-                "x": 0,
-                "y": -5
+                "x": 2,
+                "y": -3
             },
             "component": {
-                "isOn": false,
+                "isLocked": false
+            }
+        },
+        {
+            "entity": "led",
+            "position": {
+                "x": 4,
+                "y": -4
+            },
+            "component": {
                 "isLocked": true
             }
         },
@@ -125,79 +96,13 @@
             "entity": "wire",
             "position": {
                 "x": 3,
-                "y": -5
+                "y": -4
             },
             "component": {
                 "isLocked": false,
                 "orientations": [
                     "bottom",
-                    "left"
-                ],
-                "isBridging": false
-            }
-        },
-        {
-            "entity": "wire",
-            "position": {
-                "x": 1,
-                "y": -3
-            },
-            "component": {
-                "isLocked": false,
-                "orientations": [
-                    "right",
-                    "left"
-                ],
-                "isBridging": false
-            }
-        },
-        {
-            "entity": "gate",
-            "position": {
-                "x": 3,
-                "y": -4
-            },
-            "component": {
-                "isLocked": false,
-                "operator": "and"
-            }
-        },
-        {
-            "entity": "led",
-            "position": {
-                "x": 4,
-                "y": -4
-            },
-            "component": {
-                "isLocked": true
-            }
-        },
-        {
-            "entity": "wire",
-            "position": {
-                "x": 2,
-                "y": -3
-            },
-            "component": {
-                "isLocked": false,
-                "orientations": [
-                    "right",
-                    "left"
-                ],
-                "isBridging": false
-            }
-        },
-        {
-            "entity": "wire",
-            "position": {
-                "x": 2,
-                "y": -5
-            },
-            "component": {
-                "isLocked": false,
-                "orientations": [
-                    "right",
-                    "left"
+                    "right"
                 ],
                 "isBridging": false
             }
