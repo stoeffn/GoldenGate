@@ -1,5 +1,5 @@
 //
-//  Materials.swift
+//  SCNMaterial+Common.swift
 //  GoldenGate
 //
 //  Created by Steffen Ryll on 25.03.18.

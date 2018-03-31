@@ -51,6 +51,7 @@ final class WireNodeController : NodeControlling {
     private lazy var connectorNode: SCNNode = {
         guard let node = node.childNode(withName: "Wire-Connector", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
+        node.geometry?.tessellator = .default
         return node
     }()
 

@@ -24,18 +24,6 @@ final class GateNodeController : NodeControlling {
         return node
     }()
 
-    private lazy var andNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-And", recursively: true) else { fatalError() }
-        node.geometry?.materials = [.unknownComponent]
-        return node
-    }()
-
-    private lazy var orNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-Or", recursively: true) else { fatalError() }
-        node.geometry?.materials = [.unknownComponent]
-        return node
-    }()
-
     private lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "Gate-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
@@ -57,6 +45,20 @@ final class GateNodeController : NodeControlling {
     private lazy var bottomNode: SCNNode = {
         guard let node = node.childNode(withName: "Gate-BottomWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
+    private lazy var andNode: SCNNode = {
+        guard let node = node.childNode(withName: "Gate-And", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        node.geometry?.tessellator = .default
+        return node
+    }()
+
+    private lazy var orNode: SCNNode = {
+        guard let node = node.childNode(withName: "Gate-Or", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        node.geometry?.tessellator = .default
         return node
     }()
 

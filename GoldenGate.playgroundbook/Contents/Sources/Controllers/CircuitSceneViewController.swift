@@ -38,6 +38,7 @@ final class CircuitSceneViewController : NSObject {
         view.scene = scene
         #if os(OSX)
             view.isJitteringEnabled = true
+            view.showsStatistics = true
         #else
             view.allowsCameraControl = true
             view.cameraControlConfiguration.autoSwitchToFreeCamera = false

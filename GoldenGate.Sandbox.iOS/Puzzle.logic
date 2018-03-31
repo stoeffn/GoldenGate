@@ -1,62 +1,6 @@
 {
     "assertions": [
         {
-            "triggeredComponentPositions": [],
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "zero"
-                ]
-            }
-        },
-        {
-            "triggeredComponentPositions": [
-                {
-                    "x": 0,
-                    "y": -3
-                }
-            ],
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "zero"
-                ]
-            }
-        },
-        {
-            "triggeredComponentPositions": [
-                {
-                    "x": 0,
-                    "y": -5
-                }
-            ],
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "zero"
-                ]
-            }
-        },
-        {
-            "triggeredComponentPositions": [
-                {
-                    "x": 0,
-                    "y": -3
-                },
-                {
-                    "x": 0,
-                    "y": -5
-                }
-            ],
             "expectedStatesAtTicks": {
                 "4": [
                     {
@@ -65,7 +9,25 @@
                     },
                     "one"
                 ]
-            }
+            },
+            "triggeredComponentPositions": []
+        },
+        {
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "zero"
+                ]
+            },
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -3
+                }
+            ]
         }
     ],
     "components": [
@@ -76,23 +38,8 @@
                 "y": -3
             },
             "component": {
-                "value": false,
-                "isLocked": true
-            }
-        },
-        {
-            "entity": "wire",
-            "position": {
-                "x": 1,
-                "y": -5
-            },
-            "component": {
-                "isLocked": false,
-                "orientations": [
-                    "right",
-                    "left"
-                ],
-                "isBridging": false
+                "isLocked": true,
+                "isOn": false
             }
         },
         {
@@ -111,14 +58,13 @@
             }
         },
         {
-            "entity": "constant",
+            "entity": "inverter",
             "position": {
-                "x": 0,
-                "y": -5
+                "x": 2,
+                "y": -3
             },
             "component": {
-                "value": false,
-                "isLocked": true
+                "isLocked": false
             }
         },
         {
@@ -129,6 +75,36 @@
             },
             "component": {
                 "isLocked": true
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "left",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -4
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "bottom",
+                    "right"
+                ],
+                "isBridging": false
             }
         }
     ]
