@@ -14,7 +14,7 @@
 		2480476A206FA38D006DD3FB /* SCNGeometryTessellator+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24804768206FA38C006DD3FB /* SCNGeometryTessellator+Common.swift */; };
 		24B1036A20658D070043D6C2 /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1036920658D070043D6C2 /* Gate.swift */; };
 		24BE11182066CFB00017C40F /* ConstantNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE11172066CFB00017C40F /* ConstantNodeController.swift */; };
-		24BE111A2066D1180017C40F /* NodeControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE11192066D1180017C40F /* NodeControlling.swift */; };
+		24BE111A2066D1180017C40F /* NodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE11192066D1180017C40F /* NodeController.swift */; };
 		24BE111C2066D7DC0017C40F /* GateNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE111B2066D7DC0017C40F /* GateNodeController.swift */; };
 		24BE111E2066D7EE0017C40F /* LedNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE111D2066D7EE0017C40F /* LedNodeController.swift */; };
 		24BE11202066D7FE0017C40F /* WireNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE111F2066D7FE0017C40F /* WireNodeController.swift */; };
@@ -50,7 +50,7 @@
 		24804768206FA38C006DD3FB /* SCNGeometryTessellator+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNGeometryTessellator+Common.swift"; sourceTree = "<group>"; };
 		24B1036920658D070043D6C2 /* Gate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
 		24BE11172066CFB00017C40F /* ConstantNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNodeController.swift; sourceTree = "<group>"; };
-		24BE11192066D1180017C40F /* NodeControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeControlling.swift; sourceTree = "<group>"; };
+		24BE11192066D1180017C40F /* NodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeController.swift; sourceTree = "<group>"; };
 		24BE111B2066D7DC0017C40F /* GateNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateNodeController.swift; sourceTree = "<group>"; };
 		24BE111D2066D7EE0017C40F /* LedNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedNodeController.swift; sourceTree = "<group>"; };
 		24BE111F2066D7FE0017C40F /* WireNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireNodeController.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				24BE111B2066D7DC0017C40F /* GateNodeController.swift */,
 				24F429F8206BD92A004E1B00 /* InverterNodeController.swift */,
 				24BE111D2066D7EE0017C40F /* LedNodeController.swift */,
-				24BE11192066D1180017C40F /* NodeControlling.swift */,
+				24BE11192066D1180017C40F /* NodeController.swift */,
 				24804768206FA38C006DD3FB /* SCNGeometryTessellator+Common.swift */,
 				24804767206FA38C006DD3FB /* SCNMaterial+Common.swift */,
 				24BE111F2066D7FE0017C40F /* WireNodeController.swift */,
@@ -294,7 +294,7 @@
 				24C49D1220656DE800BD1B06 /* Orientation.swift in Sources */,
 				24F9D9672069098500E6CCDA /* CircuitEditorViewController.swift in Sources */,
 				24F429F9206BD92A004E1B00 /* InverterNodeController.swift in Sources */,
-				24BE111A2066D1180017C40F /* NodeControlling.swift in Sources */,
+				24BE111A2066D1180017C40F /* NodeController.swift in Sources */,
 				24C49D1C20656E4000BD1B06 /* Circuit.swift in Sources */,
 				24C49D1820656E1F00BD1B06 /* Wire.swift in Sources */,
 				24F42A18206BE3BA004E1B00 /* CircuitEditorViewController+Components.swift in Sources */,

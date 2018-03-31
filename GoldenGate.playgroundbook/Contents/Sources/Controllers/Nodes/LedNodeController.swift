@@ -8,30 +8,20 @@
 
 import SceneKit
 
-final class LedNodeController : NodeControlling {
+final class LedNodeController : NodeController {
     init(led: Led) {
-        component = led
+        super.init(component: led, componentName: "Led")
         update(with: led)
     }
 
-    private(set) lazy var node: SCNNode = {
-        guard
-            let scene = SCNScene(named: componentsSceneName),
-            let node = scene.rootNode.childNode(withName: "Led", recursively: true)
-        else { fatalError() }
-        node.position = SCNVector3()
-        node.geometry?.materials = [.zeroLed]
-        return node
-    }()
-
     private lazy var socketNode: SCNNode = {
-        guard let node = node.childNode(withName: "Led-Socket", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-Socket", recursively: true) else { fatalError() }
         node.geometry?.materials = [.zeroLed]
         return node
     }()
 
     private lazy var lightNode: SCNNode = {
-        guard let node = node.childNode(withName: "Led-Light", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-Light", recursively: true) else { fatalError() }
         node.light = SCNLight()
         node.light?.temperature = 128
         node.light?.intensity = 0
@@ -39,12 +29,12 @@ final class LedNodeController : NodeControlling {
     }()
 
     private lazy var leftNode: SCNNode = {
-        guard let node = node.childNode(withName: "Led-LeftWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
-    var component: Composable {
+    override var component: Composable {
         didSet {
             guard let led = component as? Led, let oldLed = oldValue as? Led else { fatalError() }
             guard led != oldLed else { return }

@@ -8,61 +8,51 @@
 
 import SceneKit
 
-final class GateNodeController : NodeControlling {
+final class GateNodeController : NodeController {
     init(gate: Gate) {
-        component = gate
+        super.init(component: gate, componentName: "Gate")
         update(with: gate)
     }
 
-    private(set) lazy var node: SCNNode = {
-        guard
-            let scene = SCNScene(named: componentsSceneName),
-            let node = scene.rootNode.childNode(withName: "Gate", recursively: true)
-        else { fatalError() }
-        node.position = SCNVector3()
-        node.geometry?.materials = [.component]
-        return node
-    }()
-
     private lazy var leftNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-LeftWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     private lazy var topNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-TopWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-TopWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     private lazy var rightNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-RightWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-RightWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     private lazy var bottomNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-BottomWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-BottomWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     private lazy var andNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-And", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-And", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         node.geometry?.tessellator = .default
         return node
     }()
 
     private lazy var orNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-Or", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-Or", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         node.geometry?.tessellator = .default
         return node
     }()
 
-    var component: Composable {
+    override var component: Composable {
         didSet {
             guard let gate = component as? Gate, let oldGate = oldValue as? Gate else { fatalError() }
             guard gate != oldGate else { return }

@@ -29,7 +29,7 @@ final class CircuitSceneViewController : NSObject {
     private let tickInterval: TimeInterval = 0.1
 
     private lazy var scene: SCNScene = {
-        guard let scene = SCNScene(named: circuitSceneName) else { fatalError() }
+        guard let scene = SCNScene(named: NodeController.circuitSceneName) else { fatalError() }
         return scene
     }()
 
@@ -54,12 +54,12 @@ final class CircuitSceneViewController : NSObject {
         return node
     }()
 
-    private lazy var componentNodeControllers = [GridPoint: NodeControlling]()
+    private lazy var componentNodeControllers = [GridPoint: NodeController]()
 }
 
 private extension CircuitSceneViewController {
     func didAdd(component: Composable, at position: GridPoint) {
-        let controller = nodeController(for: component)
+        let controller = NodeController.for(component)
         controller.node.position = SCNVector3(position.x, 0, position.y)
 
         scene.rootNode.addChildNode(controller.node)
@@ -67,7 +67,7 @@ private extension CircuitSceneViewController {
     }
 
     func didUpdate(component: Composable, at position: GridPoint) {
-        guard var controller = componentNodeControllers[position] else { return }
+        guard let controller = componentNodeControllers[position] else { return }
         controller.component = component
     }
 

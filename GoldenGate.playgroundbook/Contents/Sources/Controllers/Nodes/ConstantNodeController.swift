@@ -8,30 +8,20 @@
 
 import SceneKit
 
-final class ConstantNodeController : NodeControlling {
+final class ConstantNodeController : NodeController {
     init(constant: Constant) {
-        component = constant
+        super.init(component: constant, componentName: "Constant")
         update(with: constant)
     }
 
-    private(set) lazy var node: SCNNode = {
-        guard
-            let scene = SCNScene(named: componentsSceneName),
-            let node = scene.rootNode.childNode(withName: "Constant", recursively: true)
-        else { fatalError() }
-        node.position = SCNVector3()
-        node.geometry?.materials = [.unknownComponent]
-        return node
-    }()
-
     private lazy var buttonNode: SCNNode = {
-        guard let node = node.childNode(withName: "Constant-Button", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-Button", recursively: true) else { fatalError() }
         node.geometry?.materials = [.component]
         return node
     }()
 
     private lazy var rightNode: SCNNode = {
-        guard let node = node.childNode(withName: "Constant-RightWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "\(componentName)-RightWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
@@ -48,7 +38,7 @@ final class ConstantNodeController : NodeControlling {
         return action
     }()
 
-    var component: Composable {
+    override var component: Composable {
         didSet {
             guard let constant = component as? Constant, let oldConstant = oldValue as? Constant else { fatalError() }
             guard constant != oldConstant else { return }
