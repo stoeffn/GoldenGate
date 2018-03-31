@@ -14,7 +14,7 @@
             guard
                 let position = currentComponentPosition,
                 let component = circuitSceneViewController?.circuit[position]
-                else { return }
+            else { return }
             print(String(reflecting: component))
         }
 

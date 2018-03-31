@@ -76,7 +76,7 @@
                 "y": -3
             },
             "component": {
-                "value": false,
+                "isOn": false,
                 "isLocked": true
             }
         },
@@ -102,7 +102,7 @@
                 "y": -5
             },
             "component": {
-                "value": false,
+                "isOn": false,
                 "isLocked": true
             }
         },
