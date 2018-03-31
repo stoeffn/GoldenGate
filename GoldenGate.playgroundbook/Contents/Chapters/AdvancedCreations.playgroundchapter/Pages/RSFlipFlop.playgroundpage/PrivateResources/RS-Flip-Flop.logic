@@ -1,0 +1,337 @@
+{
+    "assertions": [],
+    "components": [
+        {
+            "entity": "wire",
+            "position": {
+                "x": 1,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "constant",
+            "position": {
+                "x": 0,
+                "y": -7
+            },
+            "component": {
+                "isLocked": false,
+                "isOn": true
+            }
+        },
+        {
+            "entity": "inverter",
+            "position": {
+                "x": 4,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -4
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 5,
+                "y": -6
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "bottom",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 5,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "left",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 1,
+                "y": -7
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "led",
+            "position": {
+                "x": 6,
+                "y": -5
+            },
+            "component": {
+                "isLocked": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 5,
+                "y": -7
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "bottom",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -5
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left",
+                    "top",
+                    "bottom"
+                ],
+                "isBridging": true
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -7
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 2,
+                "y": -5
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "bottom"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 3,
+                "y": -6
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "bottom",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 2,
+                "y": -6
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "gate",
+            "position": {
+                "x": 2,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "operator": "or"
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 2,
+                "y": -4
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "bottom",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 4,
+                "y": -5
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 4,
+                "y": -4
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "constant",
+            "position": {
+                "x": 0,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "isOn": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 5,
+                "y": -5
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left",
+                    "top"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 5,
+                "y": -4
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "bottom",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "gate",
+            "position": {
+                "x": 2,
+                "y": -7
+            },
+            "component": {
+                "isLocked": false,
+                "operator": "or"
+            }
+        },
+        {
+            "entity": "inverter",
+            "position": {
+                "x": 4,
+                "y": -7
+            },
+            "component": {
+                "isLocked": false
+            }
+        }
+    ]
+}
