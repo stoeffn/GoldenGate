@@ -10,12 +10,14 @@ public enum State : String, Codable {
     case unknown, zero, one
 }
 
+// MARK: - Utilities
+
 public extension State {
     init(_ value: Bool) {
         self = value ? .one : .zero
     }
 
-    var value: Bool {
+    var isOn: Bool {
         switch self {
         case .unknown, .zero: return false
         case .one: return true

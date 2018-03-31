@@ -10,6 +10,8 @@ public enum Orientation : String, Codable {
     case left, top, right, bottom
 }
 
+// MARK: - Utilities
+
 public extension Orientation {
     static let all: Set<Orientation> = [.left, .top, .right, .bottom]
 
@@ -17,6 +19,7 @@ public extension Orientation {
 
     static let vertical: Set<Orientation> = [.top, .bottom]
 
+    /// Next clockwise orientation.
     var next: Orientation {
         switch self {
         case .left: return .top
@@ -35,6 +38,7 @@ public extension Orientation {
         }
     }
 
+    /// Grid offset by this orienation's direction by one unit.
     var positionOffset: GridPoint {
         switch self {
         case .left: return GridPoint(x: -1, y: 0)

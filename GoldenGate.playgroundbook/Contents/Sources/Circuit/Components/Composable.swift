@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Something that acts a circuit component.
+/// Something that acts a circuit component. Encapsulates state and update logic.
 protocol Composable : Codable {
     /// Whether components of this type behave passively or actively.
     ///

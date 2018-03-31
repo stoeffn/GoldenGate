@@ -8,12 +8,15 @@
 
 import Foundation
 
+/// Circuit that manages components and their positions in a grid as well as updating and asserting state.
 public struct Circuit {
 
     // MARK: - Life Cycle
 
+    /// Creates an empty circuit.
     public init() { }
 
+    /// Tries to load a circuit from "`name`.logic".
     public static func named(_ name: String) -> Circuit? {
         guard let url = Bundle.main.url(forResource: name, withExtension: "logic") else { return nil }
         return try? JSONDecoder().decode(Circuit.self, from: Data(contentsOf: url))
@@ -23,12 +26,20 @@ public struct Circuit {
 
     private var components = [GridPoint: Composable]()
 
+    /// Invoked after a component was added.
     var didAdd: ((Composable, GridPoint) -> Void)?
 
+    /// Invoked after a component was updated. If the component's type has changed, `didRemove` and `didAdd` are invoked
+    /// instead.
     var didUpdate: ((Composable, GridPoint) -> Void)?
 
+    /// Invoked after a component was removed from the circuit.
     var didRemove: ((Composable, GridPoint) -> Void)?
 
+    /// Gets or sets a component at the given position and triggers corresponding callbacks and updates to passive components.
+    /// There can only be one component at a position.
+    ///
+    /// - Remark: Locked components cannot be removed or replaced.
     subscript(_ position: GridPoint) -> Composable? {
         get { return components[position] }
         set {
@@ -70,6 +81,7 @@ public struct Circuit {
         updatePassiveComponents()
     }
 
+    /// All components along with their position.
     var positionedComponents: [(Composable, at: GridPoint)] {
         return components.map { ($0.value, at: $0.key) }
     }
@@ -117,7 +129,8 @@ public struct Circuit {
         updateOutputsForComponent(at: neighborPosition)
     }
 
-    mutating func tick() {
+    /// Updates all active components and connected passive components.
+    mutating func update() {
         for position in components.keys {
             components[position]?.update()
 
@@ -131,14 +144,22 @@ public struct Circuit {
 
     // MARK: - Asserting State
 
+    /// Assertions applied to this circuit when accessing `meetsAssertions`.
     var assertions = [CircuitAssertion]()
 
+    /// Whether this circuit meets all associated `assertions`.
     var meetsAssertions: Bool {
         return assertions
             .map(self.meets)
             .reduce(true) { $0 && $1 }
     }
 
+    /// Whether this circuit meets the assertion given.
+    ///
+    /// Asserting resets the circuit, triggers specified components, simulates it, and asserts states at specific positions and
+    /// specific points of time.
+    ///
+    /// - Postcondition: This method does not modify this circuit as it uses a copy.
     func meets(assertion: CircuitAssertion) -> Bool {
         var circuit = self
         circuit.didAdd = nil
@@ -154,14 +175,14 @@ public struct Circuit {
         let tickCount = assertion.expectedStatesAtTicks.keys.max() ?? 0
         for tick in 0 ... tickCount {
             guard let expectedStates = assertion.expectedStatesAtTicks[tick] else {
-                circuit.tick()
+                circuit.update()
                 continue
             }
 
             let failedAssertions = expectedStates.filter { circuit[$0.key]?.state != $0.value }
             guard failedAssertions.isEmpty else { return false }
 
-            circuit.tick()
+            circuit.update()
         }
 
         return true

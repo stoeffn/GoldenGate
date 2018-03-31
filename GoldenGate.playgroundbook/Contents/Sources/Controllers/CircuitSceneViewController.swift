@@ -20,7 +20,7 @@ final class CircuitSceneViewController : NSObject {
         self.circuit.didRemove = { [weak self] in self?.didRemove(component: $0, at: $1) }
 
         Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true) { [weak self] _ in
-            self?.circuit.tick()
+            self?.circuit.update()
         }
     }
 

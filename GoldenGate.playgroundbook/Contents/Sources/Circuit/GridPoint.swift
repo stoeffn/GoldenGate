@@ -16,6 +16,8 @@ public struct GridPoint : Codable {
     public static let zero = GridPoint(x: 0, y: 0)
 }
 
+// MARK: - Utilities
+
 public extension GridPoint {
     init(point: CGPoint) {
         self.x = Int(round(point.x))
@@ -35,11 +37,15 @@ public extension GridPoint {
     }
 }
 
+// MARK: - String Conversion
+
 extension GridPoint : CustomStringConvertible {
     public var description: String {
         return "(x: \(x), y: \(y))"
     }
 }
+
+// MARK: - Hashing
 
 extension GridPoint : Hashable {
     public var hashValue: Int {
