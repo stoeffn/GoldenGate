@@ -11,7 +11,9 @@ import SceneKit
 class NodeController {
     var component: Composable
 
-    let componentName: String
+    var componentName: String {
+        return ComponentEntity(component: component)?.rawValue.capitalized ?? "Ccomponent"
+    }
 
     lazy var node: SCNNode = {
         guard
@@ -23,9 +25,8 @@ class NodeController {
         return node
     }()
 
-    init(component: Composable, componentName: String) {
+    init?(component: Composable) {
         self.component = component
-        self.componentName = componentName
     }
 }
 
@@ -38,7 +39,7 @@ extension NodeController {
 
     static let componentsSceneName = "CircuitAssets.scnassets/Components.scn"
 
-    static func `for`(_ component: Composable) -> NodeController {
+    static func `for`(_ component: Composable) -> NodeController? {
         switch component {
         case let constant as Constant:
             return ConstantNodeController(constant: constant)
@@ -51,7 +52,7 @@ extension NodeController {
         case let wire as Wire:
             return WireNodeController(wire: wire)
         default:
-            fatalError("Cannot create node controller for component \(component).")
+            return nil
         }
     }
 }

@@ -9,8 +9,8 @@
 import SceneKit
 
 final class InverterNodeController : NodeController {
-    init(inverter: Inverter) {
-        super.init(component: inverter, componentName: "Inverter")
+    init?(inverter: Inverter) {
+        super.init(component: inverter)
         update(with: inverter)
     }
 

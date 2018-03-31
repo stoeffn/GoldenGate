@@ -9,8 +9,8 @@
 import SceneKit
 
 final class GateNodeController : NodeController {
-    init(gate: Gate) {
-        super.init(component: gate, componentName: "Gate")
+    init?(gate: Gate) {
+        super.init(component: gate)
         update(with: gate)
     }
 

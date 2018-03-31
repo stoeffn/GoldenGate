@@ -9,8 +9,8 @@
 import SceneKit
 
 final class ConstantNodeController : NodeController {
-    init(constant: Constant) {
-        super.init(component: constant, componentName: "Constant")
+    init?(constant: Constant) {
+        super.init(component: constant)
         update(with: constant)
     }
 

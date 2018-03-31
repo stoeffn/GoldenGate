@@ -9,8 +9,8 @@
 import SceneKit
 
 final class WireNodeController : NodeController {
-    init(wire: Wire) {
-        super.init(component: wire, componentName: "Wire")
+    init?(wire: Wire) {
+        super.init(component: wire)
         update(with: wire)
     }
 

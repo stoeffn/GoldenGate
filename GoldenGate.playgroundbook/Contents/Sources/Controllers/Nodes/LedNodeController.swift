@@ -9,8 +9,8 @@
 import SceneKit
 
 final class LedNodeController : NodeController {
-    init(led: Led) {
-        super.init(component: led, componentName: "Led")
+    init?(led: Led) {
+        super.init(component: led)
         update(with: led)
     }
 
