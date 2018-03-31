@@ -1,0 +1,135 @@
+{
+    "assertions": [
+        {
+            "triggeredComponentPositions": [],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "zero"
+                ]
+            }
+        },
+        {
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -3
+                }
+            ],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "zero"
+                ]
+            }
+        },
+        {
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -5
+                }
+            ],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "zero"
+                ]
+            }
+        },
+        {
+            "triggeredComponentPositions": [
+                {
+                    "x": 0,
+                    "y": -3
+                },
+                {
+                    "x": 0,
+                    "y": -5
+                }
+            ],
+            "expectedStatesAtTicks": {
+                "4": [
+                    {
+                        "x": 4,
+                        "y": -4
+                    },
+                    "one"
+                ]
+            }
+        }
+    ],
+    "components": [
+        {
+            "entity": "constant",
+            "position": {
+                "x": 0,
+                "y": -3
+            },
+            "component": {
+                "isOn": false,
+                "isLocked": true
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 1,
+                "y": -5
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "wire",
+            "position": {
+                "x": 1,
+                "y": -3
+            },
+            "component": {
+                "isLocked": false,
+                "orientations": [
+                    "right",
+                    "left"
+                ],
+                "isBridging": false
+            }
+        },
+        {
+            "entity": "constant",
+            "position": {
+                "x": 0,
+                "y": -5
+            },
+            "component": {
+                "isOn": false,
+                "isLocked": true
+            }
+        },
+        {
+            "entity": "led",
+            "position": {
+                "x": 4,
+                "y": -4
+            },
+            "component": {
+                "isLocked": true
+            }
+        }
+    ]
+}

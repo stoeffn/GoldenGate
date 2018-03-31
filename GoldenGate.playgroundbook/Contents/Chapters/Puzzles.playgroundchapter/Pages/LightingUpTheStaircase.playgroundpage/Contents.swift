@@ -15,7 +15,7 @@ liveViewProxy.delegate = playgroundPageController
 //#-end-hidden-code
 /*:
 
- # Light Relief
+ # Lighting Up the Staircase
  Do you know those staircases with two light switches—one at the bottom and one at the top—where flipping either one turns the light on or off?
 
  They are pretty useful because it would be pointless if you had to go downstairs to turn of the lights after needing them to go upstairs.

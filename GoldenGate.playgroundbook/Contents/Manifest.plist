@@ -20,7 +20,9 @@
 	<string>ios11.0</string>
 	<key>Chapters</key>
 	<array>
-		<string>GoldenGate.playgroundchapter</string>
+		<string>Puzzles.playgroundchapter</string>
+		<string>Sandbox.playgroundchapter</string>
+		<string>AdvancedCreations.playgroundchapter</string>
 	</array>
 </dict>
 </plist>
