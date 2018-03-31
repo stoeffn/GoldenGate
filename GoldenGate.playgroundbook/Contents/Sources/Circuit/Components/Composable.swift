@@ -42,6 +42,12 @@ protocol Composable : Codable {
     /// The default implementation resets all inputs.
     mutating func reset()
 
+    /// Reset all inputs.
+    ///
+    /// - Remark: Usually, you don't need to implement this method yourself as the default implementation uses the orientation
+    ///           subscript.
+    mutating func resetInputs()
+
     /// Update internal state based on inputs.
     ///
     /// The default implementation does nothing.
