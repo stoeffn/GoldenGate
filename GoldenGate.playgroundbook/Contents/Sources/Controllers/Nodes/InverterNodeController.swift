@@ -17,7 +17,7 @@ final class InverterNodeController : NodeControlling {
     private(set) lazy var node: SCNNode = {
         guard
             let scene = SCNScene(named: componentsSceneName),
-            let node = scene.rootNode.childNode(withName: "Gate", recursively: true)
+            let node = scene.rootNode.childNode(withName: "Inverter", recursively: true)
         else { fatalError() }
         node.position = SCNVector3()
         node.geometry?.materials = [.component]
@@ -25,19 +25,25 @@ final class InverterNodeController : NodeControlling {
     }()
 
     private lazy var inverterNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-And", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "Inverter-One", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     private lazy var leftNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-LeftWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "Inverter-LeftWire", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
 
     private lazy var rightNode: SCNNode = {
-        guard let node = node.childNode(withName: "Gate-RightWire", recursively: true) else { fatalError() }
+        guard let node = node.childNode(withName: "Inverter-RightWire", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
+    private lazy var connectorNode: SCNNode = {
+        guard let node = node.childNode(withName: "Inverter-Connector", recursively: true) else { fatalError() }
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
@@ -51,8 +57,9 @@ final class InverterNodeController : NodeControlling {
     }
 
     private func update(with inverter: Inverter) {
-        node.geometry?.materials = [.material(for: inverter.state)]
+        inverterNode.geometry?.materials = [.material(for: inverter.state)]
         leftNode.geometry?.materials = [.material(for: inverter[.left])]
         rightNode.geometry?.materials = [.material(for: inverter[.right])]
+        connectorNode.geometry?.materials = [.material(for: inverter[.right])]
     }
 }

@@ -55,6 +55,12 @@ final class WireNodeController : NodeControlling {
         return node
     }()
 
+    private lazy var bridgeNode: SCNNode = {
+        guard let node = node.childNode(withName: "Wire-Bridge", recursively: true) else { fatalError() }
+        node.geometry?.materials = [.unknownComponent]
+        return node
+    }()
+
     var component: Composable {
         didSet {
             guard let wire = component as? Wire, let oldWire = oldValue as? Wire else { fatalError() }
@@ -66,16 +72,18 @@ final class WireNodeController : NodeControlling {
     private func update(with wire: Wire) {
         leftNode.isHidden = !wire.orientations.contains(.left)
         leftNode.geometry?.materials = [.material(for: wire[.left])]
-        topNode.isHidden = !wire.orientations.contains(.top)
+        topNode.isHidden = wire.isBridging || !wire.orientations.contains(.top)
         topNode.geometry?.materials = [.material(for: wire[.top])]
         rightNode.isHidden = !wire.orientations.contains(.right)
         rightNode.geometry?.materials = [.material(for: wire[.right])]
-        bottomNode.isHidden = !wire.orientations.contains(.bottom)
+        bottomNode.isHidden = wire.isBridging || !wire.orientations.contains(.bottom)
         bottomNode.geometry?.materials = [.material(for: wire[.bottom])]
 
         connectorNode.isHidden = wire.isBridging
             || wire.orientations == Orientation.horizontal
             || wire.orientations == Orientation.vertical
         connectorNode.geometry?.materials = [.material(for: wire.state)]
+        bridgeNode.isHidden = !wire.isBridging
+        bridgeNode.geometry?.materials = [.material(for: wire[.top])]
     }
 }

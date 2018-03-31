@@ -83,7 +83,7 @@ extension SCNMaterial {
         material.roughness.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
         material.roughness.intensity = 0
         material.emission.contents = Color(red: 1, green: 0.58, blue: 0, alpha: 1)
-        material.emission.intensity = 2
+        material.emission.intensity = 1.5
         return material
     }()
 
