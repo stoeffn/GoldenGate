@@ -6,6 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Visualizes state as a light.
 struct Led : Codable {
     enum CodingKeys : String, CodingKey {
         case isLocked
@@ -22,12 +23,16 @@ struct Led : Codable {
     init() { }
 }
 
+// MARK: - Comparing
+
 extension Led : Equatable {
     static func == (lhs: Led, rhs: Led) -> Bool {
         return lhs.isLocked == rhs.isLocked
             && lhs.state == rhs.state
     }
 }
+
+// MARK: - Composing
 
 extension Led : Composable {
     subscript(_ orientation: Orientation) -> State {

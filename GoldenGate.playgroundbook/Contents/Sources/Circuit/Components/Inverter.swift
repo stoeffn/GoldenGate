@@ -6,6 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Inverts its input.
 struct Inverter : Codable {
     enum CodingKeys : String, CodingKey {
         case isLocked
@@ -24,6 +25,8 @@ struct Inverter : Codable {
     init() { }
 }
 
+// MARK: - Comparing
+
 extension Inverter : Equatable {
     static func == (lhs: Inverter, rhs: Inverter) -> Bool {
         return lhs.isLocked == rhs.isLocked
@@ -31,6 +34,8 @@ extension Inverter : Equatable {
             && lhs.state == rhs.state
     }
 }
+
+// MARK: - Composing
 
 extension Inverter : Composable {
     subscript(_ orientation: Orientation) -> State {
@@ -54,7 +59,7 @@ extension Inverter : Composable {
         state = .unknown
     }
 
-    mutating func tick() {
+    mutating func update() {
         state = !input
     }
 

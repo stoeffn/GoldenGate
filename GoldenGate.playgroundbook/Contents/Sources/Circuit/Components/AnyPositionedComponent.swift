@@ -6,6 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Wraps a `Composable` and specifies its type and an optional position. Suitable for coding.
 struct AnyPositionedComponent {
     static let identifier = "AnyPositionedComponent"
 
@@ -22,6 +23,8 @@ struct AnyPositionedComponent {
         self.position = position
     }
 }
+
+// MARK: - Coding
 
 extension AnyPositionedComponent : Codable {
     enum CodingKeys : String, CodingKey {

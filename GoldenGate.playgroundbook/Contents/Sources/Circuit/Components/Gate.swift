@@ -6,6 +6,9 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Gate with one to three inputs and one output that performs a logic operation.
+///
+/// - Remark: Produces an unknown output for no or unknown inputs.
 struct Gate : Codable {
     enum CodingKeys : String, CodingKey {
         case isLocked, `operator`
@@ -36,6 +39,8 @@ struct Gate : Codable {
     }
 }
 
+// MARK: - Comparing
+
 extension Gate : Equatable {
     static func == (lhs: Gate, rhs: Gate) -> Bool {
         return lhs.isLocked == rhs.isLocked
@@ -47,8 +52,10 @@ extension Gate : Equatable {
     }
 }
 
+// MARK: - Composing
+
 extension Gate : Composable {
-    var inputs: [State] {
+    private var inputs: [State] {
         return [left, top, bottom].filter { $0 != .unknown }
     }
 
@@ -76,7 +83,7 @@ extension Gate : Composable {
         state = .unknown
     }
 
-    mutating func tick() {
+    mutating func update() {
         guard !inputs.isEmpty else { return state = .unknown }
 
         switch `operator` {

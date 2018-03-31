@@ -119,7 +119,7 @@ public struct Circuit {
 
     mutating func tick() {
         for position in components.keys {
-            components[position]?.tick()
+            components[position]?.update()
 
             guard let component = components[position] else { return }
             didUpdate?(component, position)

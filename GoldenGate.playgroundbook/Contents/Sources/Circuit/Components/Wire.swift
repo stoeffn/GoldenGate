@@ -6,6 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Passively connects other components and can face a variable number of orientations or even act as a bridge.
 struct Wire : Codable {
     enum CodingKeys : String, CodingKey {
         case orientations, isLocked, isBridging
@@ -13,10 +14,12 @@ struct Wire : Codable {
 
     static let isActive = false
 
+    /// Orientations to connect to.
     var orientations: Set<Orientation>
 
     var isLocked = false
 
+    /// Whether to disconnect horizontal and vertical states.
     var isBridging = false
 
     private var horizontalState = State.unknown
@@ -28,6 +31,8 @@ struct Wire : Codable {
     }
 }
 
+// MARK: - Comparing
+
 extension Wire : Equatable {
     static func == (lhs: Wire, rhs: Wire) -> Bool {
         return lhs.orientations == rhs.orientations
@@ -37,6 +42,8 @@ extension Wire : Equatable {
             && lhs.verticalState == rhs.verticalState
     }
 }
+
+// MARK: - Composing
 
 extension Wire : Composable {
     var state: State {

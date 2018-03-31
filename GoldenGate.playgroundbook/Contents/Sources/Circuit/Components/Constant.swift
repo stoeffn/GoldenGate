@@ -6,6 +6,7 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Defines a constant that can be used as a switch.
 struct Constant : Codable {
     enum CodingKeys : String, CodingKey {
         case isLocked, isOn
@@ -24,12 +25,16 @@ struct Constant : Codable {
     }
 }
 
+// MARK: - Comparing
+
 extension Constant : Equatable {
     static func == (lhs: Constant, rhs: Constant) -> Bool {
         return lhs.isLocked == rhs.isLocked
             && lhs.isOn == rhs.isOn
     }
 }
+
+// MARK: - Composing
 
 extension Constant : Composable {
     var state: State {
@@ -46,11 +51,13 @@ extension Constant : Composable {
         set { }
     }
 
+    /// Sets `isOn` to `false` if locked.
     mutating func reset() {
         guard isLocked else { return }
         isOn = false
     }
 
+    /// Toggles `isOn`.
     mutating func trigger() {
         self.isOn = !self.isOn
     }

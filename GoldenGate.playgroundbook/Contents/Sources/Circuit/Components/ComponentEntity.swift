@@ -6,9 +6,12 @@
 //  Copyright © 2018 Steffen Ryll. All rights reserved.
 //
 
+/// Available component types.
 enum ComponentEntity : String, Codable {
     case constant, gate, inverter, led, wire
 }
+
+// MARK: - Utilities
 
 extension ComponentEntity {
     init?(component: Composable) {
