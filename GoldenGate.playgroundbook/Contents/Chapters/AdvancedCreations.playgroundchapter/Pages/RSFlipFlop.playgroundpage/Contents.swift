@@ -11,6 +11,10 @@
  * Note:
  Enabling both switches at the same time is considered an invalid state that may lead to unexpected behaviour.
 
+ ---
+
+ [Next Page: Multiplexer](@next)
+
  */
 //#-code-completion(everything, hide)
 //#-editable-code Nothing to Code Here

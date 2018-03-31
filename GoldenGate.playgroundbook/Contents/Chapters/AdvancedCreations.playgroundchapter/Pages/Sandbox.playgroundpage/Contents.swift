@@ -7,6 +7,9 @@
  * Experiment:
  Feel free to play around with the components on the right and build some cool stuff!
 
+ * Note:
+ You can also scale, rotate, and pan in the simulator view.
+
  For additional inspiration, I've included some advanced examples on the next few pages, which you can modify as you like—have fun!
 
  ---

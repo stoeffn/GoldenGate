@@ -25,7 +25,7 @@ liveViewProxy.delegate = playgroundPageController
 
  ---
 
- # Let There Be Light
+ # Let There Be Light!
  To get started, place a few wires connecting the switch, inverter, and LED.
 
  * Callout(Your Goal):

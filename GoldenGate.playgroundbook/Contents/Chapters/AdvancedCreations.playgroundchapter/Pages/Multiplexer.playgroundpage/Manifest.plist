@@ -5,12 +5,10 @@
 	<key>Version</key>
 	<string>1.0</string>
 	<key>Name</key>
-	<string>Advanced Creations</string>
-	<key>Pages</key>
-	<array>
-		<string>Sandbox.playgroundpage</string>
-		<string>RSFlipFlop.playgroundpage</string>
-		<string>Multiplexer.playgroundpage</string>
-	</array>
+	<string>Multiplexer</string>
+	<key>LiveViewMode</key>
+	<string>VisibleByDefault</string>
+	<key>LiveViewEdgeToEdge</key>
+	<true/>
 </dict>
 </plist>
