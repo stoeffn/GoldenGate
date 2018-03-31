@@ -74,6 +74,16 @@ public class CircuitEditorViewController : ViewController {
         }
     }
 
+    // MARK: - AppKit User Interface
+
+    #if os(OSX)
+
+    @IBOutlet var componentDescriptionMenuItem: NSMenuItem!
+
+    @IBOutlet var componentIsLockedMenuItem: NSMenuItem!
+
+    #endif
+
     // MARK: - Handling AppKit Events
 
     #if os(OSX)
@@ -105,7 +115,8 @@ public class CircuitEditorViewController : ViewController {
                 return NSMenu.popUpContextMenu(addComponentMenu, with: event, for: view)
             }
 
-            componentContextMenu.items.first?.title = String(reflecting: component)
+            componentDescriptionMenuItem.title = String(reflecting: component)
+            componentIsLockedMenuItem.state = component.isLocked ? .on : .off
             NSMenu.popUpContextMenu(componentContextMenu, with: event, for: view)
         }
 

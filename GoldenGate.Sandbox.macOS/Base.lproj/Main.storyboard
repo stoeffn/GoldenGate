@@ -712,6 +712,8 @@
                     <connections>
                         <outlet property="addComponentMenu" destination="ybA-oN-csM" id="cw9-d3-tpJ"/>
                         <outlet property="componentContextMenu" destination="R1U-EN-3pO" id="x9p-Lm-5eJ"/>
+                        <outlet property="componentDescriptionMenuItem" destination="GdJ-HW-qaC" id="spe-Qx-gH2"/>
+                        <outlet property="componentIsLockedMenuItem" destination="GdB-Ge-sZT" id="j5U-W7-8SI"/>
                     </connections>
                 </viewController>
                 <customObject id="9BU-VA-f30" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -805,6 +807,12 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="orT-Iw-v9H"/>
+                        <menuItem title="Locked" id="GdB-Ge-sZT">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="toggleComponentLocked:" target="8YE-SB-0VP" id="xBR-lq-yk0"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Remove" id="Ozh-bC-QwX">
                             <string key="keyEquivalent" base64-UTF8="YES">
 CA

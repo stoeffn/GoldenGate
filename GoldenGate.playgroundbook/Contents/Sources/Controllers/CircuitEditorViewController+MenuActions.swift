@@ -19,6 +19,15 @@
         }
 
         @IBAction
+        func toggleComponentLocked(_ sender: Any) {
+            guard
+                let position = currentComponentPosition,
+                let isLocked = circuitSceneViewController?.circuit[position]?.isLocked
+            else { return }
+            circuitSceneViewController?.circuit[position]?.isLocked = !isLocked
+        }
+
+        @IBAction
         func removeComponent(_ sender: Any) {
             guard let position = currentComponentPosition else { return }
             circuitSceneViewController?.circuit[position] = nil
