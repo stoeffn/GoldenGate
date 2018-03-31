@@ -20,7 +20,7 @@
 		24BE11202066D7FE0017C40F /* WireNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE111F2066D7FE0017C40F /* WireNodeController.swift */; };
 		24BE112220670FCD0017C40F /* AnyPositionedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE112120670FCD0017C40F /* AnyPositionedComponent.swift */; };
 		24BE1124206798C40017C40F /* ComponentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE1123206798C40017C40F /* ComponentEntity.swift */; };
-		24BE11602067F7970017C40F /* LogicDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE115F2067F7970017C40F /* LogicDocument.swift */; };
+		24BE11602067F7970017C40F /* CircuitDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE115F2067F7970017C40F /* CircuitDocument.swift */; };
 		24C49CED20656D0400BD1B06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C49CEC20656D0400BD1B06 /* AppDelegate.swift */; };
 		24C49CF320656D0400BD1B06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF220656D0400BD1B06 /* Assets.xcassets */; };
 		24C49CF620656D0400BD1B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C49CF420656D0400BD1B06 /* Main.storyboard */; };
@@ -56,7 +56,7 @@
 		24BE111F2066D7FE0017C40F /* WireNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireNodeController.swift; sourceTree = "<group>"; };
 		24BE112120670FCD0017C40F /* AnyPositionedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPositionedComponent.swift; sourceTree = "<group>"; };
 		24BE1123206798C40017C40F /* ComponentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentEntity.swift; sourceTree = "<group>"; };
-		24BE115F2067F7970017C40F /* LogicDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicDocument.swift; sourceTree = "<group>"; };
+		24BE115F2067F7970017C40F /* CircuitDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitDocument.swift; sourceTree = "<group>"; };
 		24C49CE920656D0400BD1B06 /* GoldenGate.Sandbox.macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenGate.Sandbox.macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C49CEC20656D0400BD1B06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C49CF220656D0400BD1B06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				24C49CEC20656D0400BD1B06 /* AppDelegate.swift */,
-				24BE115F2067F7970017C40F /* LogicDocument.swift */,
+				24BE115F2067F7970017C40F /* CircuitDocument.swift */,
 				24C49CF220656D0400BD1B06 /* Assets.xcassets */,
 				24C49CF420656D0400BD1B06 /* Main.storyboard */,
 				24C49CF720656D0400BD1B06 /* Info.plist */,
@@ -304,7 +304,7 @@
 				24BE112220670FCD0017C40F /* AnyPositionedComponent.swift in Sources */,
 				24F429F7206BD91C004E1B00 /* Inverter.swift in Sources */,
 				24C49D1020656DC900BD1B06 /* State.swift in Sources */,
-				24BE11602067F7970017C40F /* LogicDocument.swift in Sources */,
+				24BE11602067F7970017C40F /* CircuitDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

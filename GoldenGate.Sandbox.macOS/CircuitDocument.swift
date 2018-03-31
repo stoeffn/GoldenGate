@@ -1,5 +1,5 @@
 //
-//  LogicDocument.swift
+//  CircuitDocument.swift
 //  GoldenGateSandbox
 //
 //  Created by Steffen Ryll on 25.03.18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-final class LogicDocument : NSDocument {
+final class CircuitDocument : NSDocument {
     var circuit = Circuit()
 
     override class var autosavesInPlace: Bool {

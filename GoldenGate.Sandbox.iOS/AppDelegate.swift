@@ -15,7 +15,7 @@ final class AppDelegate : UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let controller = CircuitEditorViewController()
-        controller.circuit = Circuit.named("Puzzle") ?? Circuit()
+        controller.circuit = Circuit.named("Default") ?? Circuit()
         controller.didAssertCircuit = { isSuccess in
             print("Did assert circuit with \(isSuccess ? "success" : "failure")")
         }

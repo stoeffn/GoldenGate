@@ -1,35 +1,5 @@
 {
-    "assertions": [
-        {
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "one"
-                ]
-            },
-            "triggeredComponentPositions": []
-        },
-        {
-            "expectedStatesAtTicks": {
-                "4": [
-                    {
-                        "x": 4,
-                        "y": -4
-                    },
-                    "zero"
-                ]
-            },
-            "triggeredComponentPositions": [
-                {
-                    "x": 0,
-                    "y": -3
-                }
-            ]
-        }
-    ],
+    "assertions": [],
     "components": [
         {
             "entity": "constant",

@@ -28,8 +28,8 @@
 
         var component: Composable! {
             didSet {
-                componentNode = NodeController.for(component).node
-                sceneView.scene = SCNScene(named: componentPreviewSceneName)
+                componentNode = NodeController.for(component)?.node
+                sceneView.scene = SCNScene(named: NodeController.componentPreviewSceneName)
                 sceneView.scene?.rootNode.addChildNode(componentNode)
             }
         }

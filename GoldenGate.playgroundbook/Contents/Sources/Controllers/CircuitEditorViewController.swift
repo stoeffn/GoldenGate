@@ -176,9 +176,10 @@ public class CircuitEditorViewController : ViewController {
         }()
 
         func preparePreviewScene(for component: Composable, at location: CGPoint) {
+            guard let node = NodeController.for(component)?.node else { return }
             previewSceneView.center = location
-            previewSceneView.scene = SCNScene(named: componentPreviewSceneName)
-            previewSceneView.scene?.rootNode.addChildNode(NodeController.for(component).node)
+            previewSceneView.scene = SCNScene(named: NodeController.componentPreviewSceneName)
+            previewSceneView.scene?.rootNode.addChildNode(node)
         }
 
         let availableComponents: [(title: String, component: Composable)] = [
