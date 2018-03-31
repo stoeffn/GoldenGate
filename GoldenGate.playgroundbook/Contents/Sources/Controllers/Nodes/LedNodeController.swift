@@ -9,10 +9,14 @@
 import SceneKit
 
 final class LedNodeController : NodeController {
+    // MARK: - Life Cycle
+
     init?(led: Led) {
         super.init(component: led)
         update(with: led)
     }
+
+    // MARK: - Nodes
 
     private lazy var socketNode: SCNNode = {
         guard let node = node.childNode(withName: "\(componentName)-Socket", recursively: true) else { fatalError() }
@@ -33,6 +37,8 @@ final class LedNodeController : NodeController {
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
+
+    // MARK: - Managing Component
 
     override var component: Composable {
         didSet {

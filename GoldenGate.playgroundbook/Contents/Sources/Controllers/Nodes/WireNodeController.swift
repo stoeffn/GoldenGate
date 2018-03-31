@@ -9,10 +9,14 @@
 import SceneKit
 
 final class WireNodeController : NodeController {
+    // MARK: - Life Cycle
+
     init?(wire: Wire) {
         super.init(component: wire)
         update(with: wire)
     }
+
+    // MARK: - Nodes
 
     private lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "\(componentName)-Left", recursively: true) else { fatalError() }
@@ -50,6 +54,8 @@ final class WireNodeController : NodeController {
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
+
+    // MARK: - Managing Component
 
     override var component: Composable {
         didSet {

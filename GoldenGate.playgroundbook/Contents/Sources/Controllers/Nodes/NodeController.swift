@@ -9,11 +9,13 @@
 import SceneKit
 
 class NodeController {
-    var component: Composable
+    // MARK: - Life Cycle
 
-    var componentName: String {
-        return ComponentEntity(component: component)?.rawValue.capitalized ?? "Ccomponent"
+    init?(component: Composable) {
+        self.component = component
     }
+
+    // MARK: - Nodes
 
     lazy var node: SCNNode = {
         guard
@@ -25,8 +27,12 @@ class NodeController {
         return node
     }()
 
-    init?(component: Composable) {
-        self.component = component
+    // MARK: - Managing Component
+
+    var component: Composable
+
+    var componentName: String {
+        return ComponentEntity(component: component)?.rawValue.capitalized ?? "Ccomponent"
     }
 }
 

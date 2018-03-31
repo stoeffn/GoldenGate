@@ -9,10 +9,14 @@
 import SceneKit
 
 final class InverterNodeController : NodeController {
+    // MARK: - Life Cycle
+
     init?(inverter: Inverter) {
         super.init(component: inverter)
         update(with: inverter)
     }
+
+    // MARK: - Nodes
 
     private lazy var inverterNode: SCNNode = {
         guard let node = node.childNode(withName: "\(componentName)-One", recursively: true) else { fatalError() }
@@ -37,6 +41,8 @@ final class InverterNodeController : NodeController {
         node.geometry?.materials = [.unknownComponent]
         return node
     }()
+
+    // MARK: - Managing Component
 
     override var component: Composable {
         didSet {

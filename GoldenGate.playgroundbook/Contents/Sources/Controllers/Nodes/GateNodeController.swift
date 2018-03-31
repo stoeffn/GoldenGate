@@ -9,10 +9,14 @@
 import SceneKit
 
 final class GateNodeController : NodeController {
+    // MARK: - Life Cycle
+
     init?(gate: Gate) {
         super.init(component: gate)
         update(with: gate)
     }
+
+    // MARK: - Nodes
 
     private lazy var leftNode: SCNNode = {
         guard let node = node.childNode(withName: "\(componentName)-LeftWire", recursively: true) else { fatalError() }
@@ -51,6 +55,8 @@ final class GateNodeController : NodeController {
         node.geometry?.tessellator = .default
         return node
     }()
+
+    // MARK: - Managing Component
 
     override var component: Composable {
         didSet {
