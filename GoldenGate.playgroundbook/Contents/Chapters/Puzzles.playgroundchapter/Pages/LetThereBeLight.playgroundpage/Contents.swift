@@ -26,13 +26,13 @@ liveViewProxy.delegate = playgroundPageController
  ---
 
  # Let There Be Light!
- To get started, place a few wires connecting the switch, inverter, and LED.
+ To get started, place a few wires connecting the switch, [inverter](glossary://Inverter), and LED.
 
  * Callout(Your Goal):
  Connect the LED to the switch and make sure that it only lights up when the switch is off.
 
  ## Here Is How It Works
- - Use Drag'n'Drop to add or move a component
+ - Use Drag'n'Drop to add or move a [component](glossary://Component)
  - Remove a component by long-pressing (a puzzle's inputs and outputs cannot be removed)
  - Tap a switch to flip its value or a wire to cycle through possible orientations
  - Outputs are always on the right and inputs on the left

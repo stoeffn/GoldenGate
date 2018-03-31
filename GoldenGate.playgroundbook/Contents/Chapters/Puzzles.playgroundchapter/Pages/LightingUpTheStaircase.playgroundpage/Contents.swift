@@ -25,7 +25,7 @@ liveViewProxy.delegate = playgroundPageController
 
  To get you started, I've placed all the wires. Feel free, however, to remove them as you like—there are multiple ways!
 
- Keep in mind that you can make a wire that faces all four directions bridging by tapping on it!
+ Keep in mind that you can make a wire that faces all four directions bridging by tapping on it.
 
  * Note:
  Take the live view fullscreen by dragging its border in order to view all of the circuit.

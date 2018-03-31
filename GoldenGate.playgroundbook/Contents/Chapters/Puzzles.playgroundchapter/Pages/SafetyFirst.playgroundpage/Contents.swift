@@ -21,12 +21,12 @@ liveViewProxy.delegate = playgroundPageController
  Let's build that security mechanism!
 
  * Callout(Your Goal):
- Connect the LED to both inputs in such a way that it only lights up when both are true.
+ Connect the LED to both switches (this time, think of them as buttons) in such a way that it only lights up when both are true.
 
  ## A Few More Tips
  - [And gates](glossary://AndGate) and [or gates](glossary://OrGate) have inputs on the top, left, and bottom
- - Just like in the real world, gates have a little bit of a delay, which is exaggarated in this simulation
- - Importantly, a disconnected input is not _zero_ or _false_ but undefined
+ - Just like in the real world, gates have a little bit of a delay, which is exaggarated in this simulation—this is called [propagation delay](glossary://PropagationDelay)
+ - Importantly, a disconnected input is not _zero_ or _false_ but unknown and will not be taken into account
 
  */
 //#-code-completion(everything, hide)

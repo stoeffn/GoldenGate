@@ -11,7 +11,7 @@
  If you now had flip-flops at the right side the LEDs wouldn't even lose their values.
 
  * Note:
- When switching, the LED flickers a little bit because of the not gates propagation delay.
+ When switching, the LED flickers a little bit because of the not gates [propagation delay](glossary://PropagationDelay).
 
  */
 //#-code-completion(everything, hide)

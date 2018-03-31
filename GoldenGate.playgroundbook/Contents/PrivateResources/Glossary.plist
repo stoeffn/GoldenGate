@@ -20,9 +20,9 @@
 			<key>FirstUse</key>
 			<dict>
 				<key>PageReference</key>
-				<string>GoldenGate.playgroundchapter/SecurityFirst.playgroundpage</string>
+				<string>Puzzles.playgroundchapter/SafetyFirst.playgroundpage</string>
 				<key>Title</key>
-				<string>Security First</string>
+				<string>Safety First</string>
 			</dict>
 		</dict>
 		<key>Inverter</key>
@@ -38,6 +38,34 @@
 			<string>Outputs true if at least one of its inputs is true.</string>
 			<key>Title</key>
 			<string>Or Gate</string>
+		</dict>
+		<key>Component</key>
+		<dict>
+			<key>Definition</key>
+			<string>Here: Anything that can be part of a circuit, e.g. wires, gates, …</string>
+			<key>Title</key>
+			<string>Component</string>
+		</dict>
+		<key>PropagationDelay</key>
+		<dict>
+			<key>Definition</key>
+			<string>Logic gates like &quot;and&quot;, &quot;or&quot; as well as inverters have a little delay between inputs and outputs. In this simulation, 100 ms need to pass before an output updates, wheras in reality, this delay may vary and be just a few nanoseconds.</string>
+			<key>Title</key>
+			<string>Propagation Delay</string>
+			<key>FirstUse</key>
+			<dict>
+				<key>PageReference</key>
+				<string>Puzzles.playgroundchapter/SafetyFirst.playgroundpage</string>
+				<key>Title</key>
+				<string>Safety First</string>
+			</dict>
+		</dict>
+		<key>FeedbackLoop</key>
+		<dict>
+			<key>Definition</key>
+			<string>Connecting the output of something to its input, making its next output also depend on the previous output.</string>
+			<key>Title</key>
+			<string>Feedback Loop</string>
 		</dict>
 	</dict>
 </dict>
