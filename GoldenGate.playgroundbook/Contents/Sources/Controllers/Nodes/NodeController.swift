@@ -38,13 +38,19 @@ class NodeController {
     // MARK: - Highlighting
 
     private lazy var highlightAction: SCNAction = {
-        let action = SCNAction.move(by: SCNVector3(x: 0, y: 0.75, z: 0), duration: 0.1)
+        let action = SCNAction.group([
+            .move(by: SCNVector3(x: 0, y: 0.75, z: 0), duration: 0.1),
+            .fadeOpacity(to: 0.8, duration: 0.1)
+        ])
         action.timingMode = .easeIn
         return action
     }()
 
     private lazy var unhighlightAction: SCNAction = {
-        let action = SCNAction.move(by: SCNVector3(x: 0, y: -0.75, z: 0), duration: 0.1)
+        let action = SCNAction.group([
+            .move(by: SCNVector3(x: 0, y: -0.75, z: 0), duration: 0.1),
+            .fadeOpacity(to: 1, duration: 0.1)
+        ])
         action.timingMode = .easeIn
         return action
     }()
