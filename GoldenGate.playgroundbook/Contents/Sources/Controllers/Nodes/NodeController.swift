@@ -74,7 +74,7 @@ class NodeController {
 
     private let movementActionKey = "movement"
 
-    private var animatingMovementTo: GridPoint?
+    private(set) var animatingMovementTo: GridPoint?
 
     func move(to position: GridPoint, animated: Bool = false) {
         guard position != animatingMovementTo else { return }

@@ -80,7 +80,8 @@
             session.items.first?.itemProvider.loadComponent { (_, position) in
                 guard
                     let position = position,
-                    let currentPosition = self.circuitSceneViewController?.position(at: session.location(in: self.view))
+                    let currentPosition = self.circuitSceneViewController?.position(at: session.location(in: self.view)),
+                    self.circuitSceneViewController?.componentNodeControllers[position]?.animatingMovementTo == nil
                 else { return }
 
                 self.circuitSceneViewController?.componentNodeControllers[position]?.move(to: currentPosition, animated: true)
