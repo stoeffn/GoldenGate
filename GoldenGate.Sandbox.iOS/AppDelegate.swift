@@ -16,9 +16,6 @@ final class AppDelegate : UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let controller = CircuitEditorViewController()
         controller.circuit = Circuit.named("Default") ?? Circuit()
-        controller.didAssertCircuit = { isSuccess in
-            print("Did assert circuit with \(isSuccess ? "success" : "failure")")
-        }
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = controller

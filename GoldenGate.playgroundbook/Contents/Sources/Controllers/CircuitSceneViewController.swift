@@ -54,13 +54,13 @@ final class CircuitSceneViewController : NSObject {
         return node
     }()
 
-    private lazy var componentNodeControllers = [GridPoint: NodeController]()
+    private(set) lazy var componentNodeControllers = [GridPoint: NodeController]()
 }
 
 private extension CircuitSceneViewController {
     func didAdd(component: Composable, at position: GridPoint) {
         guard let controller = NodeController.for(component) else { fatalError() }
-        controller.node.position = SCNVector3(position.x, 0, position.y)
+        controller.move(to: position)
 
         scene.rootNode.addChildNode(controller.node)
         componentNodeControllers[position] = controller

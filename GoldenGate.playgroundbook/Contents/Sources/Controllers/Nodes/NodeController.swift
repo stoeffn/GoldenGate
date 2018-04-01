@@ -34,6 +34,60 @@ class NodeController {
     var componentName: String {
         return ComponentEntity(component: component)?.rawValue.capitalized ?? "Ccomponent"
     }
+
+    // MARK: - Highlighting
+
+    private lazy var highlightAction: SCNAction = {
+        let action = SCNAction.move(by: SCNVector3(x: 0, y: 0.75, z: 0), duration: 0.1)
+        action.timingMode = .easeIn
+        return action
+    }()
+
+    private lazy var unhighlightAction: SCNAction = {
+        let action = SCNAction.move(by: SCNVector3(x: 0, y: -0.75, z: 0), duration: 0.1)
+        action.timingMode = .easeIn
+        return action
+    }()
+
+    var isHighlighted = false {
+        didSet {
+            guard isHighlighted != oldValue else { return }
+            node.runAction(isHighlighted ? highlightAction : unhighlightAction)
+        }
+    }
+
+    // MARK: - Moving
+
+    private func vector(for position: GridPoint) -> SCNVector3 {
+        return SCNVector3(Float(position.x), 0, Float(position.y))
+    }
+
+    private func relativeVector(for position: GridPoint) -> SCNVector3 {
+        return SCNVector3(Float(position.x) - node.position.x, 0, Float(position.y) - node.position.z)
+    }
+
+    private func action(forMovementTo position: GridPoint) -> SCNAction {
+        let action = SCNAction.move(by: relativeVector(for: position), duration: 0.1)
+        action.timingMode = .easeIn
+        return action
+    }
+
+    private let movementActionKey = "movement"
+
+    private var animatingMovementTo: GridPoint?
+
+    func move(to position: GridPoint, animated: Bool = false) {
+        guard position != animatingMovementTo else { return }
+
+        node.removeAction(forKey: movementActionKey)
+
+        guard animated else { return node.position = vector(for: position) }
+
+        animatingMovementTo = position
+        node.runAction(action(forMovementTo: position), forKey: movementActionKey) {
+            self.animatingMovementTo = nil
+        }
+    }
 }
 
 // MARK: - Utilities

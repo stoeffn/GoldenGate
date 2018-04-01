@@ -53,7 +53,6 @@
         public func collectionView(_ collectionView: UICollectionView,
                                    dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
             let parameters = UIDragPreviewParameters()
-            parameters.visiblePath = UIBezierPath(rect: previewSceneView.bounds)
             return parameters
         }
     }

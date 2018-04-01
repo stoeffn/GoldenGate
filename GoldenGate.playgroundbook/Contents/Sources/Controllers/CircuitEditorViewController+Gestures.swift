@@ -20,6 +20,7 @@
                 gestureRecognizer.state == .ended,
                 let position = circuitSceneViewController?.position(at: gestureRecognizer.location(in: view))
             else { return }
+
             circuitSceneViewController?.circuit[position]?.trigger()
             assertCircuit()
         }
@@ -32,6 +33,7 @@
                 let component = circuitSceneViewController?.circuit[position],
                 !component.isLocked
             else { return }
+
             circuitSceneViewController?.circuit[position] = nil
             assertCircuit()
         }
@@ -40,43 +42,63 @@
     // MARK: - Dragging Components from the Scene
 
     extension CircuitEditorViewController : UIDragInteractionDelegate {
+        // MARK: Performing the Drag
+
         public func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
             guard
                 let position = circuitSceneViewController?.position(at: session.location(in: view)),
                 let component = circuitSceneViewController?.circuit[position],
                 !component.isLocked
             else { return [] }
+
             let itemProvider = component.itemProvider(at: position)
             return [UIDragItem(itemProvider: itemProvider)]
         }
 
-        public func dragInteraction(_ interaction: UIDragInteraction, sessionDidTransferItems session: UIDragSession) {
-            session.items.first?.itemProvider.loadDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier) { (data, _) in
-                guard
-                    let data = data,
-                    let anyPositionedComponent = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data),
-                    let previousPosition = anyPositionedComponent.position
-                else { return }
-                self.circuitSceneViewController?.circuit[previousPosition] = nil
+        // MARK: Animating the Drag Behaviors
+
+        public func dragInteraction(_ interaction: UIDragInteraction, willAnimateLiftWith animator: UIDragAnimating, session: UIDragSession) {
+            session.items.first?.itemProvider.loadComponent { (_, position) in
+                guard let position = position else { return }
+
+                self.circuitSceneViewController?.componentNodeControllers[position]?.isHighlighted = true
             }
         }
 
-        public func dragInteraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem,
-                                    session: UIDragSession) -> UITargetedDragPreview? {
-            guard
-                let position = circuitSceneViewController?.position(at: session.location(in: view)),
-                let component = circuitSceneViewController?.circuit[position]
-            else { return nil }
-            preparePreviewScene(for: component, at: session.location(in: view))
-            return UITargetedDragPreview(view: previewSceneView)
+        public func dragInteraction(_ interaction: UIDragInteraction, item: UIDragItem, willAnimateCancelWith animator: UIDragAnimating) {
+            item.itemProvider.loadComponent { (_, position) in
+                guard let position = position else { return }
+
+                self.circuitSceneViewController?.componentNodeControllers[position]?.move(to: position, animated: true)
+                self.circuitSceneViewController?.componentNodeControllers[position]?.isHighlighted = false
+            }
         }
 
-        public func dragInteraction(_ interaction: UIDragInteraction, prefersFullSizePreviewsFor session: UIDragSession) -> Bool {
-            return true
-        }
+        // MARK: Monitoring Drag Progress
 
         public func dragInteraction(_ interaction: UIDragInteraction, sessionDidMove session: UIDragSession) {
-            view.sendSubview(toBack: previewSceneView)
+            session.items.first?.itemProvider.loadComponent { (_, position) in
+                guard
+                    let position = position,
+                    let currentPosition = self.circuitSceneViewController?.position(at: session.location(in: self.view))
+                else { return }
+
+                self.circuitSceneViewController?.componentNodeControllers[position]?.move(to: currentPosition, animated: true)
+            }
+        }
+
+        public func dragInteraction(_ interaction: UIDragInteraction, sessionDidTransferItems session: UIDragSession) {
+            session.items.first?.itemProvider.loadComponent { (_, position) in
+                guard let position = position else { return }
+                self.circuitSceneViewController?.circuit[position] = nil
+            }
+        }
+
+        // MARK: Providing Drag Previews
+
+        public func dragInteraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem,
+                                    session: UIDragSession) -> UITargetedDragPreview? {
+            return nil
         }
     }
 

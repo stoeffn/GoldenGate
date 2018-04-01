@@ -8,7 +8,7 @@
                 "y": -3
             },
             "component": {
-                "isLocked": true,
+                "isLocked": false,
                 "isOn": false
             }
         },
@@ -44,7 +44,7 @@
                 "y": -4
             },
             "component": {
-                "isLocked": true
+                "isLocked": false
             }
         },
         {

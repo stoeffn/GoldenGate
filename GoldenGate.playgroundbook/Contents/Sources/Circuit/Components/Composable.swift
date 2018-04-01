@@ -94,7 +94,7 @@ extension Composable {
     }
 }
 
-// MARK: - Utilities
+// MARK: - Managing Item Providers
 
 extension Composable {
     /// Returns an item provider that describes this component with its type as well as an optional position.
@@ -106,5 +106,19 @@ extension Composable {
             return nil
         }
         return provider
+    }
+}
+
+extension NSItemProvider {
+    @discardableResult
+    func loadComponent(completion: @escaping (Composable?, GridPoint?) -> Void) -> Progress {
+        return loadDataRepresentation(forTypeIdentifier: AnyPositionedComponent.identifier) { (data, _) in
+            guard
+                let data = data,
+                let positionedComponent = try? JSONDecoder().decode(AnyPositionedComponent.self, from: data)
+            else { return }
+
+            completion(positionedComponent.component, positionedComponent.position)
+        }
     }
 }

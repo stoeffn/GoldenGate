@@ -28,8 +28,6 @@ public class CircuitEditorViewController : ViewController {
             componentsCollectionView.rightAnchor.constraint(equalTo: componentsBackgroundView.contentView.rightAnchor).isActive = true
             componentsCollectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true
 
-            view.addSubview(previewSceneView)
-
             view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap(_:))))
             view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:))))
         #endif
@@ -61,7 +59,6 @@ public class CircuitEditorViewController : ViewController {
                 view.insertSubview(controller.view, at: 0)
                 circuitSceneViewController?.view.addInteraction(UIDragInteraction(delegate: self))
                 circuitSceneViewController?.view.addInteraction(UIDropInteraction(delegate: self))
-                view.sendSubview(toBack: previewSceneView)
             #else
                 view.addSubview(controller.view)
             #endif
@@ -167,20 +164,6 @@ public class CircuitEditorViewController : ViewController {
             view.clipsToBounds = false
             return view
         }()
-
-        lazy var previewSceneView: SCNView = {
-            let frame = CGRect(x: 0, y: 0, width: 128, height: 128)
-            let view = SCNView(frame: frame)
-            view.backgroundColor = .clear
-            return view
-        }()
-
-        func preparePreviewScene(for component: Composable, at location: CGPoint) {
-            guard let node = NodeController.for(component)?.node else { return }
-            previewSceneView.center = location
-            previewSceneView.scene = SCNScene(named: NodeController.componentPreviewSceneName)
-            previewSceneView.scene?.rootNode.addChildNode(node)
-        }
 
         let availableComponents: [(title: String, component: Composable)] = [
             (title: "Switch", component: Constant(isOn: false)),
