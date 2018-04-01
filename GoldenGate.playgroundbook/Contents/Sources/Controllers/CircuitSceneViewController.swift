@@ -60,7 +60,7 @@ final class CircuitSceneViewController : NSObject {
 private extension CircuitSceneViewController {
     func didAdd(component: Composable, at position: GridPoint) {
         guard let controller = NodeController.for(component) else { fatalError() }
-        controller.move(to: position)
+        controller.add(at: position, animated: true)
 
         scene.rootNode.addChildNode(controller.node)
         componentNodeControllers[position] = controller
@@ -72,8 +72,9 @@ private extension CircuitSceneViewController {
     }
 
     func didRemove(component: Composable, at position: GridPoint) {
-        componentNodeControllers[position]?.node.removeFromParentNode()
-        componentNodeControllers[position] = nil
+        componentNodeControllers[position]?.remove(animated: true) {
+            self.componentNodeControllers[position] = nil
+        }
     }
 }
 

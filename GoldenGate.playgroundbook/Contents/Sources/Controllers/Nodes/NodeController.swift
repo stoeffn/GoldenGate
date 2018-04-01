@@ -56,6 +56,23 @@ class NodeController {
         }
     }
 
+    // MARK: - Adding
+
+    private lazy var addAction: SCNAction = {
+        let action = SCNAction.move(by: SCNVector3(x: 0, y: 1, z: 0), duration: 0.2)
+        action.timingMode = .easeOut
+        return action
+    }()
+
+    func add(at position: GridPoint, animated: Bool = false) {
+        move(to: position, animated: false)
+
+        guard animated else { return }
+
+        node.position = SCNVector3(x: node.position.x, y: -1, z: node.position.z)
+        node.runAction(addAction)
+    }
+
     // MARK: - Moving
 
     private func vector(for position: GridPoint) -> SCNVector3 {
@@ -86,6 +103,23 @@ class NodeController {
         animatingMovementTo = position
         node.runAction(action(forMovementTo: position), forKey: movementActionKey) {
             self.animatingMovementTo = nil
+        }
+    }
+
+    // MARK: - Removing
+
+    private lazy var removeAction: SCNAction = {
+        let action = SCNAction.move(by: SCNVector3(x: 0, y: -2, z: 0), duration: 0.2)
+        action.timingMode = .easeIn
+        return action
+    }()
+
+    func remove(animated: Bool = false, completion: @escaping () -> Void) {
+        guard animated else { return node.removeFromParentNode() }
+
+        node.runAction(removeAction) {
+            self.node.removeFromParentNode()
+            completion()
         }
     }
 }
