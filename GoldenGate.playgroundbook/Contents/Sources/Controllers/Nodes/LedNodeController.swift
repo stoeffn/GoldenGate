@@ -28,7 +28,7 @@ final class LedNodeController : NodeController {
         guard let node = node.childNode(withName: "\(componentName)-Light", recursively: true) else { fatalError() }
         node.light = SCNLight()
         node.light?.temperature = 128
-        node.light?.intensity = 0
+        node.light?.intensity = 0.1
         return node
     }()
 
@@ -50,7 +50,9 @@ final class LedNodeController : NodeController {
 
     private func update(with led: Led) {
         node.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
+        node.castsShadow = led.state != .one
         socketNode.geometry?.materials = [led.state == .one ? .oneLed : .zeroLed]
+        socketNode.castsShadow = led.state != .one
         lightNode.light?.intensity = led.state == .one ? 1.5 : 0
         leftNode.geometry?.materials = [.material(for: led.state)]
     }

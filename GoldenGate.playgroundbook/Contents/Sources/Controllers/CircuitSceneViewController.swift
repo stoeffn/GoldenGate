@@ -66,8 +66,8 @@ final class CircuitSceneViewController : NSObject {
     var areEffectsEnabled: Bool = false {
         didSet {
             guard areEffectsEnabled != oldValue else { return }
-            view.pointOfView?.camera?.screenSpaceAmbientOcclusionIntensity = areEffectsEnabled ? 0.4 : 0
-            view.pointOfView?.camera?.bloomIntensity = areEffectsEnabled ? 0.2 : 0
+            view.pointOfView?.camera?.screenSpaceAmbientOcclusionIntensity = areEffectsEnabled ? 0.2 : 0
+            view.pointOfView?.camera?.bloomIntensity = areEffectsEnabled ? 0.1 : 0
             view.pointOfView?.camera?.motionBlurIntensity = areEffectsEnabled ? 0.1 : 0
             view.scene?.rootNode.childNode(withName: "Directional", recursively: true)?.light?.castsShadow = areEffectsEnabled
         }
