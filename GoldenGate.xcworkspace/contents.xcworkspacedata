@@ -10,4 +10,7 @@
    <FileRef
       location = "group:GoldenGate.playgroundbook">
    </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
 </Workspace>
