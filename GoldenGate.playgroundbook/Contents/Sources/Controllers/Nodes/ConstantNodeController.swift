@@ -51,6 +51,14 @@ final class ConstantNodeController : NodeController {
             guard let constant = component as? Constant, let oldConstant = oldValue as? Constant else { fatalError() }
             guard constant != oldConstant else { return }
             update(with: constant)
+
+            guard
+                constant.isOn != oldConstant.isOn,
+                let audioSource = SCNAudioSource(named: "\(NodeController.circuitAssetsFolder)/Switch.wav")
+            else { return }
+
+            let audioPlayer = SCNAudioPlayer(source: audioSource)
+            node.addAudioPlayer(audioPlayer)
         }
     }
 

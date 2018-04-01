@@ -133,11 +133,13 @@ class NodeController {
 // MARK: - Utilities
 
 extension NodeController {
-    static let circuitSceneName = "CircuitAssets.scnassets/CircuitScene.scn"
+    static let circuitAssetsFolder = "CircuitAssets.scnassets"
 
-    static let componentPreviewSceneName = "CircuitAssets.scnassets/ComponentPreview.scn"
+    static let circuitSceneName = "\(circuitAssetsFolder)/CircuitScene.scn"
 
-    static let componentsSceneName = "CircuitAssets.scnassets/Components.scn"
+    static let componentPreviewSceneName = "\(circuitAssetsFolder)/ComponentPreview.scn"
+
+    static let componentsSceneName = "\(circuitAssetsFolder)/Components.scn"
 
     static func `for`(_ component: Composable) -> NodeController? {
         switch component {
