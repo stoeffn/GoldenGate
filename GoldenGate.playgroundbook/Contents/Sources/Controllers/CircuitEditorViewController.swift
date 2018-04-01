@@ -198,13 +198,18 @@ public class CircuitEditorViewController : ViewController {
         ]
 
         private func controllerForMore() -> UIAlertController {
+            let isCameraLocked = circuitSceneViewController?.isCameraLocked ?? false
             let areEffectsEnabled = circuitSceneViewController?.areEffectsEnabled ?? false
+
             let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             controller.popoverPresentationController?.sourceView = moreButtonBackgroundView
             controller.popoverPresentationController?.sourceRect = moreButtonBackgroundView.bounds
             controller.view.tintColor = view.tintColor
             controller.addAction(UIAlertAction(title: "Reset Camera", style: .default) {
                 _ in self.circuitSceneViewController?.resetCamera()
+            })
+            controller.addAction(UIAlertAction(title:  isCameraLocked ? "Unlock Camera" : "Lock Camera", style: .default) {
+                _ in self.circuitSceneViewController?.isCameraLocked = !isCameraLocked
             })
             controller.addAction(UIAlertAction(title:  areEffectsEnabled ? "Disable Effects" : "Enable Effects", style: .default) {
                 _ in self.circuitSceneViewController?.areEffectsEnabled = !areEffectsEnabled

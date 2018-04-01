@@ -43,8 +43,6 @@ final class CircuitSceneViewController : NSObject {
             view.allowsCameraControl = true
             view.cameraControlConfiguration.autoSwitchToFreeCamera = false
             view.defaultCameraController.interactionMode = .orbitTurntable
-            view.defaultCameraController.minimumVerticalAngle = 20
-            view.defaultCameraController.maximumVerticalAngle = 90
         #endif
         resetCamera(view: view)
         return view
@@ -57,6 +55,12 @@ final class CircuitSceneViewController : NSObject {
         view.pointOfView?.position = SCNVector3(x: -8, y: 8, z: 10)
         view.pointOfView?.look(at: SCNVector3(x: 0, y: 0, z: 0))
         view.pointOfView?.camera?.orthographicScale = 6
+    }
+
+    var isCameraLocked: Bool = false {
+        didSet {
+            view.allowsCameraControl = !isCameraLocked
+        }
     }
 
     var areEffectsEnabled: Bool = false {
