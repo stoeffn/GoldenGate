@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Golden Gate</title>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+
+                text-align: center;
+                font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+            }
+            h1, h2, img {
+                margin: 0 auto;
+            }
+            h1 {
+                margin: 8px;
+        
+                font-weight: 400;
+                font-size: 42px;
+            }
+            h2 {
+                margin: 8px;
+
+                font-weight: 300;
+                font-size: 32px;
+            }
+            img {
+                margin: 32px;
+                margin-top: 128px;
+                width: 256px;
+                height: 256px;
+            }
+            emph {
+                font-style: italic;
+            }
+            .background {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+
+                background-image: url("FloorTile.png");
+                background-repeat: repeat;
+                background-size: 64px;
+                opacity: 0.2;
+
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="GoldenGate.svg" />
+
+        <div class="background"></div>
+
+        <h1>
+            You have earned the <emph>Golden Gate!</emph>
+        </h1>
+        <h2>
+            Thank you for playing.
+        </h2>
+    </body>
+</html>
