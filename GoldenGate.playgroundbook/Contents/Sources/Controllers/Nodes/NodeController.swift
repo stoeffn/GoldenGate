@@ -32,7 +32,7 @@ class NodeController {
     var component: Composable
 
     var componentName: String {
-        return ComponentEntity(component: component)?.rawValue.capitalized ?? "Ccomponent"
+        return ComponentEntity(component: component)?.rawValue.capitalized ?? "Component"
     }
 
     // MARK: - Highlighting

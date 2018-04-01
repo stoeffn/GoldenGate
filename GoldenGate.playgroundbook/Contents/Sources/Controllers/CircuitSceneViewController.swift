@@ -46,15 +46,18 @@ final class CircuitSceneViewController : NSObject {
             view.defaultCameraController.minimumVerticalAngle = 20
             view.defaultCameraController.maximumVerticalAngle = 90
         #endif
+        resetCamera(view: view)
         return view
     }()
 
-    private(set) lazy var cameraNode: SCNNode = {
-        guard let node = view.scene?.rootNode.childNode(withName: "Camera", recursively: true) else { fatalError() }
-        return node
-    }()
-
     private(set) lazy var componentNodeControllers = [GridPoint: NodeController]()
+
+    func resetCamera(view: SCNView? = nil) {
+        let view = view ?? self.view
+        view.pointOfView?.position = SCNVector3(x: -8, y: 8, z: 10)
+        view.pointOfView?.look(at: SCNVector3(x: 0, y: 0, z: 0))
+        view.pointOfView?.camera?.orthographicScale = 6
+    }
 }
 
 private extension CircuitSceneViewController {

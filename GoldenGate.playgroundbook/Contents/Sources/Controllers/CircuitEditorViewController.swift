@@ -202,7 +202,9 @@ public class CircuitEditorViewController : ViewController {
             controller.popoverPresentationController?.sourceView = moreButtonBackgroundView
             controller.popoverPresentationController?.sourceRect = moreButtonBackgroundView.bounds
             controller.view.tintColor = view.tintColor
-            controller.addAction(UIAlertAction(title: "Test", style: .default) { _ in })
+            controller.addAction(UIAlertAction(title: "Reset Camera", style: .default) {
+                _ in self.circuitSceneViewController?.resetCamera()
+            })
             return controller
         }
 
