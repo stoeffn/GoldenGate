@@ -39,7 +39,7 @@ class NodeController {
 
     private lazy var highlightAction: SCNAction = {
         let action = SCNAction.group([
-            .move(by: SCNVector3(x: 0, y: 0.75, z: 0), duration: 0.1),
+            .move(by: SCNVector3(x: 0, y: 0.25, z: 0), duration: 0.1),
             .fadeOpacity(to: 0.8, duration: 0.1)
         ])
         action.timingMode = .easeIn
@@ -48,7 +48,7 @@ class NodeController {
 
     private lazy var unhighlightAction: SCNAction = {
         let action = SCNAction.group([
-            .move(by: SCNVector3(x: 0, y: -0.75, z: 0), duration: 0.1),
+            .move(by: SCNVector3(x: 0, y: -0.25, z: 0), duration: 0.1),
             .fadeOpacity(to: 1, duration: 0.1)
         ])
         action.timingMode = .easeIn
@@ -86,7 +86,7 @@ class NodeController {
     }
 
     private func relativeVector(for position: GridPoint) -> SCNVector3 {
-        return SCNVector3(Float(position.x) - node.position.x, 0, Float(position.y) - node.position.z)
+        return SCNVector3(Float(position.x) - Float(node.position.x), 0, Float(position.y) - Float(node.position.z))
     }
 
     private func action(forMovementTo position: GridPoint) -> SCNAction {
