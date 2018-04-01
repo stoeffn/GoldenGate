@@ -20,13 +20,10 @@ public class CircuitEditorViewController : ViewController {
         super.viewDidLoad()
 
         #if os(iOS)
+            view.tintColor = UIColor(red: 0.99, green: 0.29, blue: 0.15, alpha: 1)
+
+            view.addSubview(moreButtonBackgroundView)
             view.addSubview(componentsBackgroundView)
-            componentsBackgroundView.contentView.addSubview(componentsHairlineView)
-            componentsBackgroundView.contentView.addSubview(componentsCollectionView)
-            componentsCollectionView.leftAnchor.constraint(equalTo: componentsBackgroundView.contentView.leftAnchor).isActive = true
-            componentsCollectionView.topAnchor.constraint(equalTo: componentsBackgroundView.contentView.topAnchor).isActive = true
-            componentsCollectionView.rightAnchor.constraint(equalTo: componentsBackgroundView.contentView.rightAnchor).isActive = true
-            componentsCollectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true
 
             view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap(_:))))
             view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:))))
@@ -128,10 +125,15 @@ public class CircuitEditorViewController : ViewController {
         }
 
         lazy var componentsBackgroundView: UIVisualEffectView = {
-            let frame = CGRect(x: 0, y: self.view.bounds.height - 240, width: self.view.bounds.width, height: 240)
             let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
             view.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-            view.frame = frame
+            view.frame = CGRect(x: 0, y: self.view.bounds.height - 240, width: self.view.bounds.width, height: 240)
+            view.contentView.addSubview(componentsHairlineView)
+            view.contentView.addSubview(componentsCollectionView)
+            componentsCollectionView.leftAnchor.constraint(equalTo: view.contentView.leftAnchor).isActive = true
+            componentsCollectionView.topAnchor.constraint(equalTo: view.contentView.topAnchor).isActive = true
+            componentsCollectionView.rightAnchor.constraint(equalTo: view.contentView.rightAnchor).isActive = true
+            componentsCollectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true
             return view
         }()
 
@@ -165,6 +167,24 @@ public class CircuitEditorViewController : ViewController {
             return view
         }()
 
+        lazy var moreButton: UIButton = {
+            let button = UIButton(type: .custom)
+            button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            button.setImage(#imageLiteral(resourceName: "MoreGlyph.png").withRenderingMode(.alwaysTemplate), for: .normal)
+            button.addTarget(self, action: #selector(moreButtonTapped(_:)), for: .touchUpInside)
+            return button
+        }()
+
+        lazy var moreButtonBackgroundView: UIVisualEffectView = {
+            let view = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+            view.frame = CGRect(x: self.view.bounds.width - 64, y: 20, width: 44, height: 44)
+            view.autoresizingMask = [.flexibleLeftMargin]
+            view.layer.cornerRadius = 22
+            view.clipsToBounds = true
+            view.contentView.addSubview(moreButton)
+            return view
+        }()
+
         let availableComponents: [(title: String, component: Composable)] = [
             (title: "Switch", component: Constant(isOn: false)),
             (title: "Inverter", component: Inverter()),
@@ -176,6 +196,20 @@ public class CircuitEditorViewController : ViewController {
             (title: "Wire", component: Wire(orientations: [.left, .top, .right])),
             (title: "Wire", component: Wire(orientations: [.left, .top, .right, .bottom]))
         ]
+
+        private func controllerForMore() -> UIAlertController {
+            let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            controller.popoverPresentationController?.sourceView = moreButtonBackgroundView
+            controller.popoverPresentationController?.sourceRect = moreButtonBackgroundView.bounds
+            controller.view.tintColor = view.tintColor
+            controller.addAction(UIAlertAction(title: "Test", style: .default) { _ in })
+            return controller
+        }
+
+        @IBAction
+        private func moreButtonTapped(_ sender: Any) {
+            present(controllerForMore(), animated: true, completion: nil)
+        }
 
     #endif
 

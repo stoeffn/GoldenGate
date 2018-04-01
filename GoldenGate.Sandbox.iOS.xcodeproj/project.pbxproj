@@ -12,6 +12,7 @@
 		247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247AEAA420690392001F7207 /* LaunchScreen.storyboard */; };
 		24804766206FA231006DD3FB /* SCNGeometryTessellator+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24804765206FA231006DD3FB /* SCNGeometryTessellator+Common.swift */; };
 		24E820D1206FEDB000B04555 /* NodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E820D0206FEDB000B04555 /* NodeController.swift */; };
+		24E820DD20711D9700B04555 /* MoreGlyph.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E820DC20711D9700B04555 /* MoreGlyph.png */; };
 		24F429E4206978F0004E1B00 /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */; };
 		24F429ED206AEA5B004E1B00 /* CircuitAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */; };
 		24F429F3206BCC54004E1B00 /* Inverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F429F2206BCC54004E1B00 /* Inverter.swift */; };
@@ -51,6 +52,7 @@
 		247AEAA720690392001F7207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24804765206FA231006DD3FB /* SCNGeometryTessellator+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNGeometryTessellator+Common.swift"; sourceTree = "<group>"; };
 		24E820D0206FEDB000B04555 /* NodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeController.swift; sourceTree = "<group>"; };
+		24E820DC20711D9700B04555 /* MoreGlyph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoreGlyph.png; sourceTree = "<group>"; };
 		24F429E3206978F0004E1B00 /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
 		24F429EC206AEA5B004E1B00 /* CircuitAssertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitAssertion.swift; sourceTree = "<group>"; };
 		24F429F2206BCC54004E1B00 /* Inverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inverter.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				24F9D97220692CB400E6CCDA /* CircuitAssets.scnassets */,
 				24F42A1A206C169C004E1B00 /* Icon.png */,
+				24E820DC20711D9700B04555 /* MoreGlyph.png */,
 			);
 			name = PrivateResources;
 			path = GoldenGate.playgroundbook/Contents/PrivateResources;
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F42A1B206C169D004E1B00 /* Icon.png in Resources */,
+				24E820DD20711D9700B04555 /* MoreGlyph.png in Resources */,
 				247AEAA620690392001F7207 /* LaunchScreen.storyboard in Resources */,
 				247AEAA320690392001F7207 /* Assets.xcassets in Resources */,
 				24F9D97420692CB400E6CCDA /* CircuitAssets.scnassets in Resources */,
